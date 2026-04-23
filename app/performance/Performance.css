@@ -1,0 +1,24 @@
+.performances-page {
+  padding: 50px 16px 0;
+}
+
+.performance-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.performance-title {
+  margin-right: auto;
+}
+
+.performance-role {
+  padding-bottom: 6px;
+}
+
+@media screen and (min-width: 480px) {
+  .performances-page {
+    padding: 100px 16px 0;
+  }
+}

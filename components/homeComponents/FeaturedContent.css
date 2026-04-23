@@ -1,0 +1,38 @@
+.fc-selections {
+  grid-column: 4 / 7;
+  grid-row: 1;
+}
+
+.fc-image-col {
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+}
+
+.fc-categories {
+  grid-column: 4 / 7;
+  grid-row: 2;
+}
+
+.fc-image-frame {
+  width: 100%;
+  height: auto;
+}
+
+.fc-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 480px) {
+  .fc-selections {
+    grid-column: 5 / 13;
+    grid-row: 1;
+  }
+
+  .fc-image-col {
+    grid-column: 13 / 23;
+    grid-row: 1 / 2;
+  }
+}

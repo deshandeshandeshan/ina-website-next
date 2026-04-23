@@ -1,0 +1,17 @@
+.work-header-media {
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.work-header-media-img {
+  width: 100%;
+  height: 90vh;
+  object-fit: cover;
+}
+
+.whm-mux-video-player {
+  width: 100%;
+  height: 90vh;
+  --media-object-fit: cover;
+}

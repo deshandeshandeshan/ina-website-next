@@ -1,0 +1,307 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Inter", sans-serif;
+}
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: "Inter var", sans-serif;
+  }
+}
+
+body {
+  font-family: var(--font-inter);
+  color: #1e1f1f;
+  background-color: #ecebeb;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: normal;
+}
+
+li,
+ul {
+  list-style-type: none;
+}
+
+.mux-player {
+  --controls: none;
+}
+
+.mobile-padding {
+  padding: 0 16px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #9d9d9d;
+  transition: all 0.2s ease-in-out;
+}
+
+button {
+  margin: 0;
+  background-color: transparent;
+  font-family: inherit;
+  border: none;
+  padding: none;
+  cursor: pointer;
+}
+
+.uppercase-text {
+  text-transform: uppercase;
+}
+
+.site {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.image-link {
+  cursor: pointer;
+}
+
+.image-link:hover {
+  filter: blur(2px);
+}
+
+.menu-button,
+.link {
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-button:hover,
+.link:hover {
+  color: #9d9d9d;
+  transition: all 0.2s ease-in-out;
+}
+
+.page-builder {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Text Colours */
+
+.text-black {
+  color: #2d2a26;
+}
+
+.text-red {
+  color: #8d0505;
+}
+
+.text-grey {
+  color: #9d9d9d;
+}
+
+.text-white {
+  color: #ecebeb;
+}
+
+/* Background Colour*/
+
+.bg-off-white {
+  background-color: #ecebeb;
+}
+
+/* Spacing scale */
+
+.spacing-4 {
+  padding-bottom: 4px;
+}
+
+.spacing-12 {
+  padding-bottom: 6px;
+}
+
+.spacing-16 {
+  padding-bottom: 8px;
+}
+
+.spacing-24 {
+  padding-bottom: 16px;
+}
+
+.spacing-32 {
+  padding-bottom: 24px;
+}
+
+.spacing-40 {
+  padding-bottom: 32px;
+}
+
+.spacing-64 {
+  padding-bottom: 40px;
+}
+
+.spacing-80 {
+  padding-bottom: 64px;
+}
+
+.spacing-120 {
+  padding-bottom: 80px;
+}
+
+.spacing-120-top {
+  padding-top: 80px;
+}
+
+.spacing-240 {
+  padding-bottom: 120px;
+}
+
+.caption-spacing {
+  padding-bottom: 4px;
+}
+
+.landing-content-spacing {
+  padding-top: 80px;
+}
+
+.gap-4 {
+  margin-right: 4px;
+}
+
+/* Mobile Font Sizes */
+.type-heading {
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: 600;
+}
+
+.type-sub {
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 500;
+}
+
+.type-sub-bold {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 600;
+}
+
+.type-body {
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 400;
+}
+
+.type-body-bold {
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 600;
+}
+
+.type-details-bold {
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: 700;
+}
+
+.type-details-regular {
+  font-size: 11px;
+  line-height: 13px;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 480px) {
+  /* Spacing scale */
+
+  .spacing-12 {
+    padding-bottom: 12px;
+  }
+
+  .spacing-16 {
+    padding-bottom: 16px;
+  }
+
+  .spacing-24 {
+    padding-bottom: 24px;
+  }
+
+  .spacing-32 {
+    padding-bottom: 32px;
+  }
+
+  .spacing-40 {
+    padding-bottom: 40px;
+  }
+
+  .spacing-64 {
+    padding-bottom: 64px;
+  }
+
+  .spacing-80 {
+    padding-bottom: 80px;
+  }
+
+  .spacing-120 {
+    padding-bottom: 120px;
+  }
+
+  .spacing-120-top {
+    padding-top: 120px;
+  }
+
+  .spacing-240 {
+    padding-bottom: 240px;
+  }
+
+  /* Desktop Font Sizes */
+
+  .type-heading {
+    font-size: 32px;
+    line-height: 34px;
+    font-weight: 600;
+  }
+
+  .type-sub {
+    font-size: 24px;
+    line-height: 26px;
+  }
+
+  .type-body {
+    font-size: 15px;
+    line-height: 17px;
+  }
+
+  .type-body-bold {
+    font-size: 15px;
+    line-height: 14px;
+    font-weight: 600;
+  }
+
+  .type-details-bold {
+    font-size: 11px;
+    line-height: 13px;
+  }
+
+  .type-details-regular {
+    font-size: 11px;
+    line-height: 13px;
+  }
+
+  .page-builder {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}

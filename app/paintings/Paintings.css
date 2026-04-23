@@ -1,0 +1,20 @@
+.paintings-page {
+  padding: 70px 16px 0;
+}
+
+.painting-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.painting-title {
+  margin-right: auto;
+}
+
+@media screen and (min-width: 480px) {
+  .paintings-page {
+    padding: 100px 16px 0;
+  }
+}

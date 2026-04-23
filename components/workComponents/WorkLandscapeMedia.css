@@ -1,0 +1,26 @@
+.work-landscape-media-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.work-landscape-media-container {
+  grid-column: 1 / 7;
+  width: 100%;
+  height: auto;
+}
+
+.wlm-mux-video-player {
+  width: 100%;
+  height: 100%;
+  --media-object-fit: cover;
+}
+
+@media screen and (min-width: 480px) {
+  .work-landscape-media-container {
+    grid-column: 5 / 21;
+    width: 100%;
+    height: auto;
+  }
+}

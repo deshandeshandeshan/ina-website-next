@@ -1,0 +1,11 @@
+.page-builder {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+}
+
+@media screen and (min-width: 480px) {
+  .page-builder {
+    gap: 240px;
+  }
+}

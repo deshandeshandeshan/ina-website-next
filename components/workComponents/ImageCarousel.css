@@ -1,0 +1,36 @@
+.slider-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.is-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.controls-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.image-counter {
+  padding-right: 16px;
+}
+
+.prev-button {
+  margin-right: 8px;
+}
+
+@media screen and (min-width: 480px) {
+  .carousel-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .image-slider {
+    grid-column: 2 / 3;
+  }
+}

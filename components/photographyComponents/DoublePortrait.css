@@ -1,0 +1,31 @@
+.double-portrait-left-img,
+.double-portrait-right-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+}
+
+.double-portrait-left-image {
+  grid-column: 1 / 7;
+  grid-row: 1 / 2;
+  margin-bottom: 32px;
+}
+
+.double-portrait-right-image {
+  grid-column: 2 / 6;
+  grid-row: 2 / 3;
+}
+
+@media screen and (min-width: 480px) {
+  .double-portrait-left-image {
+    grid-column: 1 / 11;
+    grid-row: 1 / 2;
+    margin-bottom: 0;
+  }
+
+  .double-portrait-right-image {
+    grid-column: 15 / 25;
+    grid-row: 1 / 2;
+  }
+}

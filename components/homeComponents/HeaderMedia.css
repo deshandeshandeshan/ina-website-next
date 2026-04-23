@@ -1,0 +1,27 @@
+.header-media-content {
+  width: 100%;
+  height: 100vh;
+}
+
+.header-media-img {
+  width: auto;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hm-mux-video-player {
+  width: 100%;
+  height: 100vh;
+  --media-object-fit: cover;
+}
+
+.home-video-caption {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  margin-right: 16px;
+  color: #ecebeb;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  padding: 8px 12px;
+}

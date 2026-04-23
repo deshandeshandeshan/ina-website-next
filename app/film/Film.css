@@ -1,0 +1,24 @@
+.film-works-page {
+  padding: 80px 16px 0;
+}
+
+.film-works-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.film-works-title {
+  margin-right: auto;
+}
+
+.film-works-role {
+  padding-bottom: 6px;
+}
+
+@media screen and (min-width: 480px) {
+  .film-works-page {
+    padding: 100px 16px 0;
+  }
+}
