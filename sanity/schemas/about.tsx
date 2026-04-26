@@ -87,11 +87,6 @@ export const aboutType = defineType({
           filter: true,
           groups: [
             {
-              name: "home",
-              title: "Home",
-              of: ["aboutBlock", "featuredContent", "headerMedia"],
-            },
-            {
               name: "photography",
               title: "Photography",
               of: [
@@ -101,29 +96,7 @@ export const aboutType = defineType({
                 "largeImageRight",
                 "singleLandscape",
                 "singlePortrait",
-                "longImageRight",
               ],
-            },
-            {
-              name: "work",
-              title: "Selected Work",
-              of: [
-                "creditsAndAwards",
-                "imageCarousel",
-                "headerInformationBlock",
-                "workHeaderMedia",
-                "workLandscapeMedia",
-              ],
-            },
-            {
-              name: "event",
-              title: "Event",
-              of: ["eventBlock"],
-            },
-            {
-              name: "press",
-              title: "Press",
-              of: ["pressBlock"],
             },
           ],
         },

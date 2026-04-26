@@ -5,9 +5,9 @@ import { schema } from "./sanity/schemas/index";
 import { muxInput } from "sanity-plugin-mux-input";
 
 const config = defineConfig({
-  projectId: "5wl8so4j",
+  projectId: "n7w90bxs",
   dataset: "production",
-  title: "Zishun Studios",
+  title: "Ina Website",
   apiVersion: "2025-07-23",
   basePath: "/admin",
 
