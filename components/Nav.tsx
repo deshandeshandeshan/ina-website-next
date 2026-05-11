@@ -6,37 +6,25 @@ import { useState } from "react";
 import "./Nav.css";
 import "../app/globals.css";
 
-type NavProps = {
-  navSubheading?: string | null;
-};
-
-export default function Nav({ navSubheading }: NavProps) {
+export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className="nav mobile-padding">
       <div className="nav-content">
         <div className="nav-header">
-          <h1 className="nav-title type-body-bold">ZISHUN STUDIOS</h1>
-          <p className="nav-sub-heading type-body">
-            {navSubheading ??
-              "BY MIGRANT MULTIDISCIPLINARY ARTIST ZED XU 榛子瞬"}
-          </p>
+          <h1 className="nav-title type-body-bold">INA RUFINO</h1>
         </div>
         <div className="nav-links-container">
-          <h2 className="nav-links-heading type-body-bold">NAVIGATION</h2>
           <ul className="nav-links type-body">
             <li className="nav-link">
               <Link href="/">HOME,</Link>
             </li>
             <li className="nav-link">
-              <Link href="/film">FILM,</Link>
+              <Link href="/work">WORK</Link>
             </li>
             <li className="nav-link">
-              <Link href="/paintings">PAINTING,</Link>
-            </li>
-            <li className="nav-link">
-              <Link href="/performance">PERFORMANCE,</Link>
+              <Link href="/enquire">ENQUIRE</Link>
             </li>
             <li className="nav-link">
               <Link href="/about">ABOUT</Link>
@@ -60,18 +48,13 @@ export default function Nav({ navSubheading }: NavProps) {
               </Link>
             </li>
             <li>
-              <Link href="/film" onClick={() => setMenuOpen(false)}>
-                FILM
+              <Link href="/work" onClick={() => setMenuOpen(false)}>
+                WORK
               </Link>
             </li>
             <li>
-              <Link href="/paintings" onClick={() => setMenuOpen(false)}>
-                PAINTING
-              </Link>
-            </li>
-            <li>
-              <Link href="/performance" onClick={() => setMenuOpen(false)}>
-                PERFORMANCE
+              <Link href="/enquire" onClick={() => setMenuOpen(false)}>
+                ENQUIRE
               </Link>
             </li>
             <li>

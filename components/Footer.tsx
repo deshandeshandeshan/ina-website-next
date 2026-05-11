@@ -1,6 +1,7 @@
 import { getFooterSettings } from "@/sanity/sanity.utils";
 import "./Footer.css";
 import "@/app/globals.css";
+import Link from "next/link";
 
 export default async function Footer() {
   const footerContent = await getFooterSettings();
@@ -8,7 +9,7 @@ export default async function Footer() {
   return (
     <footer className="footer">
       <div className="footer-details">
-        <h3 className="type-body-bold">ZISHUN STUDIOS</h3>
+        <h3 className="type-body-bold">INA RUFINO</h3>
         <a
           href={`mailto:${footerContent?.email}`}
           className="type-body uppercase-text"
@@ -16,8 +17,28 @@ export default async function Footer() {
           {footerContent?.email}
         </a>
       </div>
+      <div>
+        <ul>
+          <li>
+            <Link href="/">HOME</Link>
+          </li>
+          <li>
+            <Link href="/work">WORK</Link>
+          </li>
+          <li>
+            <Link href="/enquire">ENQUIRE</Link>
+          </li>
+          <li>
+            <Link href="/about">ABOUT</Link>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h1>
+          <Link href="/enquire">BOOK A TATTOO</Link>
+        </h1>
+      </div>
       <div className="footer-socials">
-        <h3 className="type-body-bold">SOCIALS</h3>
         <ul className="footer-social-links">
           {footerContent?.socialLinks?.map((socialLink, index) => {
             return (
@@ -34,9 +55,8 @@ export default async function Footer() {
           })}
         </ul>
       </div>
-      <div className="footer-copyright">
-        <h3 className="type-body-bold">COPYRIGHT</h3>
-        <p className="type-body uppercase-text">2025 © All Rights Reserved</p>
+      <div className="footer-location">
+        <h3 className="type-body-bold">NAARM, AUSTRALIA</h3>
       </div>
     </footer>
   );
