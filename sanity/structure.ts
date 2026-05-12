@@ -2,7 +2,7 @@ import type { StructureResolver } from "sanity/structure";
 
 export const structure: StructureResolver = (S) =>
   S.list()
-    .title("Zishun Studios")
+    .title("Ina Website")
     .items([
       S.listItem()
         .title("Home Page")
@@ -14,9 +14,6 @@ export const structure: StructureResolver = (S) =>
             .schemaType("home")
             .documentId("home")
         ),
-      S.documentTypeListItem("film").title("Film Work"),
-      S.documentTypeListItem("painting").title("Painting"),
-      S.documentTypeListItem("performance").title("Performance Work"),
       S.listItem()
         .title("About Page")
         .id("about")
@@ -41,7 +38,6 @@ export const structure: StructureResolver = (S) =>
         ),
       S.listItem()
         .title("Website Settings")
-        .icon(() => "🌐")
         .child(
           S.editor()
             .id("siteSettings")

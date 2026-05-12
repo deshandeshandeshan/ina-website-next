@@ -10,6 +10,7 @@ import { singlePortraitType } from "./blocks/photographyBlocks/singlePortrait";
 import { aboutType } from "./about";
 import { homeType } from "./home";
 import { siteSettings } from "./siteSettings";
+import { fullBleedTextType } from "./blocks/homeBlocks/fullBleedText";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -25,5 +26,6 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     largeImageRightType,
     singleLandscapeType,
     singlePortraitType,
+    fullBleedTextType,
   ],
 };

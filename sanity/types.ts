@@ -15,6 +15,12 @@
 export declare const internalGroqTypeReferenceTo: unique symbol;
 
 // Source: sanity/extract.json
+export type FullBleedText = {
+  _type: "fullBleedText";
+  title?: string;
+  text?: string;
+};
+
 export type SanityImageAssetReference = {
   _ref: string;
   _type: "reference";
@@ -220,6 +226,9 @@ export type PageBuilder = Array<
   | ({
       _key: string;
     } & SinglePortrait)
+  | ({
+      _key: string;
+    } & FullBleedText)
 >;
 
 export type SanityImageCrop = {
@@ -475,6 +484,7 @@ export type Slug = {
 };
 
 export type AllSanitySchemaTypes =
+  | FullBleedText
   | SanityImageAssetReference
   | SinglePortrait
   | SingleLandscape
@@ -556,6 +566,12 @@ export type HOME_QUERY_RESULT = {
             url: string | null;
           } | null;
         } | null;
+      }
+    | {
+        _key: string;
+        _type: "fullBleedText";
+        title?: string;
+        text?: string;
       }
     | {
         _key: string;
@@ -712,6 +728,12 @@ export type ABOUT_QUERY_RESULT = {
             url: string | null;
           } | null;
         } | null;
+      }
+    | {
+        _key: string;
+        _type: "fullBleedText";
+        title?: string;
+        text?: string;
       }
     | {
         _key: string;
