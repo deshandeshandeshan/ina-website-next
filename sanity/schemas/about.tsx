@@ -34,11 +34,6 @@ export const aboutType = defineType({
       ],
     }),
     defineField({
-      name: "email",
-      type: "email",
-      title: "Email",
-    }),
-    defineField({
       name: "aboutSocialLinks",
       title: "About Social Links",
       type: "array",
@@ -79,28 +74,5 @@ export const aboutType = defineType({
         }),
       ],
     }),
-    {
-      name: "content",
-      type: "pageBuilder",
-      options: {
-        insertMenu: {
-          filter: true,
-          groups: [
-            {
-              name: "photography",
-              title: "Photography",
-              of: [
-                "doubleLandscape",
-                "doublePortrait",
-                "largeImageLeft",
-                "largeImageRight",
-                "singleLandscape",
-                "singlePortrait",
-              ],
-            },
-          ],
-        },
-      },
-    },
   ],
 });

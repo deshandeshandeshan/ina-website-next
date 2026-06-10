@@ -40,12 +40,30 @@ export type SinglePortrait = {
     alt?: string;
     _type: "image";
   };
+  overlayImage?: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
 };
 
 export type SingleLandscape = {
   _type: "singleLandscape";
   title?: string;
   image?: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+  overlayImage?: {
     asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
@@ -77,6 +95,15 @@ export type LargeImageRight = {
     alt?: string;
     _type: "image";
   };
+  overlayImage?: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
 };
 
 export type LargeImageLeft = {
@@ -92,6 +119,15 @@ export type LargeImageLeft = {
     _type: "image";
   };
   rightImage?: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+  overlayImage?: {
     asset?: SanityImageAssetReference;
     media?: unknown;
     hotspot?: SanityImageHotspot;
@@ -123,6 +159,15 @@ export type DoublePortrait = {
     alt?: string;
     _type: "image";
   };
+  overlayImage?: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
 };
 
 export type DoubleLandscape = {
@@ -146,6 +191,35 @@ export type DoubleLandscape = {
     alt?: string;
     _type: "image";
   };
+  overlayImage?: {
+    asset?: SanityImageAssetReference;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    caption?: string;
+    alt?: string;
+    _type: "image";
+  };
+};
+
+export type EnquireFaq = {
+  _type: "enquireFaq";
+  faqTitle?: string;
+  faqDescription?: string;
+};
+
+export type Enquire = {
+  _id: string;
+  _type: "enquire";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  faqs?: Array<
+    {
+      _key: string;
+    } & EnquireFaq
+  >;
 };
 
 export type SiteSettings = {
@@ -229,6 +303,9 @@ export type PageBuilder = Array<
   | ({
       _key: string;
     } & FullBleedText)
+  | ({
+      _key: string;
+    } & EnquireFaq)
 >;
 
 export type SanityImageCrop = {
@@ -492,6 +569,8 @@ export type AllSanitySchemaTypes =
   | LargeImageLeft
   | DoublePortrait
   | DoubleLandscape
+  | EnquireFaq
+  | Enquire
   | SiteSettings
   | About
   | PageBuilder
@@ -545,6 +624,15 @@ export type HOME_QUERY_RESULT = {
             url: string | null;
           } | null;
         } | null;
+        overlayImage?: {
+          asset?: SanityImageAssetReference;
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          caption?: string;
+          alt?: string;
+          _type: "image";
+        };
       }
     | {
         _key: string;
@@ -566,6 +654,21 @@ export type HOME_QUERY_RESULT = {
             url: string | null;
           } | null;
         } | null;
+        overlayImage?: {
+          asset?: SanityImageAssetReference;
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          caption?: string;
+          alt?: string;
+          _type: "image";
+        };
+      }
+    | {
+        _key: string;
+        _type: "enquireFaq";
+        faqTitle?: string;
+        faqDescription?: string;
       }
     | {
         _key: string;
@@ -593,6 +696,15 @@ export type HOME_QUERY_RESULT = {
             url: string | null;
           } | null;
         } | null;
+        overlayImage?: {
+          asset?: SanityImageAssetReference;
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          caption?: string;
+          alt?: string;
+          _type: "image";
+        };
       }
     | {
         _key: string;
@@ -614,6 +726,15 @@ export type HOME_QUERY_RESULT = {
             url: string | null;
           } | null;
         } | null;
+        overlayImage?: {
+          asset?: SanityImageAssetReference;
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          caption?: string;
+          alt?: string;
+          _type: "image";
+        };
       }
     | {
         _key: string;
@@ -627,6 +748,15 @@ export type HOME_QUERY_RESULT = {
             url: string | null;
           } | null;
         } | null;
+        overlayImage?: {
+          asset?: SanityImageAssetReference;
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          caption?: string;
+          alt?: string;
+          _type: "image";
+        };
       }
     | {
         _key: string;
@@ -640,6 +770,15 @@ export type HOME_QUERY_RESULT = {
             url: string | null;
           } | null;
         } | null;
+        overlayImage?: {
+          asset?: SanityImageAssetReference;
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          caption?: string;
+          alt?: string;
+          _type: "image";
+        };
       }
   > | null;
 } | null;
@@ -707,6 +846,15 @@ export type ABOUT_QUERY_RESULT = {
             url: string | null;
           } | null;
         } | null;
+        overlayImage?: {
+          asset?: SanityImageAssetReference;
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          caption?: string;
+          alt?: string;
+          _type: "image";
+        };
       }
     | {
         _key: string;
@@ -728,6 +876,21 @@ export type ABOUT_QUERY_RESULT = {
             url: string | null;
           } | null;
         } | null;
+        overlayImage?: {
+          asset?: SanityImageAssetReference;
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          caption?: string;
+          alt?: string;
+          _type: "image";
+        };
+      }
+    | {
+        _key: string;
+        _type: "enquireFaq";
+        faqTitle?: string;
+        faqDescription?: string;
       }
     | {
         _key: string;
@@ -755,6 +918,15 @@ export type ABOUT_QUERY_RESULT = {
             url: string | null;
           } | null;
         } | null;
+        overlayImage?: {
+          asset?: SanityImageAssetReference;
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          caption?: string;
+          alt?: string;
+          _type: "image";
+        };
       }
     | {
         _key: string;
@@ -776,6 +948,15 @@ export type ABOUT_QUERY_RESULT = {
             url: string | null;
           } | null;
         } | null;
+        overlayImage?: {
+          asset?: SanityImageAssetReference;
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          caption?: string;
+          alt?: string;
+          _type: "image";
+        };
       }
     | {
         _key: string;
@@ -789,6 +970,15 @@ export type ABOUT_QUERY_RESULT = {
             url: string | null;
           } | null;
         } | null;
+        overlayImage?: {
+          asset?: SanityImageAssetReference;
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          caption?: string;
+          alt?: string;
+          _type: "image";
+        };
       }
     | {
         _key: string;
@@ -802,6 +992,15 @@ export type ABOUT_QUERY_RESULT = {
             url: string | null;
           } | null;
         } | null;
+        overlayImage?: {
+          asset?: SanityImageAssetReference;
+          media?: unknown;
+          hotspot?: SanityImageHotspot;
+          crop?: SanityImageCrop;
+          caption?: string;
+          alt?: string;
+          _type: "image";
+        };
       }
   > | null;
 } | null;
@@ -830,6 +1029,18 @@ export type SITE_SETTINGS_RESULT = {
   navSubheading: string | null;
 } | null;
 
+// Source: sanity/lib/queries.ts
+// Variable: ENQUIRE_QUERY
+// Query: *[_type == "enquire"][0] {    _id,    title,    faqs[] {      faqTitle,      faqDescription    }  }
+export type ENQUIRE_QUERY_RESULT = {
+  _id: string;
+  title: string | null;
+  faqs: Array<{
+    faqTitle: string | null;
+    faqDescription: string | null;
+  }> | null;
+} | null;
+
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
@@ -838,5 +1049,6 @@ declare module "@sanity/client" {
     '\n  *[_type == "about"][0] {\n    _id,\n    _createdAt,\n    title,\n    description[],\n    aboutImage {\n      alt,\n      caption,\n      asset->{ _id, url }\n    },\n    email,\n    aboutSocialLinks[] {\n      platform,\n      url\n    },\n    designAndDevelopment {\n      name,\n      url\n    },\n    content[] {\n      _key,\n      _type,\n      ...,\n\n      _type == "doubleLandscape" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == "doublePortrait" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == "largeImageLeft" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == "largeImageRight" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == "singleLandscape" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == "singlePortrait" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      }\n    }\n  }\n': ABOUT_QUERY_RESULT;
     '\n  *[_type == "footerSettings"][0] {\n    _id,\n    _createdAt,\n    description,\n    email,\n    socialLinks[] {\n      platform,\n      url\n    },\n    siteDesignAndDevelopment\n  }\n': FOOTER_SETTINGS_RESULT;
     '\n  *[_type == "siteSettings"][0]{\n    siteTitle,\n    defaultDescription,\n    navSubheading\n  }\n': SITE_SETTINGS_RESULT;
+    '\n  *[_type == "enquire"][0] {\n    _id,\n    title,\n    faqs[] {\n      faqTitle,\n      faqDescription\n    }\n  }\n': ENQUIRE_QUERY_RESULT;
   }
 }
