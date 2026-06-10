@@ -7,16 +7,12 @@ import { getSiteSettings } from "@/sanity/sanity.utils";
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
 
-  const title = settings?.siteTitle ?? "Zishun Studios";
-  const description =
-    settings?.defaultDescription ??
-    "A Creative Production Company by Zed Xu 徐榛 Zed Xu (b. 1993, CN, NZ) is a filmmaker, painter and performance artist.";
+  const title = settings?.siteTitle ?? "Ina Rufino";
+  const description = settings?.defaultDescription ?? "";
 
   return {
     title,
     description,
-    openGraph: { title, description },
-    twitter: { title, description },
   };
 }
 
@@ -30,7 +26,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className="body">
         <div className="site">
-          <Nav navSubheading={settings?.navSubheading} />
+          <Nav />
           {children}
           <Footer />
         </div>
