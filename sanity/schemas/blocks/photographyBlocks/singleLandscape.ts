@@ -29,6 +29,25 @@ export const singleLandscapeType = defineType({
         }),
       ],
     }),
+    defineField({
+      name: "overlayImage",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        defineField({
+          name: "caption",
+          type: "string",
+        }),
+        defineField({
+          name: "alt",
+          type: "string",
+          title: "Alternative text",
+          description: "Important for SEO and accessibility.",
+        }),
+      ],
+    }),
   ],
   icon: BlockContentIcon,
   preview: {

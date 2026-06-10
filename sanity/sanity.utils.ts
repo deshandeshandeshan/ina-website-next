@@ -4,6 +4,7 @@ import {
   ABOUT_QUERY,
   FOOTER_SETTINGS,
   SITE_SETTINGS,
+  ENQUIRE_QUERY,
 } from "./lib/queries";
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!;
@@ -31,4 +32,8 @@ export async function getFooterSettings() {
 
 export async function getSiteSettings() {
   return client.fetch(SITE_SETTINGS, {}, { next: { revalidate: 60 } });
+}
+
+export async function getEnquire() {
+  return client.fetch(ENQUIRE_QUERY);
 }

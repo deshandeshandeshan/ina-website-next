@@ -11,6 +11,8 @@ import { aboutType } from "./about";
 import { homeType } from "./home";
 import { siteSettings } from "./siteSettings";
 import { fullBleedTextType } from "./blocks/homeBlocks/fullBleedText";
+import { enquireType } from "./enquire";
+import { enquireFaq } from "./enquireFaq";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -19,6 +21,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     footerSettingsType,
     aboutType,
     siteSettings,
+    enquireType,
+    enquireFaq,
 
     doubleLandscapeType,
     doublePortraitType,

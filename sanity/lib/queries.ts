@@ -130,3 +130,14 @@ export const SITE_SETTINGS = defineQuery(`
     navSubheading
   }
 `);
+
+export const ENQUIRE_QUERY = defineQuery(`
+  *[_type == "enquire"][0] {
+    _id,
+    title,
+    faqs[] {
+      faqTitle,
+      faqDescription
+    }
+  }
+`);
