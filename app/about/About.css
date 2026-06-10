@@ -7,7 +7,7 @@
 }
 
 .about-page {
-  padding: 50px 16px 0px 16px;
+  padding: 0 16px;
 }
 
 .about-page-image {
@@ -64,7 +64,7 @@
 
 @media screen and (min-width: 480px) {
   .about-page {
-    padding: 100px 16px 0px 16px;
+    padding: 0 16px;
   }
 
   .about-page-image {

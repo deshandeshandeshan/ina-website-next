@@ -12,13 +12,7 @@ export default async function Enquire() {
 
   return (
     <main className="enquire-page">
-      <div className="grid">
-        <h2 className="enquire-heading type-body-bold">ENQUIRE</h2>
-
-        <div className="enquire-form-section">
-          <EnquireForm />
-        </div>
-
+      <div className="enquire-layout">
         {faqs.length > 0 && (
           <div className="enquire-faq-section">
             <h2 className="enquire-faq-heading type-body-bold spacing-24">
@@ -38,6 +32,11 @@ export default async function Enquire() {
             </div>
           </div>
         )}
+
+        <div className="enquire-right">
+          <h2 className="enquire-heading type-body-bold">ENQUIRE</h2>
+          <EnquireForm />
+        </div>
       </div>
     </main>
   );
