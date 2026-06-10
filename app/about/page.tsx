@@ -31,12 +31,12 @@ export default async function About() {
             />
           )}
         </div>
-        <h2 className="about-heading type-body-bold">ARTIST BIO</h2>
+        <h2 className="about-heading type-body-bold">ABOUT</h2>
         <div className="about-body-text spacing-32 type-body">
           <PortableText value={aboutInformation?.description ?? []} />
         </div>
-        <h2 className="about-contact-heading type-body-bold">CONTACT</h2>
-        <p className="about-contact-body-text spacing-24 type-body uppercase-text">
+        <h2 className="about-socials-heading type-body-bold">SOCIALS</h2>
+        <p className="about-socials-body-text spacing-24 type-body uppercase-text">
           {aboutInformation?.email}
         </p>
         <h2 className="about-socials-heading type-body-bold">SOCIALS</h2>

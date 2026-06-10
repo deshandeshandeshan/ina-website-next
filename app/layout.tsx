@@ -27,6 +27,7 @@ export default async function RootLayout({
       <body className="body">
         <div className="site">
           <Nav />
+          <div className="nav-spacer" />
           {children}
           <Footer />
         </div>
