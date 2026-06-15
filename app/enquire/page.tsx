@@ -34,7 +34,6 @@ export default async function Enquire() {
         )}
 
         <div className="enquire-right">
-          <h2 className="enquire-heading type-body-bold">ENQUIRE</h2>
           <EnquireForm />
         </div>
       </div>

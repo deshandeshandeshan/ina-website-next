@@ -1,5 +1,5 @@
 .enquire-page {
-  padding: 0 16px;
+  padding: 40px 16px 0;
 }
 
 /* --- Layout --- */
@@ -28,7 +28,7 @@
 .enquire-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 40px;
 }
 
 .enquire-form-field {
@@ -62,6 +62,7 @@
 
 .enquire-form-textarea {
   border: 1px solid #1e1f1f;
+  border-radius: 0.5rem;
   padding: 8px;
   resize: vertical;
 }
@@ -73,9 +74,10 @@
 .enquire-form-submit {
   align-self: flex-start;
   margin-top: 8px;
+  border-radius: 0.5rem;
   padding: 10px 24px;
-  background-color: #1e1f1f;
-  color: #ecebeb;
+  background-color: #acacac;
+  color: #80ef80;
   cursor: pointer;
   font-family: inherit;
   letter-spacing: 0.05em;

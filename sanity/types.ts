@@ -267,7 +267,6 @@ export type About = {
     alt?: string;
     _type: "image";
   };
-  email?: string;
   aboutSocialLinks?: Array<{
     platform?: string;
     url?: string;
@@ -278,35 +277,7 @@ export type About = {
     name?: string;
     url?: string;
   };
-  content?: PageBuilder;
 };
-
-export type PageBuilder = Array<
-  | ({
-      _key: string;
-    } & DoubleLandscape)
-  | ({
-      _key: string;
-    } & DoublePortrait)
-  | ({
-      _key: string;
-    } & LargeImageLeft)
-  | ({
-      _key: string;
-    } & LargeImageRight)
-  | ({
-      _key: string;
-    } & SingleLandscape)
-  | ({
-      _key: string;
-    } & SinglePortrait)
-  | ({
-      _key: string;
-    } & FullBleedText)
-  | ({
-      _key: string;
-    } & EnquireFaq)
->;
 
 export type SanityImageCrop = {
   _type: "sanity.imageCrop";
@@ -339,6 +310,33 @@ export type FooterSettings = {
   }>;
   siteDesignAndDevelopment?: string;
 };
+
+export type PageBuilder = Array<
+  | ({
+      _key: string;
+    } & DoubleLandscape)
+  | ({
+      _key: string;
+    } & DoublePortrait)
+  | ({
+      _key: string;
+    } & LargeImageLeft)
+  | ({
+      _key: string;
+    } & LargeImageRight)
+  | ({
+      _key: string;
+    } & SingleLandscape)
+  | ({
+      _key: string;
+    } & SinglePortrait)
+  | ({
+      _key: string;
+    } & FullBleedText)
+  | ({
+      _key: string;
+    } & EnquireFaq)
+>;
 
 export type Home = {
   _id: string;
@@ -573,10 +571,10 @@ export type AllSanitySchemaTypes =
   | Enquire
   | SiteSettings
   | About
-  | PageBuilder
   | SanityImageCrop
   | SanityImageHotspot
   | FooterSettings
+  | PageBuilder
   | Home
   | MuxVideoAssetReference
   | MuxVideo
@@ -816,7 +814,7 @@ export type ABOUT_QUERY_RESULT = {
       url: string | null;
     } | null;
   } | null;
-  email: string | null;
+  email: null;
   aboutSocialLinks: Array<{
     platform: string | null;
     url: string | null;
@@ -825,184 +823,7 @@ export type ABOUT_QUERY_RESULT = {
     name: string | null;
     url: string | null;
   } | null;
-  content: Array<
-    | {
-        _key: string;
-        _type: "doubleLandscape";
-        title: string | null;
-        leftImage: {
-          alt: string | null;
-          caption: string | null;
-          asset: {
-            _id: string;
-            url: string | null;
-          } | null;
-        } | null;
-        rightImage: {
-          alt: string | null;
-          caption: string | null;
-          asset: {
-            _id: string;
-            url: string | null;
-          } | null;
-        } | null;
-        overlayImage?: {
-          asset?: SanityImageAssetReference;
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          caption?: string;
-          alt?: string;
-          _type: "image";
-        };
-      }
-    | {
-        _key: string;
-        _type: "doublePortrait";
-        title: string | null;
-        leftImage: {
-          alt: string | null;
-          caption: string | null;
-          asset: {
-            _id: string;
-            url: string | null;
-          } | null;
-        } | null;
-        rightImage: {
-          alt: string | null;
-          caption: string | null;
-          asset: {
-            _id: string;
-            url: string | null;
-          } | null;
-        } | null;
-        overlayImage?: {
-          asset?: SanityImageAssetReference;
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          caption?: string;
-          alt?: string;
-          _type: "image";
-        };
-      }
-    | {
-        _key: string;
-        _type: "enquireFaq";
-        faqTitle?: string;
-        faqDescription?: string;
-      }
-    | {
-        _key: string;
-        _type: "fullBleedText";
-        title?: string;
-        text?: string;
-      }
-    | {
-        _key: string;
-        _type: "largeImageLeft";
-        title: string | null;
-        leftImage: {
-          alt: string | null;
-          caption: string | null;
-          asset: {
-            _id: string;
-            url: string | null;
-          } | null;
-        } | null;
-        rightImage: {
-          alt: string | null;
-          caption: string | null;
-          asset: {
-            _id: string;
-            url: string | null;
-          } | null;
-        } | null;
-        overlayImage?: {
-          asset?: SanityImageAssetReference;
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          caption?: string;
-          alt?: string;
-          _type: "image";
-        };
-      }
-    | {
-        _key: string;
-        _type: "largeImageRight";
-        title: string | null;
-        leftImage: {
-          alt: string | null;
-          caption: string | null;
-          asset: {
-            _id: string;
-            url: string | null;
-          } | null;
-        } | null;
-        rightImage: {
-          alt: string | null;
-          caption: string | null;
-          asset: {
-            _id: string;
-            url: string | null;
-          } | null;
-        } | null;
-        overlayImage?: {
-          asset?: SanityImageAssetReference;
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          caption?: string;
-          alt?: string;
-          _type: "image";
-        };
-      }
-    | {
-        _key: string;
-        _type: "singleLandscape";
-        title: string | null;
-        image: {
-          alt: string | null;
-          caption: string | null;
-          asset: {
-            _id: string;
-            url: string | null;
-          } | null;
-        } | null;
-        overlayImage?: {
-          asset?: SanityImageAssetReference;
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          caption?: string;
-          alt?: string;
-          _type: "image";
-        };
-      }
-    | {
-        _key: string;
-        _type: "singlePortrait";
-        title: string | null;
-        image: {
-          alt: string | null;
-          caption: string | null;
-          asset: {
-            _id: string;
-            url: string | null;
-          } | null;
-        } | null;
-        overlayImage?: {
-          asset?: SanityImageAssetReference;
-          media?: unknown;
-          hotspot?: SanityImageHotspot;
-          crop?: SanityImageCrop;
-          caption?: string;
-          alt?: string;
-          _type: "image";
-        };
-      }
-  > | null;
+  content: null;
 } | null;
 
 // Source: sanity/lib/queries.ts

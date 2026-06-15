@@ -21,7 +21,7 @@ export function EnquireForm() {
   const [submitted, setSubmitted] = useState(false);
 
   function handleChange(
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
@@ -45,12 +45,13 @@ export function EnquireForm() {
     <form className="enquire-form" onSubmit={handleSubmit}>
       <div className="enquire-form-field">
         <label htmlFor="name" className="enquire-form-label type-body-bold">
-          NAME
+          What is your preferred name?
         </label>
         <input
           id="name"
           name="name"
           type="text"
+          placeholder="[NAME]"
           className="enquire-form-input type-body"
           value={form.name}
           onChange={handleChange}
@@ -60,11 +61,12 @@ export function EnquireForm() {
 
       <div className="enquire-form-field">
         <label htmlFor="budget" className="enquire-form-label type-body-bold">
-          BUDGET
+          What is your budget?
         </label>
         <input
           id="budget"
           name="budget"
+          placeholder="[BUDGET]"
           type="text"
           className="enquire-form-input type-body"
           value={form.budget}
@@ -75,11 +77,12 @@ export function EnquireForm() {
 
       <div className="enquire-form-field">
         <label htmlFor="date" className="enquire-form-label type-body-bold">
-          DATE
+          What is your preferred date?
         </label>
         <input
           id="date"
           name="date"
+          placeholder="[DATE]"
           type="date"
           className="enquire-form-input type-body"
           value={form.date}
@@ -90,11 +93,12 @@ export function EnquireForm() {
 
       <div className="enquire-form-field">
         <label htmlFor="details" className="enquire-form-label type-body-bold">
-          DETAILS
+          Please provide more details about your enquiry...
         </label>
         <textarea
           id="details"
           name="details"
+          placeholder="[DETAILS]"
           className="enquire-form-textarea type-body"
           value={form.details}
           onChange={handleChange}

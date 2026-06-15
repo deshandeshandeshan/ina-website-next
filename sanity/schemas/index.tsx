@@ -13,10 +13,12 @@ import { siteSettings } from "./siteSettings";
 import { fullBleedTextType } from "./blocks/homeBlocks/fullBleedText";
 import { enquireType } from "./enquire";
 import { enquireFaq } from "./enquireFaq";
+import { workType } from "./work";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     homeType,
+    workType,
     pageBuilderType,
     footerSettingsType,
     aboutType,
