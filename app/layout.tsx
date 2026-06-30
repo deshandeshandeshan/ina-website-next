@@ -24,6 +24,11 @@ export default async function RootLayout({
   const settings = await getSiteSettings();
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Alien+Block&display=swap" rel="stylesheet" />
+      </head>
       <body className="body">
         <div className="site">
           <Nav />

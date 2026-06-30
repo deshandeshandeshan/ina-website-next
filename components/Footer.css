@@ -20,9 +20,14 @@
 
   .book-link {
     font-size: 12vw;
-    letter-spacing: -0.3rem;
-    color: #80ef80;
+    letter-spacing: -0.4rem;
+    color: #4b4b4b;
     font-weight: 500;
+    font-family: "Alien Block", sans-serif;
+  }
+
+  .book-link:hover {
+    color: #80ef80;
   }
 
   .footer-socials,
@@ -38,8 +43,6 @@
   }
 
   .footer-framing {
-    border-radius: 25px;
-    background-color: #acacac;
     padding: 24px;
   }
 
@@ -54,7 +57,7 @@
     justify-self: end;
   }
 
-  .book-link-container {
+  .book-li {
     grid-column: 1 / 25;
     grid-row: 2 / 3;
     justify-self: center;

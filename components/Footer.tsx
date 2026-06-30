@@ -34,10 +34,10 @@ export default async function Footer() {
             </li>
           </ul>
         </div>
-        <div className="book-link-container">
+        <div className="book-li">
           <h1 className="book-link-container">
             <Link href="/enquire" className="book-link">
-              BOOK A TATTOO
+              Enquire Now
             </Link>
           </h1>
         </div>

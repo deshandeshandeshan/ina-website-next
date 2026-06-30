@@ -31,44 +31,48 @@ export default async function About() {
             />
           )}
         </div>
-        <h2 className="about-heading type-body-bold">ABOUT</h2>
-        <div className="about-body-text spacing-32 type-body">
-          <PortableText value={aboutInformation?.description ?? []} />
-        </div>
-        <h2 className="about-socials-heading type-body-bold">SOCIALS</h2>
-        <p className="about-socials-body-text spacing-24 type-body uppercase-text">
-          {aboutInformation?.email}
-        </p>
-        <h2 className="about-socials-heading type-body-bold">SOCIALS</h2>
-        <div className="about-page-social-links spacing-24">
-          {(aboutInformation?.aboutSocialLinks ?? []).map((link, index) => {
-            const url = link?.url ?? "";
-            const platform = link?.platform ?? "";
+        <div className="about-info-contanier">
+          <h2 className="about-heading type-body-bold spacing-4">ABOUT</h2>
+          <div className="about-body-text spacing-32 type-body">
+            <PortableText value={aboutInformation?.description ?? []} />
+          </div>
 
-            if (!url && !platform) return null;
+          <p className="about-socials-body-text spacing-24 type-body uppercase-text">
+            {aboutInformation?.email}
+          </p>
+          <h2 className="about-socials-heading type-body-bold spacing-4">
+            SOCIALS
+          </h2>
+          <div className="about-page-social-links spacing-24">
+            {(aboutInformation?.aboutSocialLinks ?? []).map((link, index) => {
+              const url = link?.url ?? "";
+              const platform = link?.platform ?? "";
 
-            return (
-              <a
-                href={url}
-                target="_blank"
-                key={index}
-                rel="noopener noreferrer uppercase-text"
-                className="about-page-social-link type-body spacing-4"
-              >
-                {platform || url}
-              </a>
-            );
-          })}
+              if (!url && !platform) return null;
+
+              return (
+                <a
+                  href={url}
+                  target="_blank"
+                  key={index}
+                  rel="noopener noreferrer uppercase-text"
+                  className="about-page-social-link type-body spacing-4"
+                >
+                  {platform || url}
+                </a>
+              );
+            })}
+          </div>
+          <h2 className="about-credit-heading type-body-bold spacing-4 ">
+            WEBSITE DESIGN & DEVELOPMENT
+          </h2>
+          <a
+            href={aboutInformation?.designAndDevelopment?.url}
+            className="about-credit-body-text spacing-24 type-body uppercase-text  spacing-240"
+          >
+            {aboutInformation?.designAndDevelopment?.name}
+          </a>
         </div>
-        <h2 className="about-credit-heading type-body-bold">
-          WEBSITE DESIGN & DEVELOPMENT
-        </h2>
-        <a
-          href={aboutInformation?.designAndDevelopment?.url}
-          className="about-credit-body-text spacing-24 type-body uppercase-text  spacing-240"
-        >
-          {aboutInformation?.designAndDevelopment?.name}
-        </a>
         {Array.isArray(aboutInformation.content) && (
           <div className="about-page-builder">
             <PageBuilder content={aboutInformation.content} />

@@ -338,6 +338,27 @@ export type PageBuilder = Array<
     } & EnquireFaq)
 >;
 
+export type Work = {
+  _id: string;
+  _type: "work";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  tattoo?: {
+    categoryName?: string;
+    content?: PageBuilder;
+  };
+  illustration?: {
+    categoryName?: string;
+    content?: PageBuilder;
+  };
+  painting?: {
+    categoryName?: string;
+    content?: PageBuilder;
+  };
+};
+
 export type Home = {
   _id: string;
   _type: "home";
@@ -575,6 +596,7 @@ export type AllSanitySchemaTypes =
   | SanityImageHotspot
   | FooterSettings
   | PageBuilder
+  | Work
   | Home
   | MuxVideoAssetReference
   | MuxVideo
@@ -851,6 +873,558 @@ export type SITE_SETTINGS_RESULT = {
 } | null;
 
 // Source: sanity/lib/queries.ts
+// Variable: WORK_QUERY
+// Query: *[_type == "work"][0] {    _id,    _createdAt,    title,    tattoo {   categoryName,  content[] {    _key,    _type,    ...,    _type == "doubleLandscape" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } }    },    _type == "doublePortrait" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } }    },    _type == "largeImageLeft" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } }    },    _type == "largeImageRight" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } }    },    _type == "singleLandscape" => {      title,      image { alt, caption, asset->{ _id, url } }    },    _type == "singlePortrait" => {      title,      image { alt, caption, asset->{ _id, url } }    }  } },    illustration {   categoryName,  content[] {    _key,    _type,    ...,    _type == "doubleLandscape" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } }    },    _type == "doublePortrait" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } }    },    _type == "largeImageLeft" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } }    },    _type == "largeImageRight" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } }    },    _type == "singleLandscape" => {      title,      image { alt, caption, asset->{ _id, url } }    },    _type == "singlePortrait" => {      title,      image { alt, caption, asset->{ _id, url } }    }  } },    painting {   categoryName,  content[] {    _key,    _type,    ...,    _type == "doubleLandscape" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } }    },    _type == "doublePortrait" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } }    },    _type == "largeImageLeft" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } }    },    _type == "largeImageRight" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } }    },    _type == "singleLandscape" => {      title,      image { alt, caption, asset->{ _id, url } }    },    _type == "singlePortrait" => {      title,      image { alt, caption, asset->{ _id, url } }    }  } }  }
+export type WORK_QUERY_RESULT = {
+  _id: string;
+  _createdAt: string;
+  title: string | null;
+  tattoo: {
+    categoryName: string | null;
+    content: Array<
+      | {
+          _key: string;
+          _type: "doubleLandscape";
+          title: string | null;
+          leftImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          rightImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          overlayImage?: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            caption?: string;
+            alt?: string;
+            _type: "image";
+          };
+        }
+      | {
+          _key: string;
+          _type: "doublePortrait";
+          title: string | null;
+          leftImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          rightImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          overlayImage?: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            caption?: string;
+            alt?: string;
+            _type: "image";
+          };
+        }
+      | {
+          _key: string;
+          _type: "enquireFaq";
+          faqTitle?: string;
+          faqDescription?: string;
+        }
+      | {
+          _key: string;
+          _type: "fullBleedText";
+          title?: string;
+          text?: string;
+        }
+      | {
+          _key: string;
+          _type: "largeImageLeft";
+          title: string | null;
+          leftImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          rightImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          overlayImage?: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            caption?: string;
+            alt?: string;
+            _type: "image";
+          };
+        }
+      | {
+          _key: string;
+          _type: "largeImageRight";
+          title: string | null;
+          leftImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          rightImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          overlayImage?: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            caption?: string;
+            alt?: string;
+            _type: "image";
+          };
+        }
+      | {
+          _key: string;
+          _type: "singleLandscape";
+          title: string | null;
+          image: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          overlayImage?: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            caption?: string;
+            alt?: string;
+            _type: "image";
+          };
+        }
+      | {
+          _key: string;
+          _type: "singlePortrait";
+          title: string | null;
+          image: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          overlayImage?: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            caption?: string;
+            alt?: string;
+            _type: "image";
+          };
+        }
+    > | null;
+  } | null;
+  illustration: {
+    categoryName: string | null;
+    content: Array<
+      | {
+          _key: string;
+          _type: "doubleLandscape";
+          title: string | null;
+          leftImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          rightImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          overlayImage?: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            caption?: string;
+            alt?: string;
+            _type: "image";
+          };
+        }
+      | {
+          _key: string;
+          _type: "doublePortrait";
+          title: string | null;
+          leftImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          rightImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          overlayImage?: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            caption?: string;
+            alt?: string;
+            _type: "image";
+          };
+        }
+      | {
+          _key: string;
+          _type: "enquireFaq";
+          faqTitle?: string;
+          faqDescription?: string;
+        }
+      | {
+          _key: string;
+          _type: "fullBleedText";
+          title?: string;
+          text?: string;
+        }
+      | {
+          _key: string;
+          _type: "largeImageLeft";
+          title: string | null;
+          leftImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          rightImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          overlayImage?: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            caption?: string;
+            alt?: string;
+            _type: "image";
+          };
+        }
+      | {
+          _key: string;
+          _type: "largeImageRight";
+          title: string | null;
+          leftImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          rightImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          overlayImage?: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            caption?: string;
+            alt?: string;
+            _type: "image";
+          };
+        }
+      | {
+          _key: string;
+          _type: "singleLandscape";
+          title: string | null;
+          image: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          overlayImage?: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            caption?: string;
+            alt?: string;
+            _type: "image";
+          };
+        }
+      | {
+          _key: string;
+          _type: "singlePortrait";
+          title: string | null;
+          image: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          overlayImage?: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            caption?: string;
+            alt?: string;
+            _type: "image";
+          };
+        }
+    > | null;
+  } | null;
+  painting: {
+    categoryName: string | null;
+    content: Array<
+      | {
+          _key: string;
+          _type: "doubleLandscape";
+          title: string | null;
+          leftImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          rightImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          overlayImage?: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            caption?: string;
+            alt?: string;
+            _type: "image";
+          };
+        }
+      | {
+          _key: string;
+          _type: "doublePortrait";
+          title: string | null;
+          leftImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          rightImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          overlayImage?: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            caption?: string;
+            alt?: string;
+            _type: "image";
+          };
+        }
+      | {
+          _key: string;
+          _type: "enquireFaq";
+          faqTitle?: string;
+          faqDescription?: string;
+        }
+      | {
+          _key: string;
+          _type: "fullBleedText";
+          title?: string;
+          text?: string;
+        }
+      | {
+          _key: string;
+          _type: "largeImageLeft";
+          title: string | null;
+          leftImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          rightImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          overlayImage?: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            caption?: string;
+            alt?: string;
+            _type: "image";
+          };
+        }
+      | {
+          _key: string;
+          _type: "largeImageRight";
+          title: string | null;
+          leftImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          rightImage: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          overlayImage?: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            caption?: string;
+            alt?: string;
+            _type: "image";
+          };
+        }
+      | {
+          _key: string;
+          _type: "singleLandscape";
+          title: string | null;
+          image: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          overlayImage?: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            caption?: string;
+            alt?: string;
+            _type: "image";
+          };
+        }
+      | {
+          _key: string;
+          _type: "singlePortrait";
+          title: string | null;
+          image: {
+            alt: string | null;
+            caption: string | null;
+            asset: {
+              _id: string;
+              url: string | null;
+            } | null;
+          } | null;
+          overlayImage?: {
+            asset?: SanityImageAssetReference;
+            media?: unknown;
+            hotspot?: SanityImageHotspot;
+            crop?: SanityImageCrop;
+            caption?: string;
+            alt?: string;
+            _type: "image";
+          };
+        }
+    > | null;
+  } | null;
+} | null;
+
+// Source: sanity/lib/queries.ts
 // Variable: ENQUIRE_QUERY
 // Query: *[_type == "enquire"][0] {    _id,    title,    faqs[] {      faqTitle,      faqDescription    }  }
 export type ENQUIRE_QUERY_RESULT = {
@@ -870,6 +1444,7 @@ declare module "@sanity/client" {
     '\n  *[_type == "about"][0] {\n    _id,\n    _createdAt,\n    title,\n    description[],\n    aboutImage {\n      alt,\n      caption,\n      asset->{ _id, url }\n    },\n    email,\n    aboutSocialLinks[] {\n      platform,\n      url\n    },\n    designAndDevelopment {\n      name,\n      url\n    },\n    content[] {\n      _key,\n      _type,\n      ...,\n\n      _type == "doubleLandscape" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == "doublePortrait" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == "largeImageLeft" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == "largeImageRight" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == "singleLandscape" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == "singlePortrait" => {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      }\n    }\n  }\n': ABOUT_QUERY_RESULT;
     '\n  *[_type == "footerSettings"][0] {\n    _id,\n    _createdAt,\n    description,\n    email,\n    socialLinks[] {\n      platform,\n      url\n    },\n    siteDesignAndDevelopment\n  }\n': FOOTER_SETTINGS_RESULT;
     '\n  *[_type == "siteSettings"][0]{\n    siteTitle,\n    defaultDescription,\n    navSubheading\n  }\n': SITE_SETTINGS_RESULT;
+    '\n  *[_type == "work"][0] {\n    _id,\n    _createdAt,\n    title,\n    tattoo { \n  categoryName,\n  content[] {\n    _key,\n    _type,\n    ...,\n\n    _type == "doubleLandscape" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "doublePortrait" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageLeft" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageRight" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singleLandscape" => {\n      title,\n      image { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singlePortrait" => {\n      title,\n      image { alt, caption, asset->{ _id, url } }\n    }\n  }\n },\n    illustration { \n  categoryName,\n  content[] {\n    _key,\n    _type,\n    ...,\n\n    _type == "doubleLandscape" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "doublePortrait" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageLeft" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageRight" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singleLandscape" => {\n      title,\n      image { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singlePortrait" => {\n      title,\n      image { alt, caption, asset->{ _id, url } }\n    }\n  }\n },\n    painting { \n  categoryName,\n  content[] {\n    _key,\n    _type,\n    ...,\n\n    _type == "doubleLandscape" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "doublePortrait" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageLeft" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageRight" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singleLandscape" => {\n      title,\n      image { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singlePortrait" => {\n      title,\n      image { alt, caption, asset->{ _id, url } }\n    }\n  }\n }\n  }\n': WORK_QUERY_RESULT;
     '\n  *[_type == "enquire"][0] {\n    _id,\n    title,\n    faqs[] {\n      faqTitle,\n      faqDescription\n    }\n  }\n': ENQUIRE_QUERY_RESULT;
   }
 }
