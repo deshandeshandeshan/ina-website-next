@@ -1,0 +1,31 @@
+.work-tabs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.work-tab-button {
+  background-color: #4b4b4b;
+  width: fit-content;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-weight: 500;
+  color: #80ef80;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.work-tab-button:hover,
+.work-tab-button--active {
+  background-color: #b3b3b3;
+  color: #4b4b4b;
+  transition: all 0.2s ease-in-out;
+}

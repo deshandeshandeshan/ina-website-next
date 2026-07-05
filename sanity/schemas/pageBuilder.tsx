@@ -10,7 +10,10 @@ export const pageBuilderType = defineType({
     defineArrayMember({ type: "largeImageRight" }),
     defineArrayMember({ type: "singleLandscape" }),
     defineArrayMember({ type: "singlePortrait" }),
-    defineArrayMember({ type: "fullBleedText" }),
     defineArrayMember({ type: "enquireFaq" }),
+    defineArrayMember({ type: "largeText" }),
+    defineArrayMember({ type: "fullBleedImage" }),
+    defineArrayMember({ type: "fullBleedImageRight" }),
+    defineArrayMember({ type: "imageCarousel" }),
   ],
 });

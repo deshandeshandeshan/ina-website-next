@@ -1,8 +1,8 @@
 import { defineField, defineType } from "sanity";
 import { TextIcon } from "@sanity/icons";
 
-export const fullBleedTextType = defineType({
-  name: "fullBleedText",
+export const largeTextType = defineType({
+  name: "largeText",
   type: "object",
   fields: [
     defineField({
@@ -23,7 +23,7 @@ export const fullBleedTextType = defineType({
     prepare({ title }) {
       return {
         title: title,
-        subtitle: "Full Bleed Text",
+        subtitle: "Large Text",
         media: TextIcon,
       };
     },

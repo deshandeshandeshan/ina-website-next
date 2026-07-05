@@ -11,12 +11,6 @@ export default async function Footer() {
       <div className="footer footer-framing">
         <div className="footer-title">
           <h3 className="type-body-bold">INA RUFINO</h3>
-          <a
-            href={`mailto:${footerContent?.email}`}
-            className="type-body uppercase-text"
-          >
-            {footerContent?.email}
-          </a>
         </div>
         <div className="footer-page-links">
           <ul>
@@ -41,26 +35,26 @@ export default async function Footer() {
             </Link>
           </h1>
         </div>
-        <div className="footer-socials">
-          <ul className="footer-social-links">
-            {footerContent?.socialLinks?.map((socialLink, index) => {
-              return (
-                <li key={index} className="type-body">
-                  <a
-                    href={socialLink.url || ""}
-                    target="_blank"
-                    rel="noopener noreferrer uppercase-text"
-                  >
-                    {socialLink.platform}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
         <div className="footer-location">
           <h3 className="type-body-bold">NAARM, AUSTRALIA</h3>
         </div>
+        {footerContent?.email && (
+          <div className="footer-email">
+            <a
+              href={`mailto:${footerContent.email}`}
+              className="type-body-bold uppercase-text"
+            >
+              {footerContent.email}
+            </a>
+          </div>
+        )}
+        {footerContent?.siteDesignAndDevelopment && (
+          <div className="footer-development">
+            <p className="type-body-bold uppercase-text">
+              {footerContent.siteDesignAndDevelopment}
+            </p>
+          </div>
+        )}
       </div>
     </footer>
   );

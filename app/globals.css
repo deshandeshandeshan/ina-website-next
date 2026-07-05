@@ -76,10 +76,6 @@ button {
   cursor: pointer;
 }
 
-.image-link:hover {
-  filter: blur(2px);
-}
-
 .menu-button,
 .link {
   transition: all 0.2s ease-in-out;
