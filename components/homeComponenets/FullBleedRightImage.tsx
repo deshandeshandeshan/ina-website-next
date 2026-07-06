@@ -5,6 +5,7 @@ import { HOME_QUERY_RESULT } from "@/sanity/types";
 import Image from "next/image";
 import { useState } from "react";
 import { Lightbox } from "../Lightbox";
+import "@/components/Grid.css";
 import "./FullBleedRightImage.css";
 
 type fullBleedImageRightProps = Extract<
@@ -29,7 +30,7 @@ export function FullBleedImageRight({
           {title}
         </h2>
       )}
-      <div className="full-bleed-image-right-images">
+      <div className="full-bleed-image-right-images grid">
         <div className="full-bleed-image-right-left">
           {imageLeft ? (
             <Image
