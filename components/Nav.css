@@ -34,6 +34,11 @@
   display: block;
 }
 
+.nav-logo--hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .menu-button {
   margin-left: auto;
   z-index: 50;
