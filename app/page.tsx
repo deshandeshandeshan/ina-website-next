@@ -1,4 +1,5 @@
 import { PageBuilder } from "@/components/PageBuilder";
+import HeroLogo from "@/components/HeroLogo";
 import { HOME_QUERY } from "@/sanity/lib/queries";
 import { client } from "@/sanity/sanity.utils";
 
@@ -9,6 +10,7 @@ export default async function Home() {
 
   return homeContent?.content ? (
     <div className="home">
+      <HeroLogo />
       <PageBuilder content={homeContent.content} />
     </div>
   ) : null;
