@@ -63,15 +63,6 @@ export default async function About() {
               );
             })}
           </div>
-          <h2 className="about-credit-heading type-body-bold spacing-4 ">
-            WEBSITE DESIGN & DEVELOPMENT
-          </h2>
-          <a
-            href={aboutInformation?.designAndDevelopment?.url}
-            className="about-credit-body-text spacing-24 type-body uppercase-text  spacing-240"
-          >
-            {aboutInformation?.designAndDevelopment?.name}
-          </a>
         </div>
         {Array.isArray(aboutInformation.content) && (
           <div className="about-page-builder">

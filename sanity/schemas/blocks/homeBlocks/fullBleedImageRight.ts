@@ -2,7 +2,7 @@ import { BlockContentIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export const fullBleedImageRightType = defineType({
-  name: "fullBleedImage",
+  name: "fullBleedImageRight",
   type: "object",
   fields: [
     defineField({

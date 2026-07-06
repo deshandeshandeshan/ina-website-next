@@ -1,0 +1,24 @@
+.full-bleed-image-right-images {
+  display: flex;
+  flex-direction: column;
+}
+
+.full-bleed-image-right-left-img,
+.full-bleed-image-right-right-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  display: block;
+}
+
+@media screen and (min-width: 480px) {
+  .full-bleed-image-right-images {
+    flex-direction: row;
+  }
+
+  .full-bleed-image-right-left,
+  .full-bleed-image-right-right {
+    width: 50%;
+  }
+}

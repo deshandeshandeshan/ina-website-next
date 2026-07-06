@@ -42,6 +42,31 @@ export const HOME_QUERY = defineQuery(`
       _type == "singlePortrait" => {
         title,
         image { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "largeText" => {
+        title,
+        text
+      },
+
+      _type == "fullBleedImage" => {
+        title,
+        image { alt, caption, asset->{ _id, url } },
+        text
+      },
+
+      _type == "fullBleedImageRight" => {
+        title,
+        imageLeft { alt, caption, asset->{ _id, url } },
+        imageRight { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "imageCarousel" => {
+        title,
+        carouselImages[] {
+          title,
+          image { alt, caption, asset->{ _id, url } }
+        }
       }
     }
   }
@@ -104,6 +129,31 @@ export const ABOUT_QUERY = defineQuery(`
       _type == "singlePortrait" => {
         title,
         image { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "largeText" => {
+        title,
+        text
+      },
+
+      _type == "fullBleedImage" => {
+        title,
+        image { alt, caption, asset->{ _id, url } },
+        text
+      },
+
+      _type == "fullBleedImageRight" => {
+        title,
+        imageLeft { alt, caption, asset->{ _id, url } },
+        imageRight { alt, caption, asset->{ _id, url } }
+      },
+
+      _type == "imageCarousel" => {
+        title,
+        carouselImages[] {
+          title,
+          image { alt, caption, asset->{ _id, url } }
+        }
       }
     }
   }
@@ -170,6 +220,31 @@ const CATEGORY_CONTENT_PROJECTION = `
     _type == "singlePortrait" => {
       title,
       image { alt, caption, asset->{ _id, url } }
+    },
+
+    _type == "largeText" => {
+      title,
+      text
+    },
+
+    _type == "fullBleedImage" => {
+      title,
+      image { alt, caption, asset->{ _id, url } },
+      text
+    },
+
+    _type == "fullBleedImageRight" => {
+      title,
+      imageLeft { alt, caption, asset->{ _id, url } },
+      imageRight { alt, caption, asset->{ _id, url } }
+    },
+
+    _type == "imageCarousel" => {
+      title,
+      carouselImages[] {
+        title,
+        image { alt, caption, asset->{ _id, url } }
+      }
     }
   }
 `;

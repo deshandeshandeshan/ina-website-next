@@ -1,7 +1,7 @@
 "use client";
 
 import { urlFor } from "@/sanity/lib/image";
-import { HOME_QUERYResult } from "@/sanity/types";
+import { HOME_QUERY_RESULT } from "@/sanity/types";
 import Image from "next/image";
 import { Lightbox } from "../Lightbox";
 import "./LargeImageLeft.css";
@@ -9,7 +9,7 @@ import "@/components/Grid.css";
 import { useState } from "react";
 
 type largeImageLeftProps = Extract<
-  NonNullable<NonNullable<HOME_QUERYResult>["content"]>[number],
+  NonNullable<NonNullable<HOME_QUERY_RESULT>["content"]>[number],
   { _type: "largeImageLeft" }
 >;
 

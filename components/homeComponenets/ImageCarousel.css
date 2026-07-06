@@ -1,0 +1,41 @@
+.image-carousel-container {
+  grid-column: 1 / 7;
+  grid-row: 1 / 2;
+}
+
+.image-carousel-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+.image-carousel-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+}
+
+.image-carousel-controls-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.image-carousel-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.image-carousel-prev,
+.image-carousel-next {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 480px) {
+  .image-carousel-container {
+    grid-column: 5 / 21;
+    grid-row: 1 / 2;
+  }
+}

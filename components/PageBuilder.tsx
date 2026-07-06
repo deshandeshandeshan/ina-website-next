@@ -5,6 +5,10 @@ import { LargeImageLeft } from "./photographyComponents/LargeImageLeft";
 import { LargeImageRight } from "./photographyComponents/LargeImageRight";
 import { SingleLandscape } from "./photographyComponents/SingleLandscape";
 import { SinglePortrait } from "./photographyComponents/SinglePortrait";
+import { LargeText } from "./homeComponenets/LargeText";
+import { FullBleedImage } from "./homeComponenets/FullBleedImage";
+import { FullBleedImageRight } from "./homeComponenets/FullBleedRightImage";
+import { ImageCarousel } from "./homeComponenets/ImageCarousel";
 import "./PageBuilder.css";
 
 type PageBuilderBlock = NonNullable<
@@ -38,6 +42,14 @@ export function PageBuilder({
             return <SingleLandscape key={block._key} {...block} />;
           case "singlePortrait":
             return <SinglePortrait key={block._key} {...block} />;
+          case "largeText":
+            return <LargeText key={block._key} {...block} />;
+          case "fullBleedImage":
+            return <FullBleedImage key={block._key} {...block} />;
+          case "fullBleedImageRight":
+            return <FullBleedImageRight key={block._key} {...block} />;
+          case "imageCarousel":
+            return <ImageCarousel key={block._key} {...block} />;
           default:
             return null;
         }
