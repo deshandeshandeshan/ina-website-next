@@ -1,6 +1,6 @@
-# Zishun Studios Website – Built with Next.js
+# Ina Rufino Website – Built with Next.js
 
-This is a modern, responsive website built for Zishun Studios, using Next.js 14 with the App Router. The site includes dynamic content rendering, CMS integration, and optimised performance for SEO and speed.
+This is a modern, responsive website built for Ina Rufino, using Next.js 14 with the App Router. The site includes dynamic content rendering, CMS integration, and optimised performance for SEO and speed.
 
 ## Tech Stack
 
@@ -16,7 +16,7 @@ This is a modern, responsive website built for Zishun Studios, using Next.js 14 
 1. Clone the repo:
 
    ```bash
-   git clone https://github.com/deshandeshandeshan/zishun-studios.git
+   git clone https://github.com/deshandeshandeshan/ina-website-next
    cd zishun-studios
 
    ```
@@ -41,10 +41,10 @@ To trigger a rebuild manually:
 
 The content is managed via [Sanity Studio](https://www.sanity.io/).
 
-- Admin URL: [https://www.sonnastudios.com/admin](https://www.sonnastudios.com/)
+- Admin URL: [https://www.inarufino.com/admin](https://www.inarufino.com/)
 - Log in with your credentials
 - Navigate pages via the Page Builder
 
 ## License
 
-This project is for the exclusive use of Zishun Studios. Not open for public distribution or reuse without permission.
+This project is for the exclusive use of Ina Rufino. Not open for public distribution or reuse without permission.
