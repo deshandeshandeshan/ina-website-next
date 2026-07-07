@@ -12,8 +12,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 50;
-  background: rgba(236, 235, 235, 0.8);
+  z-index: 80;
 }
 
 .nav-fade {
@@ -41,11 +40,13 @@
 
 .menu-button {
   margin-left: auto;
-  z-index: 50;
+  z-index: 70;
+  position: relative;
 }
 
 .nav-header {
-  z-index: 50;
+  z-index: 70;
+  position: relative;
 }
 
 /* Overlay */
@@ -54,7 +55,7 @@
   top: 0;
   inset: 0;
   background: #ecebeb;
-  z-index: 40;
+  z-index: 60;
   display: grid;
   column-gap: 16px;
   grid-template-columns: repeat(6, 1fr);
