@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Lightbox } from "../Lightbox";
 import "@/components/Grid.css";
 import "./FullBleedRightImage.css";
+import Link from "next/link";
 
 type fullBleedImageRightProps = Extract<
   NonNullable<NonNullable<HOME_QUERY_RESULT>["content"]>[number],
@@ -47,11 +48,11 @@ export function FullBleedImageRight({
               className="full-bleed-image-right-left-img pointer image-link"
             />
           ) : null}
-          {imageLeft?.caption && (
-            <div className="caption mobile-padding">
-              <p className="type-details-regular">{imageLeft.caption}</p>
-            </div>
-          )}
+          <div className="caption">
+            <Link href="/" className="type-details-regular">
+              View Work &#8594;
+            </Link>
+          </div>
         </div>
         <div className="full-bleed-image-right-right">
           {imageRight ? (
@@ -69,11 +70,6 @@ export function FullBleedImageRight({
               className="full-bleed-image-right-right-img pointer image-link"
             />
           ) : null}
-          {imageRight?.caption && (
-            <div className="caption mobile-padding">
-              <p className="type-details-regular">{imageRight.caption}</p>
-            </div>
-          )}
         </div>
       </div>
 
