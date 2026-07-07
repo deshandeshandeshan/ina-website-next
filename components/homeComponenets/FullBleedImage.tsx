@@ -19,6 +19,15 @@ export function FullBleedImage({ title, image, text }: fullBleedImageProps) {
 
   return (
     <section className="full-bleed-image">
+      {title && (
+        <div className="full-bleed-image-text mobile-padding">
+          {title && (
+            <h2 className="full-bleed-image-title type-body-bold spacing-12">
+              {title}
+            </h2>
+          )}
+        </div>
+      )}
       <div className="full-bleed-image-wrapper">
         {image ? (
           <Image
@@ -36,15 +45,9 @@ export function FullBleedImage({ title, image, text }: fullBleedImageProps) {
           </div>
         )}
       </div>
-
-      {(title || text) && (
+      {text && (
         <div className="full-bleed-image-text mobile-padding">
-          {title && (
-            <h2 className="full-bleed-image-title type-body-bold spacing-24">
-              {title}
-            </h2>
-          )}
-          {text && <p className="full-bleed-image-body type-body">{text}</p>}
+          {text && <p className="full-bleed-image-body type-sub">{text}</p>}
         </div>
       )}
 
