@@ -23,6 +23,12 @@ export default function HeroLogo() {
     const img = imgRef.current;
     if (!img) return;
 
+    // Client-side navigations can land here before the browser finishes
+    // resetting scroll to the top, which would make the first frame read a
+    // stale scrollY and start mid-animation. Force it so the entrance is
+    // always deterministic.
+    window.scrollTo(0, 0);
+
     let startRect = img.getBoundingClientRect();
     let endRect = startRect;
     let shrinkRange = window.innerHeight * SHRINK_RANGE_RATIO;
