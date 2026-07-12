@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import "./HeroLogo.css";
 import InaRufinoName from "@/images/InaRufinoName.png";
 
@@ -17,7 +17,7 @@ function easeOutCubic(t: number) {
 export default function HeroLogo() {
   const imgRef = useRef<HTMLImageElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const img = imgRef.current;
@@ -28,6 +28,14 @@ export default function HeroLogo() {
     // stale scrollY and start mid-animation. Force it so the entrance is
     // always deterministic.
     window.scrollTo(0, 0);
+
+    // Set the critical layout properties inline (not just via HeroLogo.css)
+    // so the resting position is correct even if the stylesheet for this
+    // route hasn't finished loading/applying yet on a client-side
+    // navigation — otherwise the image can briefly render unpositioned
+    // (collapsed/off-place) before snapping into place.
+    img.style.position = "fixed";
+    img.style.zIndex = "55";
 
     let startRect = img.getBoundingClientRect();
     let endRect = startRect;
@@ -46,12 +54,15 @@ export default function HeroLogo() {
     };
 
     const measure = () => {
-      // Reset to the CSS-defined resting state before measuring it.
+      // Reset to the resting state before measuring it. Width is computed
+      // directly (matching HeroLogo.css's `min(100vw, 1200px)`) rather than
+      // cleared to "" and left to the stylesheet, since that stylesheet may
+      // not have applied yet.
       img.style.transform = "translate(-50%, -50%)";
       img.style.left = "50%";
       img.style.top = "42vh";
-      img.style.width = "";
-      img.style.height = "";
+      img.style.width = `${Math.min(window.innerWidth, 1200)}px`;
+      img.style.height = "auto";
       startRect = img.getBoundingClientRect();
 
       const navLogo = document.querySelector<HTMLElement>(".nav-logo");
@@ -91,6 +102,8 @@ export default function HeroLogo() {
           ref={imgRef}
           src={InaRufinoName.src}
           alt=""
+          width={InaRufinoName.width}
+          height={InaRufinoName.height}
           className="hero-logo"
         />
       </Link>

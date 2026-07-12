@@ -4,6 +4,7 @@ import { useState, FormEvent } from "react";
 
 type FormState = {
   name: string;
+  pronouns: string;
   budget: string;
   date: string;
   details: string;
@@ -11,6 +12,7 @@ type FormState = {
 
 const initialState: FormState = {
   name: "",
+  pronouns: "",
   budget: "",
   date: "",
   details: "",
@@ -56,6 +58,21 @@ export function EnquireForm() {
           value={form.name}
           onChange={handleChange}
           required
+        />
+      </div>
+
+      <div className="enquire-form-field">
+        <label htmlFor="pronouns" className="enquire-form-label type-body-bold">
+          What are your pronouns?
+        </label>
+        <input
+          id="pronouns"
+          name="pronouns"
+          type="text"
+          placeholder="[PRONOUNS]"
+          className="enquire-form-input type-body"
+          value={form.pronouns}
+          onChange={handleChange}
         />
       </div>
 
