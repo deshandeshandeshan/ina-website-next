@@ -31,7 +31,7 @@ export async function getFooterSettings() {
 }
 
 export async function getSiteSettings() {
-  return client.fetch(SITE_SETTINGS, {}, { next: { revalidate: 60 } });
+  return client.fetch(SITE_SETTINGS, {}, { next: { revalidate: 5 } });
 }
 
 export async function getEnquire() {
