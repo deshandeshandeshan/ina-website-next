@@ -12,18 +12,18 @@ export default async function Footer() {
         <div className="footer-title">
           <h3 className="type-body-bold">INA RUFINO</h3>
         </div>
-        <div className="footer-page-links">
+        <div className="footer-page-links type-body-bold">
           <ul>
-            <li>
+            <li className="spacing-4">
               <Link href="/">HOME</Link>
             </li>
-            <li>
+            <li className="spacing-4">
               <Link href="/work">WORK</Link>
             </li>
-            <li>
+            <li className="spacing-4">
               <Link href="/enquire">ENQUIRE</Link>
             </li>
-            <li>
+            <li className="spacing-4">
               <Link href="/about">ABOUT</Link>
             </li>
           </ul>

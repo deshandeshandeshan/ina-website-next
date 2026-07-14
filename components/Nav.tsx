@@ -4,18 +4,16 @@ import Link from "next/link";
 import Image from "next/image";
 import "./Nav.css";
 import { useState } from "react";
-import { usePathname } from "next/navigation";
 import "../app/globals.css";
 import InaRufinoName from "@/images/InaRufinoName.png";
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const isHome = usePathname() === "/";
 
   return (
     <header className="nav mobile-padding">
       <div className="nav-content">
-        <ul className="nav-links-left type-body">
+        <ul className="nav-links-left type-body-bold">
           <li className="nav-link">
             <Link href="/">HOME</Link>
           </li>
@@ -29,13 +27,13 @@ export default function Nav() {
             <Image
               src={InaRufinoName}
               alt="Ina Rufino"
-              className={`nav-logo${isHome ? " nav-logo--hidden" : ""}`}
+              className="nav-logo"
               priority
             />
           </Link>
         </div>
 
-        <ul className="nav-links-right type-body">
+        <ul className="nav-links-right type-body-bold">
           <li className="nav-link">
             <Link href="/enquire">ENQUIRE</Link>
           </li>
