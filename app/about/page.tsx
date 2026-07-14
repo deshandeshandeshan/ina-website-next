@@ -40,7 +40,7 @@ export default async function About() {
           <p className="about-socials-body-text spacing-24 type-body uppercase-text">
             {aboutInformation?.email}
           </p>
-          <h2 className="about-socials-heading type-body-bold spacing-4">
+          <h2 className="about-socials-heading type-body-bold spacing-12">
             SOCIALS
           </h2>
           <div className="about-page-social-links spacing-24">
