@@ -16,7 +16,7 @@
   border-radius: 8px;
   padding: 8px 18px;
   font-weight: 500;
-  color: #80ef80;
+  color: #ecebeb;
   border: none;
   cursor: pointer;
   font-size: inherit;
@@ -28,4 +28,37 @@
   background-color: #b3b3b3;
   color: #4b4b4b;
   transition: all 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 479px) {
+  .work-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  .work-tab-button {
+    background-color: #4b4b4b;
+    width: fit-content;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-weight: 500;
+    color: #ecebeb;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: inherit;
+  }
+
+  .work-tab-button:hover,
+  .work-tab-button--active {
+    background-color: #b3b3b3;
+    color: #4b4b4b;
+    transition: all 0.2s ease-in-out;
+  }
 }

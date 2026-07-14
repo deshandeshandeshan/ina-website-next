@@ -27,6 +27,11 @@
   padding: 0 16px;
 }
 
+.about-info-contanier {
+  grid-column: 1 / 7;
+  grid-row: 2 / 3;
+}
+
 .about-page-image {
   grid-column: 1 / 7;
   grid-row: 1 / 2;

@@ -13,7 +13,23 @@
   padding-bottom: 16px;
 }
 
+.footer-page-links {
+  display: block;
+}
+
+.footer-framing {
+  align-items: center;
+}
+
 @media screen and (max-width: 479px) {
+  .footer-page-links {
+    display: none;
+  }
+
+  .footer {
+    text-align: center;
+  }
+
   .footer-title {
     padding-bottom: 24px;
   }
