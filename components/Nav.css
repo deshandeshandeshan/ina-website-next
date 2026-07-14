@@ -33,7 +33,7 @@
   display: block;
 }
 
-.nav-logo--hidden {
+.site:has(> .home) .nav-logo {
   opacity: 0;
   pointer-events: none;
 }
@@ -75,7 +75,7 @@
   .nav-links-left,
   .nav-links-right {
     display: flex;
-    gap: 24px;
+    gap: 40px;
     align-items: center;
   }
 
@@ -91,7 +91,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 32px;
+    gap: 60px;
     padding: 20px 0;
   }
 
