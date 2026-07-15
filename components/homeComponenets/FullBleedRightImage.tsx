@@ -49,7 +49,7 @@ export function FullBleedImageRight({
             />
           ) : null}
           <div className="caption">
-            <Link href="/work" className="type-details-regular">
+            <Link href="/work" className="type-sub-bold">
               View Work &#8594;
             </Link>
           </div>

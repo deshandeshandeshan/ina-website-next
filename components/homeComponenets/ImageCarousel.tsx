@@ -6,7 +6,6 @@ import Image from "next/image";
 import { useState } from "react";
 import { Lightbox } from "../Lightbox";
 import "./ImageCarousel.css";
-import "@/components/Grid.css";
 
 type imageCarouselProps = Extract<
   NonNullable<NonNullable<HOME_QUERY_RESULT>["content"]>[number],
@@ -35,7 +34,7 @@ export function ImageCarousel({ title, carouselImages }: imageCarouselProps) {
   };
 
   return (
-    <section className="image-carousel grid mobile-padding">
+    <section className="image-carousel mobile-padding">
       <div className="image-carousel-container">
         {title && (
           <h2 className="image-carousel-title type-body-bold spacing-24">
@@ -61,15 +60,15 @@ export function ImageCarousel({ title, carouselImages }: imageCarouselProps) {
             </div>
           )}
         </div>
-        <div className="image-carousel-controls">
+        <div className="image-carousel-controls ">
           <div className="image-carousel-slide-title type-body-bold text-grey">
             {activeSlide?.title}
           </div>
-          <div className="image-carousel-controls-container type-body">
-            <div className="image-carousel-counter type-body">
+          <div className="image-carousel-controls-container type-sub-bold">
+            <div className="image-carousel-counter ">
               &#91;{imageIndex + 1}/{images.length}&#93;
             </div>
-            <div className="image-carousel-buttons">
+            <div className="image-carousel-buttons type-sub-bold">
               <button onClick={showPrevImage} className="image-carousel-prev">
                 &lt;
               </button>

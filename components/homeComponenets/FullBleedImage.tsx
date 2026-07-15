@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Lightbox } from "../Lightbox";
 import "./FullBleedImage.css";
+import "@/components/Grid.css";
 
 type fullBleedImageProps = Extract<
   NonNullable<NonNullable<HOME_QUERY_RESULT>["content"]>[number],
@@ -39,15 +40,12 @@ export function FullBleedImage({ title, image, text }: fullBleedImageProps) {
             className="full-bleed-img pointer image-link"
           />
         ) : null}
-        {image?.caption && (
-          <div className="caption mobile-padding">
-            <p className="type-details-regular">{image.caption}</p>
-          </div>
-        )}
       </div>
       {text && (
-        <div className="full-bleed-image-text mobile-padding">
-          {text && <p className="full-bleed-image-body type-sub">{text}</p>}
+        <div className="full-bleed-image-text mobile-padding grid">
+          {text && (
+            <p className="full-bleed-image-body type-sub caption">{text}</p>
+          )}
         </div>
       )}
 
