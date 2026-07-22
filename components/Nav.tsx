@@ -58,7 +58,7 @@ export default function Nav() {
         </ul>
 
         <button
-          className="menu-button serif-S"
+          className="menu-button serif-L"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? "Close" : "Menu"}

@@ -121,7 +121,7 @@ button {
 
 .menu-button:hover,
 .link:hover {
-  color: #37ff00;
+  color: #b9b9b9;
   transition: all 0.2s ease-in-out;
 }
 
@@ -226,7 +226,7 @@ button {
   font-family: "OrticaLinear", sans-serif;
   font-weight: 400;
   letter-spacing: 0.04em;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 14px;
 }
 
