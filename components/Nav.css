@@ -4,7 +4,7 @@
 }
 
 :root {
-  --nav-height: 68px;
+  --nav-height: 88px;
 }
 
 .nav-spacer {
@@ -32,7 +32,7 @@
 }
 
 .nav-logo {
-  height: 36px;
+  height: 56px;
   width: auto;
   display: block;
 }
@@ -59,7 +59,7 @@
   position: fixed;
   top: 0;
   inset: 0;
-  background-color: rgba(75, 75, 75, 0.5);
+  background-color: rgba(75, 75, 75, 0.7);
   z-index: 60;
   display: grid;
   column-gap: 16px;

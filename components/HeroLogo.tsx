@@ -63,13 +63,13 @@ export default function HeroLogo({ heroImage }: HeroLogoProps) {
 
     const measure = () => {
       // Reset to the resting state before measuring it. Width is computed
-      // directly (matching HeroLogo.css's `min(calc(100vw - 32px), 1200px)`)
+      // directly (matching HeroLogo.css's `min(calc(100vw - 16px), 1200px)`)
       // rather than cleared to "" and left to the stylesheet, since that
       // stylesheet may not have applied yet.
       img.style.transform = "translate(-50%, -50%)";
       img.style.left = "50%";
       img.style.top = "50vh";
-      img.style.width = `${Math.min(window.innerWidth - 32, 1200)}px`;
+      img.style.width = `${Math.min(window.innerWidth - 16, 1200)}px`;
       img.style.height = "auto";
       startRect = img.getBoundingClientRect();
 
