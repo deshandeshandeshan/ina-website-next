@@ -214,6 +214,30 @@ button {
 }
 
 /* Mobile Font Sizes */
+.serif-S {
+  font-family: "OrticaLinear", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.serif-L {
+  font-family: "OrticaLinear", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.serif-menu {
+  font-family: "OrticaLinear", sans-serif;
+  letter-spacing: 0.04em;
+  font-size: 32px;
+  line-height: 34px;
+  font-weight: 400;
+}
+
 .type-heading {
   font-size: 20px;
   line-height: 22px;
@@ -235,7 +259,7 @@ button {
 .type-body {
   font-size: 12px;
   line-height: 14px;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .type-body-bold {
@@ -300,6 +324,22 @@ button {
   }
 
   /* Desktop Font Sizes */
+
+  .serif-S {
+    font-family: "OrticaLinear", sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  .serif-L {
+    font-family: "OrticaLinear", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    font-size: 18px;
+    line-height: 14px;
+  }
 
   .type-heading {
     font-size: 32px;

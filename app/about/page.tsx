@@ -32,7 +32,7 @@ export default async function About() {
           )}
         </div>
         <div className="about-info-contanier">
-          <h2 className="about-heading type-body-bold spacing-4">ABOUT</h2>
+          <h2 className="about-heading serif-S spacing-12">ABOUT</h2>
           <div className="about-body-text spacing-32 type-body">
             <PortableText value={aboutInformation?.description ?? []} />
           </div>
@@ -40,9 +40,7 @@ export default async function About() {
           <p className="about-socials-body-text spacing-24 type-body uppercase-text">
             {aboutInformation?.email}
           </p>
-          <h2 className="about-socials-heading type-body-bold spacing-12">
-            SOCIALS
-          </h2>
+          <h2 className="about-socials-heading serif-S spacing-12">SOCIALS</h2>
           <div className="about-page-social-links spacing-24">
             {(aboutInformation?.aboutSocialLinks ?? []).map((link, index) => {
               const url = link?.url ?? "";

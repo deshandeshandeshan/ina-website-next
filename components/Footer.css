@@ -23,8 +23,14 @@
   align-items: flex-end;
 } */
 
+/* .footer-framing {
+  background-color: #4b4b4b;
+  color: #ecebeb;
+  padding: 16px;
+} */
+
 .book-li {
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 .book-link {
@@ -35,15 +41,10 @@
   font-size: 13vw;
   line-height: 1;
   letter-spacing: -0.1rem;
-  -webkit-text-stroke: 2px #4b4b4b;
-  /* Make the inside of the text completely see-through */
-  -webkit-text-fill-color: transparent;
 }
 
 .book-link:hover {
-  color: #80ef80;
-  -webkit-text-stroke: 2px #4b4b4b;
-  -webkit-text-fill-color: #80ef80;
+  color: #37ff00;
 }
 
 .footer-location {
@@ -85,28 +86,28 @@
 }
 
 @media screen and (min-width: 480px) {
-  .book-link {
-    -webkit-text-stroke: 4px #4b4b4b;
-  }
-
-  .book-link:hover {
-    -webkit-text-stroke: 4px #4b4b4b;
-  }
-
   .footer-page-links {
     display: block;
+  }
+
+  .footer-location {
+    padding-bottom: 0;
+  }
+
+  .footer-email {
+    padding-bottom: 0;
   }
 
   .book-link {
     font-size: 15vw;
     letter-spacing: -0.4rem;
-    color: #4b4b4b;
+    color: #37ff00;
     font-weight: 400;
     font-family: "Alagard", sans-serif;
   }
 
   .book-link:hover {
-    color: #80ef80;
+    color: #9d9d9d;
   }
 
   .footer-socials,

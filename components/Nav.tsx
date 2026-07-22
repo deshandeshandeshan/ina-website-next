@@ -5,7 +5,7 @@ import Image from "next/image";
 import "./Nav.css";
 import { useState } from "react";
 import "../app/globals.css";
-import InaRufinoName from "@/images/InaRufinoName.png";
+import InaRufinoName from "@/images/InaRufinoName3.png";
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,10 +15,14 @@ export default function Nav() {
       <div className="nav-content">
         <ul className="nav-links-left type-body-bold">
           <li className="nav-link">
-            <Link href="/">HOME</Link>
+            <Link href="/" className="serif-S">
+              HOME
+            </Link>
           </li>
           <li className="nav-link">
-            <Link href="/work">WORK</Link>
+            <Link href="/work" className="serif-S">
+              WORK
+            </Link>
           </li>
         </ul>
 
@@ -35,15 +39,19 @@ export default function Nav() {
 
         <ul className="nav-links-right type-body-bold">
           <li className="nav-link">
-            <Link href="/enquire">ENQUIRE</Link>
+            <Link href="/enquire" className="serif-S">
+              ENQUIRE
+            </Link>
           </li>
           <li className="nav-link">
-            <Link href="/about">ABOUT</Link>
+            <Link href="/about" className="serif-S">
+              ABOUT
+            </Link>
           </li>
         </ul>
 
         <button
-          className="menu-button type-body-bold"
+          className="menu-button serif-S"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? "Close" : "Menu"}
@@ -52,7 +60,7 @@ export default function Nav() {
 
       {menuOpen && (
         <div className="nav-overlay">
-          <ul className="nav-overlay-links type-heading">
+          <ul className="nav-overlay-links serif-menu">
             <li>
               <Link href="/" onClick={() => setMenuOpen(false)}>
                 HOME
