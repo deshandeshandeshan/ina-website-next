@@ -3,12 +3,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import "./Nav.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../app/globals.css";
 import InaRufinoName from "@/images/InaRufinoName3.png";
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   return (
     <header className="nav mobile-padding">
