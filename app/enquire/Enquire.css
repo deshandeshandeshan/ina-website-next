@@ -11,16 +11,22 @@
   padding-bottom: 120px;
 }
 
+.enquire-form-heading {
+  border-bottom: 1px solid #4b4b4b;
+}
+
 .enquire-heading {
   padding-bottom: 24px;
 }
 
 .enquire-faq-section {
   flex: 1;
+  order: 2;
 }
 
 .enquire-right {
   flex: 1;
+  order: 1;
 }
 
 /* --- Form --- */
@@ -29,6 +35,7 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+  padding-top: 14px;
 }
 
 .enquire-form-field {
@@ -45,7 +52,7 @@
 .enquire-form-textarea {
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #1e1f1f;
+  border-bottom: 1px solid #4b4b4b;
   padding: 8px 0;
   font-family: inherit;
   font-size: inherit;
@@ -61,7 +68,7 @@
 }
 
 .enquire-form-textarea {
-  border: 1px solid #1e1f1f;
+  border: 1px solid #4b4b4b;
   border-radius: 0.5rem;
   padding: 8px;
   resize: vertical;
@@ -76,8 +83,8 @@
   margin-top: 8px;
   border-radius: 0.5rem;
   padding: 10px 24px;
-  background-color: #4b4b4b;
-  color: #ecebeb;
+  background-color: #3a4647;
+  color: #80ef80;
   cursor: pointer;
   font-family: inherit;
   letter-spacing: 0.05em;
@@ -104,11 +111,11 @@
 }
 
 .enquire-faq-item {
-  border-bottom: 1px solid #1e1f1f;
+  border-bottom: 1px solid #4b4b4b;
 }
 
 .enquire-faq-item:first-child {
-  border-top: 1px solid #1e1f1f;
+  border-top: 1px solid #4b4b4b;
 }
 
 .enquire-faq-question {
@@ -156,5 +163,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     align-items: flex-start;
     gap: 16px;
     padding-bottom: 240px;
+  }
+
+  .enquire-faq-section {
+    order: initial;
+  }
+
+  .enquire-right {
+    order: initial;
   }
 }

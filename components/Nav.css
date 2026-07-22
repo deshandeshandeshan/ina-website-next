@@ -3,8 +3,12 @@
   display: none;
 }
 
+:root {
+  --nav-height: 68px;
+}
+
 .nav-spacer {
-  height: 68px;
+  height: var(--nav-height);
 }
 
 .nav {
@@ -104,7 +108,7 @@
     width: auto;
   }
 
-  .nav-spacer {
-    height: 122px;
+  :root {
+    --nav-height: 122px;
   }
 }

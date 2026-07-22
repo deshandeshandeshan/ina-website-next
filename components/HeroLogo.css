@@ -1,14 +1,46 @@
-.hero-logo-spacer {
+.hero-section {
+  position: relative;
   height: 100vh;
+  padding: 0 16px;
+}
+
+.hero-grid {
+  height: 100%;
+  /* .hero-section sits below the fixed nav's spacer, but .hero-logo is
+     fixed to the viewport's true 50vh. Shift up by the nav height so this
+     grid's own vertical center lines up with the logo instead of the
+     section's in-flow center. */
+  margin-top: calc(-1 * var(--nav-height));
+}
+
+.hero-image-wrapper {
+  grid-column: 1 / 7;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
 }
 
 .hero-logo {
   position: fixed;
-  top: 40vh;
+  top: 50vh;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: min(100vw, 1200px);
+  width: min(calc(100vw - 32px), 1200px);
   height: auto;
   z-index: 55;
   cursor: pointer;
+}
+
+@media screen and (min-width: 480px) {
+  .hero-image-wrapper {
+    grid-column: 9 / 17;
+  }
 }

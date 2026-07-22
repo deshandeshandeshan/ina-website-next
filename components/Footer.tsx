@@ -2,13 +2,14 @@ import { getFooterSettings } from "@/sanity/sanity.utils";
 import "./Footer.css";
 import "@/app/globals.css";
 import Link from "next/link";
+import "@/components/Grid.css";
 
 export default async function Footer() {
   const footerContent = await getFooterSettings();
 
   return (
     <footer className="footer-container">
-      <div className="footer footer-framing">
+      <div className="footer footer-framingv grid">
         <div className="footer-title">
           <h3 className="type-body-bold">INA RUFINO</h3>
         </div>
@@ -31,7 +32,7 @@ export default async function Footer() {
         <div className="book-li">
           <h1 className="book-link-container">
             <Link href="/enquire" className="book-link">
-              Enquire Now
+              ENQUIRE NOW
             </Link>
           </h1>
         </div>
@@ -39,19 +40,17 @@ export default async function Footer() {
           <h3 className="type-body-bold">NAARM, AUSTRALIA</h3>
         </div>
         {footerContent?.email && (
-          <div className="footer-email">
-            <a
-              href={`mailto:${footerContent.email}`}
-              className="type-body-bold uppercase-text"
-            >
-              {footerContent.email}
-            </a>
-          </div>
+          <a
+            href={`mailto:${footerContent.email}`}
+            className="type-body-bold uppercase-text footer-email"
+          >
+            {footerContent.email}
+          </a>
         )}
         {footerContent?.siteDesignAndDevelopment && (
           <div className="footer-development">
             <p className="type-body-bold uppercase-text">
-              {footerContent.siteDesignAndDevelopment}
+              Design and Dev by {footerContent.siteDesignAndDevelopment}
             </p>
           </div>
         )}

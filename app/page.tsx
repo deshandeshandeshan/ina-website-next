@@ -10,7 +10,7 @@ export default async function Home() {
 
   return homeContent?.content ? (
     <div className="home">
-      <HeroLogo />
+      <HeroLogo heroImage={homeContent.heroImage} />
       <PageBuilder content={homeContent.content} />
     </div>
   ) : null;

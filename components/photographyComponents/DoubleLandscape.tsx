@@ -17,6 +17,7 @@ type doubleLandscapeProps = Extract<
 export function DoubleLandscape({
   leftImage,
   rightImage,
+  overlayImage,
 }: doubleLandscapeProps) {
   const [activeImage, setActiveImage] = useState<{
     src: string;
@@ -70,6 +71,22 @@ export function DoubleLandscape({
             </div>
           )}
         </div>
+        {overlayImage ? (
+          <div className="double-landscape-overlay-image">
+            <Image
+              src={urlFor(overlayImage).auto("format").quality(90).url()}
+              alt={overlayImage?.alt || ""}
+              width={2160}
+              height={3840}
+              className="double-landscape-overlay-img"
+            />
+            {overlayImage?.caption && (
+              <div className="caption">
+                <p className="type-details-regular">{overlayImage.caption}</p>
+              </div>
+            )}
+          </div>
+        ) : null}
       </div>
       {activeImage && (
         <Lightbox

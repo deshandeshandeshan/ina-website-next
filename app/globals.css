@@ -4,6 +4,44 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "OrticaLinear";
+  src:
+    url("/fonts/ortica/OrticaLinear-Light.woff2") format("woff2"),
+    url("/fonts/ortica/OrticaLinear-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OrticaLinear";
+  src:
+    url("/fonts/ortica/OrticaLinear-Regular.woff2") format("woff2"),
+    url("/fonts/ortica/OrticaLinear-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OrticaLinear";
+  src:
+    url("/fonts/ortica/OrticaLinear-Bold.woff2") format("woff2"),
+    url("/fonts/ortica/OrticaLinear-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alagard";
+  src: url("/fonts/alagard/Alagard.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   font-family: "Inter", sans-serif;
 }

@@ -37,3 +37,24 @@
     padding-top: 80%;
   }
 }
+
+.large-image-left-overlay-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.large-image-left-overlay-image {
+  z-index: 2;
+  grid-column: 4 / 7;
+  grid-row: 1 / 2;
+  align-self: end;
+}
+
+@media screen and (min-width: 480px) {
+  .large-image-left-overlay-image {
+    grid-column: 10 / 16;
+    grid-row: 1 / 2;
+    align-self: start;
+  }
+}
