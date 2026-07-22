@@ -11,6 +11,24 @@ export const homeType = defineType({
       title: "Title",
       validation: (rule) => rule.required(),
     }),
+    defineField({
+      name: "heroImage",
+      title: "Hero Image",
+      description:
+        "Image displayed centered behind the hero logo at the top of the home page.",
+      type: "image",
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        defineField({
+          name: "alt",
+          type: "string",
+          title: "Alternative text",
+          description: "Important for SEO and accessibility.",
+        }),
+      ],
+    }),
     {
       name: "content",
       type: "pageBuilder",
@@ -77,6 +95,7 @@ export const homeType = defineType({
     select: {
       title: "title",
       subtitle: "slug.current",
+      media: "heroImage",
     },
   },
 });

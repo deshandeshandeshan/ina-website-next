@@ -56,7 +56,7 @@ export default async function About() {
                   target="_blank"
                   key={index}
                   rel="noopener noreferrer uppercase-text"
-                  className="about-page-social-link type-body spacing-4"
+                  className="about-page-social-link type-body"
                 >
                   {platform || url}
                 </a>

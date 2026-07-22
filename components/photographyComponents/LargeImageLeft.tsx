@@ -13,7 +13,11 @@ type largeImageLeftProps = Extract<
   { _type: "largeImageLeft" }
 >;
 
-export function LargeImageLeft({ leftImage, rightImage }: largeImageLeftProps) {
+export function LargeImageLeft({
+  leftImage,
+  rightImage,
+  overlayImage,
+}: largeImageLeftProps) {
   const [activeImage, setActiveImage] = useState<{
     src: string;
     alt?: string;
@@ -65,6 +69,23 @@ export function LargeImageLeft({ leftImage, rightImage }: largeImageLeftProps) {
           </div>
         )}
       </div>
+
+      {overlayImage ? (
+        <div className="large-image-left-overlay-image">
+          <Image
+            src={urlFor(overlayImage).auto("format").quality(90).url()}
+            width={1080}
+            height={1920}
+            alt={overlayImage.alt || ""}
+            className="large-image-left-overlay-img caption-spacing"
+          />
+          {overlayImage?.caption && (
+            <div className="caption">
+              <p className="type-details-regular">{overlayImage.caption}</p>
+            </div>
+          )}
+        </div>
+      ) : null}
 
       {activeImage && (
         <Lightbox

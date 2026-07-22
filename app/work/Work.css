@@ -11,12 +11,12 @@
 }
 
 .work-tab-button {
-  background-color: #4b4b4b;
+  background-color: #3a4647;
+  color: #80ef80;
   width: fit-content;
   border-radius: 8px;
   padding: 8px 18px;
   font-weight: 500;
-  color: #ecebeb;
   border: none;
   cursor: pointer;
   font-size: inherit;

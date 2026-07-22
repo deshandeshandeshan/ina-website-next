@@ -7,6 +7,7 @@
   display: flex;
   justify-content: flex-start;
   transition: all 2s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0px 16px;
 }
 
 .close-button-wrapper {
@@ -32,7 +33,7 @@
 .lightbox-img {
   max-width: 100vw;
   max-height: calc(100vh - 55px);
-  width: auto;
+  width: calc(100vw - 32px);
   height: auto;
   object-fit: contain;
 }
@@ -43,7 +44,7 @@
   }
 
   .lightbox-image {
-    top: 66px;
+    top: 32px;
     max-height: 100vh;
     display: flex;
     align-items: flex-end;

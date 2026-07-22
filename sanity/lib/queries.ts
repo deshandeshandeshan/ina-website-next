@@ -5,6 +5,7 @@ export const HOME_QUERY = defineQuery(`
     _id,
     _createdAt,
     title,
+    heroImage { alt, asset->{ _id, url, metadata { dimensions { width, height } } } },
     content[] {
       _key,
       _type,
@@ -13,35 +14,41 @@ export const HOME_QUERY = defineQuery(`
       _type == "doubleLandscape" => {
         title,
         leftImage { alt, caption, asset->{ _id, url } },
-        rightImage { alt, caption, asset->{ _id, url } }
+        rightImage { alt, caption, asset->{ _id, url } },
+        overlayImage { alt, caption, asset->{ _id, url } }
       },
 
       _type == "doublePortrait" => {
         title,
         leftImage { alt, caption, asset->{ _id, url } },
-        rightImage { alt, caption, asset->{ _id, url } }
+        rightImage { alt, caption, asset->{ _id, url } },
+        overlayImage { alt, caption, asset->{ _id, url } }
       },
 
       _type == "largeImageLeft" => {
         title,
         leftImage { alt, caption, asset->{ _id, url } },
-        rightImage { alt, caption, asset->{ _id, url } }
+        rightImage { alt, caption, asset->{ _id, url } },
+        overlayImage { alt, caption, asset->{ _id, url } }
       },
 
       _type == "largeImageRight" => {
         title,
         leftImage { alt, caption, asset->{ _id, url } },
-        rightImage { alt, caption, asset->{ _id, url } }
+        rightImage { alt, caption, asset->{ _id, url } },
+        overlayImage { alt, caption, asset->{ _id, url } }
       },
 
       _type == "singleLandscape" => {
         title,
-        image { alt, caption, asset->{ _id, url } }
+        image { alt, caption, asset->{ _id, url } },
+        overlayImage { alt, caption, asset->{ _id, url } }
       },
 
       _type == "singlePortrait" => {
         title,
-        image { alt, caption, asset->{ _id, url } }
+        image { alt, caption, asset->{ _id, url } },
+        overlayImage { alt, caption, asset->{ _id, url } }
       },
 
       _type == "largeText" => {
@@ -100,35 +107,41 @@ export const ABOUT_QUERY = defineQuery(`
       _type == "doubleLandscape" => {
         title,
         leftImage { alt, caption, asset->{ _id, url } },
-        rightImage { alt, caption, asset->{ _id, url } }
+        rightImage { alt, caption, asset->{ _id, url } },
+        overlayImage { alt, caption, asset->{ _id, url } }
       },
 
       _type == "doublePortrait" => {
         title,
         leftImage { alt, caption, asset->{ _id, url } },
-        rightImage { alt, caption, asset->{ _id, url } }
+        rightImage { alt, caption, asset->{ _id, url } },
+        overlayImage { alt, caption, asset->{ _id, url } }
       },
 
       _type == "largeImageLeft" => {
         title,
         leftImage { alt, caption, asset->{ _id, url } },
-        rightImage { alt, caption, asset->{ _id, url } }
+        rightImage { alt, caption, asset->{ _id, url } },
+        overlayImage { alt, caption, asset->{ _id, url } }
       },
 
       _type == "largeImageRight" => {
         title,
         leftImage { alt, caption, asset->{ _id, url } },
-        rightImage { alt, caption, asset->{ _id, url } }
+        rightImage { alt, caption, asset->{ _id, url } },
+        overlayImage { alt, caption, asset->{ _id, url } }
       },
 
       _type == "singleLandscape" => {
         title,
-        image { alt, caption, asset->{ _id, url } }
+        image { alt, caption, asset->{ _id, url } },
+        overlayImage { alt, caption, asset->{ _id, url } }
       },
 
       _type == "singlePortrait" => {
         title,
-        image { alt, caption, asset->{ _id, url } }
+        image { alt, caption, asset->{ _id, url } },
+        overlayImage { alt, caption, asset->{ _id, url } }
       },
 
       _type == "largeText" => {
@@ -191,35 +204,41 @@ const CATEGORY_CONTENT_PROJECTION = `
     _type == "doubleLandscape" => {
       title,
       leftImage { alt, caption, asset->{ _id, url } },
-      rightImage { alt, caption, asset->{ _id, url } }
+      rightImage { alt, caption, asset->{ _id, url } },
+      overlayImage { alt, caption, asset->{ _id, url } }
     },
 
     _type == "doublePortrait" => {
       title,
       leftImage { alt, caption, asset->{ _id, url } },
-      rightImage { alt, caption, asset->{ _id, url } }
+      rightImage { alt, caption, asset->{ _id, url } },
+      overlayImage { alt, caption, asset->{ _id, url } }
     },
 
     _type == "largeImageLeft" => {
       title,
       leftImage { alt, caption, asset->{ _id, url } },
-      rightImage { alt, caption, asset->{ _id, url } }
+      rightImage { alt, caption, asset->{ _id, url } },
+      overlayImage { alt, caption, asset->{ _id, url } }
     },
 
     _type == "largeImageRight" => {
       title,
       leftImage { alt, caption, asset->{ _id, url } },
-      rightImage { alt, caption, asset->{ _id, url } }
+      rightImage { alt, caption, asset->{ _id, url } },
+      overlayImage { alt, caption, asset->{ _id, url } }
     },
 
     _type == "singleLandscape" => {
       title,
-      image { alt, caption, asset->{ _id, url } }
+      image { alt, caption, asset->{ _id, url } },
+      overlayImage { alt, caption, asset->{ _id, url } }
     },
 
     _type == "singlePortrait" => {
       title,
-      image { alt, caption, asset->{ _id, url } }
+      image { alt, caption, asset->{ _id, url } },
+      overlayImage { alt, caption, asset->{ _id, url } }
     },
 
     _type == "largeText" => {

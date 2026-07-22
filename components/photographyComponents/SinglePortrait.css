@@ -6,7 +6,7 @@
 }
 
 .single-potrait-container {
-  grid-column: 1 / 7;
+  grid-column: 1 / 6;
   grid-row: 1 / 2;
 }
 
@@ -14,5 +14,26 @@
   .single-potrait-container {
     grid-column: 7 / 19;
     grid-row: 1 / 2;
+  }
+}
+
+.single-potrait-overlay-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.single-potrait-overlay-container {
+  z-index: 2;
+  grid-column: 3 / 7;
+  grid-row: 1 / 2;
+  align-self: end;
+}
+
+@media screen and (min-width: 480px) {
+  .single-potrait-overlay-container {
+    grid-column: 14 / 22;
+    grid-row: 1 / 2;
+    align-self: start;
   }
 }

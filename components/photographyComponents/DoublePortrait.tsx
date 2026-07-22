@@ -14,7 +14,11 @@ type doublePortraitProps = Extract<
   { _type: "doublePortrait" }
 >;
 
-export function DoublePortrait({ leftImage, rightImage }: doublePortraitProps) {
+export function DoublePortrait({
+  leftImage,
+  rightImage,
+  overlayImage,
+}: doublePortraitProps) {
   const [activeImage, setActiveImage] = useState<{
     src: string;
     alt?: string;
@@ -67,6 +71,22 @@ export function DoublePortrait({ leftImage, rightImage }: doublePortraitProps) {
             </div>
           )}
         </div>
+        {overlayImage ? (
+          <div className="double-portrait-overlay-image">
+            <Image
+              src={urlFor(overlayImage).auto("format").quality(90).url()}
+              alt={overlayImage?.alt ?? ""}
+              width={2160}
+              height={3840}
+              className="double-portrait-overlay-img"
+            />
+            {overlayImage?.caption && (
+              <div className="caption">
+                <p className="type-details-regular">{overlayImage.caption}</p>
+              </div>
+            )}
+          </div>
+        ) : null}
       </div>
       {activeImage && (
         <Lightbox

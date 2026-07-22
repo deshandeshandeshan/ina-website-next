@@ -10,8 +10,20 @@
   padding-top: 16px;
 }
 
+.full-bleed-img {
+  max-height: 80vh;
+}
+
+.caption {
+  grid-column: 1/9;
+}
+
 @media screen and (min-width: 480px) {
   .full-bleed-image-text {
     padding-top: 12px;
+  }
+
+  .caption {
+    grid-column: 5/25;
   }
 }

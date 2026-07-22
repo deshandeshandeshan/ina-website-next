@@ -13,17 +13,25 @@ type singlePortraitProps = Extract<
   { _type: "singlePortrait" }
 >;
 
-export function SinglePortrait({ image }: singlePortraitProps) {
-  const [lightBoxOpen, setLightBoxOpen] = useState(false);
+export function SinglePortrait({ image, overlayImage }: singlePortraitProps) {
+  const [activeImage, setActiveImage] = useState<{
+    src: string;
+    alt?: string;
+  } | null>(null);
 
   const imageUrl = image ? urlFor(image).auto("format").quality(90).url() : "";
+  const overlayImageUrl = overlayImage
+    ? urlFor(overlayImage).auto("format").quality(90).url()
+    : "";
 
   return (
     <section className="single-potrait grid mobile-padding">
       <div className="single-potrait-container">
         {image ? (
           <Image
-            onClick={() => setLightBoxOpen(!lightBoxOpen)}
+            onClick={() =>
+              setActiveImage({ src: imageUrl, alt: image.alt || "" })
+            }
             src={imageUrl}
             width={1080}
             height={1920}
@@ -38,11 +46,28 @@ export function SinglePortrait({ image }: singlePortraitProps) {
         )}
       </div>
 
-      {lightBoxOpen && (
+      {overlayImage ? (
+        <div className="single-potrait-overlay-container">
+          <Image
+            src={overlayImageUrl}
+            width={1080}
+            height={1920}
+            alt={overlayImage.alt || ""}
+            className="single-potrait-overlay-image caption-spacing"
+          />
+          {overlayImage.caption && (
+            <div className="caption">
+              <p className="type-details-regular">{overlayImage.caption}</p>
+            </div>
+          )}
+        </div>
+      ) : null}
+
+      {activeImage && (
         <Lightbox
-          src={imageUrl}
-          alt={image?.alt || ""}
-          onClose={() => setLightBoxOpen(false)}
+          src={activeImage.src}
+          alt={activeImage.alt || ""}
+          onClose={() => setActiveImage(null)}
         />
       )}
     </section>
