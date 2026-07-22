@@ -37,14 +37,14 @@
   display: inline-block;
   font-family: "Alagard", sans-serif;
   font-weight: 400;
-  color: #4b4b4b;
+  color: #37ff00;
   font-size: 13vw;
   line-height: 1;
   letter-spacing: -0.1rem;
 }
 
 .book-link:hover {
-  color: #37ff00;
+  color: #4b4b4b;
 }
 
 .footer-location {
