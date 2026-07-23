@@ -11,20 +11,20 @@ export default async function Footer() {
     <footer className="footer-container">
       <div className="footer footer-framing grid">
         <div className="footer-title">
-          <h3 className="type-body-bold">INA RUFINO</h3>
+          <h3 className="type-details-regular">INA RUFINO</h3>
         </div>
         <div className="footer-page-links">
           <ul>
-            <li className="spacing-4 type-body-bold">
+            <li className="spacing-4 type-details-regular">
               <Link href="/">HOME</Link>
             </li>
-            <li className="spacing-4 type-body-bold">
+            <li className="spacing-4 type-details-regular">
               <Link href="/work">WORK</Link>
             </li>
-            <li className="spacing-4 type-body-bold">
+            <li className="spacing-4 type-details-regular">
               <Link href="/enquire">ENQUIRE</Link>
             </li>
-            <li className="spacing-4 type-body-bold">
+            <li className="spacing-4 type-details-regular">
               <Link href="/about">ABOUT</Link>
             </li>
           </ul>
@@ -37,19 +37,19 @@ export default async function Footer() {
           </h1>
         </div>
         <div className="footer-location">
-          <h3 className="type-body-bold">NAARM, AUSTRALIA</h3>
+          <h3 className="type-details-regular">NAARM, AUSTRALIA</h3>
         </div>
         {footerContent?.email && (
           <a
             href={`mailto:${footerContent.email}`}
-            className=" uppercase-text footer-email type-body-bold"
+            className=" uppercase-text footer-email type-details-regular"
           >
             {footerContent.email}
           </a>
         )}
         {footerContent?.siteDesignAndDevelopment && (
           <div className="footer-development">
-            <p className=" uppercase-text type-body-bold">
+            <p className=" uppercase-text type-details-regular">
               Dev by {footerContent.siteDesignAndDevelopment}
             </p>
           </div>

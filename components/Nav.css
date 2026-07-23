@@ -64,7 +64,7 @@
   position: fixed;
   top: 0;
   inset: 0;
-  background-color: rgba(190, 190, 190, 0.9);
+  background-color: rgba(82, 82, 82, 0.7);
   z-index: 60;
   display: grid;
   column-gap: 16px;
@@ -78,7 +78,7 @@
   display: flex;
   text-align: center;
   flex-direction: column;
-  color: #4b4b4b;
+  color: #37ff00;
   gap: 16px;
 }
 
