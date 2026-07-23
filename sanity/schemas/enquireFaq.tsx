@@ -13,7 +13,8 @@ export const enquireFaq = defineType({
     defineField({
       name: "faqDescription",
       title: "Faq Description",
-      type: "text",
+      type: "array",
+      of: [{ type: "block" }],
     }),
   ],
 });

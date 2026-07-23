@@ -12,9 +12,11 @@ export function LargeText({ title, text }: largeTextProps) {
     <section className="large-text grid mobile-padding">
       <div className="large-text-content">
         {title && (
-          <h2 className="large-text-title spacing-12 serif-S">{title}</h2>
+          <h2 className="large-text-title spacing-12 type-details-regular">
+            {title}
+          </h2>
         )}
-        {text && <p className="large-text-body type-sub">{text}</p>}
+        {text && <p className="large-text-body serif-header">{text}</p>}
       </div>
     </section>
   );

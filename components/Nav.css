@@ -11,12 +11,17 @@
   height: var(--nav-height);
 }
 
+.nav-link {
+  color: #4b4b4b;
+}
+
 .nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 80;
+  /* background-color: rgba(75, 75, 75, 0.4); */
 }
 
 .nav-fade {
@@ -59,7 +64,7 @@
   position: fixed;
   top: 0;
   inset: 0;
-  background-color: rgba(75, 75, 75, 0.7);
+  background-color: rgba(190, 190, 190, 0.9);
   z-index: 60;
   display: grid;
   column-gap: 16px;
@@ -73,7 +78,7 @@
   display: flex;
   text-align: center;
   flex-direction: column;
-  color: #37ff00;
+  color: #4b4b4b;
   gap: 16px;
 }
 
@@ -98,7 +103,7 @@
     align-items: center;
     justify-content: center;
     gap: 60px;
-    padding: 20px 0;
+    padding: 12px 0;
   }
 
   .nav-header {
@@ -106,7 +111,7 @@
   }
 
   .nav-logo {
-    height: 82px;
+    height: 62px;
     width: auto;
   }
 

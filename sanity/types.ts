@@ -264,7 +264,24 @@ export type DoubleLandscape = {
 export type EnquireFaq = {
   _type: "enquireFaq";
   faqTitle?: string;
-  faqDescription?: string;
+  faqDescription?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
 };
 
 export type Enquire = {
@@ -779,7 +796,32 @@ export type HOME_QUERY_RESULT = {
         _key: string;
         _type: "enquireFaq";
         faqTitle?: string;
-        faqDescription?: string;
+        faqDescription?: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?:
+            | "blockquote"
+            | "h1"
+            | "h2"
+            | "h3"
+            | "h4"
+            | "h5"
+            | "h6"
+            | "normal";
+          listItem?: "bullet" | "number";
+          markDefs?: Array<{
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+        }>;
       }
     | {
         _key: string;
@@ -1082,7 +1124,32 @@ export type WORK_QUERY_RESULT = {
           _key: string;
           _type: "enquireFaq";
           faqTitle?: string;
-          faqDescription?: string;
+          faqDescription?: Array<{
+            children?: Array<{
+              marks?: Array<string>;
+              text?: string;
+              _type: "span";
+              _key: string;
+            }>;
+            style?:
+              | "blockquote"
+              | "h1"
+              | "h2"
+              | "h3"
+              | "h4"
+              | "h5"
+              | "h6"
+              | "normal";
+            listItem?: "bullet" | "number";
+            markDefs?: Array<{
+              href?: string;
+              _type: "link";
+              _key: string;
+            }>;
+            level?: number;
+            _type: "block";
+            _key: string;
+          }>;
         }
       | {
           _key: string;
@@ -1308,7 +1375,32 @@ export type WORK_QUERY_RESULT = {
           _key: string;
           _type: "enquireFaq";
           faqTitle?: string;
-          faqDescription?: string;
+          faqDescription?: Array<{
+            children?: Array<{
+              marks?: Array<string>;
+              text?: string;
+              _type: "span";
+              _key: string;
+            }>;
+            style?:
+              | "blockquote"
+              | "h1"
+              | "h2"
+              | "h3"
+              | "h4"
+              | "h5"
+              | "h6"
+              | "normal";
+            listItem?: "bullet" | "number";
+            markDefs?: Array<{
+              href?: string;
+              _type: "link";
+              _key: string;
+            }>;
+            level?: number;
+            _type: "block";
+            _key: string;
+          }>;
         }
       | {
           _key: string;
@@ -1534,7 +1626,32 @@ export type WORK_QUERY_RESULT = {
           _key: string;
           _type: "enquireFaq";
           faqTitle?: string;
-          faqDescription?: string;
+          faqDescription?: Array<{
+            children?: Array<{
+              marks?: Array<string>;
+              text?: string;
+              _type: "span";
+              _key: string;
+            }>;
+            style?:
+              | "blockquote"
+              | "h1"
+              | "h2"
+              | "h3"
+              | "h4"
+              | "h5"
+              | "h6"
+              | "normal";
+            listItem?: "bullet" | "number";
+            markDefs?: Array<{
+              href?: string;
+              _type: "link";
+              _key: string;
+            }>;
+            level?: number;
+            _type: "block";
+            _key: string;
+          }>;
         }
       | {
           _key: string;
@@ -1699,13 +1816,30 @@ export type WORK_QUERY_RESULT = {
 
 // Source: sanity/lib/queries.ts
 // Variable: ENQUIRE_QUERY
-// Query: *[_type == "enquire"][0] {    _id,    title,    faqs[] {      faqTitle,      faqDescription    }  }
+// Query: *[_type == "enquire"][0] {    _id,    title,    faqs[] {      faqTitle,      faqDescription[]    }  }
 export type ENQUIRE_QUERY_RESULT = {
   _id: string;
   title: string | null;
   faqs: Array<{
     faqTitle: string | null;
-    faqDescription: string | null;
+    faqDescription: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }> | null;
   }> | null;
 } | null;
 
@@ -1718,6 +1852,6 @@ declare module "@sanity/client" {
     '\n  *[_type == "footerSettings"][0] {\n    _id,\n    _createdAt,\n    description,\n    email,\n    socialLinks[] {\n      platform,\n      url\n    },\n    siteDesignAndDevelopment\n  }\n': FOOTER_SETTINGS_RESULT;
     '\n  *[_type == "siteSettings"][0]{\n    siteTitle,\n    defaultDescription,\n    navSubheading\n  }\n': SITE_SETTINGS_RESULT;
     '\n  *[_type == "work"][0] {\n    _id,\n    _createdAt,\n    title,\n    tattoo { \n  categoryName,\n  content[] {\n    _key,\n    _type,\n    ...,\n\n    _type == "doubleLandscape" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "doublePortrait" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageLeft" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageRight" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singleLandscape" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singlePortrait" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeText" => {\n      title,\n      text\n    },\n\n    _type == "fullBleedImage" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      text\n    },\n\n    _type == "fullBleedImageRight" => {\n      title,\n      imageLeft { alt, caption, asset->{ _id, url } },\n      imageRight { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "imageCarousel" => {\n      title,\n      carouselImages[] {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      }\n    }\n  }\n },\n    illustration { \n  categoryName,\n  content[] {\n    _key,\n    _type,\n    ...,\n\n    _type == "doubleLandscape" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "doublePortrait" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageLeft" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageRight" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singleLandscape" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singlePortrait" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeText" => {\n      title,\n      text\n    },\n\n    _type == "fullBleedImage" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      text\n    },\n\n    _type == "fullBleedImageRight" => {\n      title,\n      imageLeft { alt, caption, asset->{ _id, url } },\n      imageRight { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "imageCarousel" => {\n      title,\n      carouselImages[] {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      }\n    }\n  }\n },\n    painting { \n  categoryName,\n  content[] {\n    _key,\n    _type,\n    ...,\n\n    _type == "doubleLandscape" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "doublePortrait" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageLeft" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageRight" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singleLandscape" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singlePortrait" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeText" => {\n      title,\n      text\n    },\n\n    _type == "fullBleedImage" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      text\n    },\n\n    _type == "fullBleedImageRight" => {\n      title,\n      imageLeft { alt, caption, asset->{ _id, url } },\n      imageRight { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "imageCarousel" => {\n      title,\n      carouselImages[] {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      }\n    }\n  }\n }\n  }\n': WORK_QUERY_RESULT;
-    '\n  *[_type == "enquire"][0] {\n    _id,\n    title,\n    faqs[] {\n      faqTitle,\n      faqDescription\n    }\n  }\n': ENQUIRE_QUERY_RESULT;
+    '\n  *[_type == "enquire"][0] {\n    _id,\n    title,\n    faqs[] {\n      faqTitle,\n      faqDescription[]\n    }\n  }\n': ENQUIRE_QUERY_RESULT;
   }
 }

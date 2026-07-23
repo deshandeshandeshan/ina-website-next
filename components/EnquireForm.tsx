@@ -45,7 +45,9 @@ export function EnquireForm() {
 
   return (
     <div>
-      <div className="enquire-form-heading serif-S spacing-24">ENQUIRE</div>
+      <div className="enquire-form-heading type-details-regular spacing-24">
+        ENQUIRE
+      </div>
       <form className="enquire-form" onSubmit={handleSubmit}>
         <div className="enquire-form-field">
           <label htmlFor="name" className="enquire-form-label type-body-bold">
