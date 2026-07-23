@@ -32,15 +32,19 @@ export default async function About() {
           )}
         </div>
         <div className="about-info-contanier">
-          <h2 className="about-heading serif-S spacing-12">ABOUT</h2>
-          <div className="about-body-text spacing-32 type-body">
+          <h2 className="about-heading type-details-regular spacing-12">
+            ABOUT
+          </h2>
+          <div className="about-body-text spacing-32 serif-L">
             <PortableText value={aboutInformation?.description ?? []} />
           </div>
 
-          <p className="about-socials-body-text spacing-24 type-body uppercase-text">
+          <p className="about-socials-body-text spacing-24 uppercase-text">
             {aboutInformation?.email}
           </p>
-          <h2 className="about-socials-heading serif-S spacing-12">SOCIALS</h2>
+          <h2 className="about-socials-heading type-details-regular spacing-12">
+            SOCIALS
+          </h2>
           <div className="about-page-social-links spacing-24">
             {(aboutInformation?.aboutSocialLinks ?? []).map((link, index) => {
               const url = link?.url ?? "";
@@ -54,7 +58,7 @@ export default async function About() {
                   target="_blank"
                   key={index}
                   rel="noopener noreferrer uppercase-text"
-                  className="about-page-social-link type-body"
+                  className="about-page-social-link type-body-bold"
                 >
                   {platform || url}
                 </a>

@@ -5,7 +5,7 @@ import Image from "next/image";
 import "./Nav.css";
 import { useEffect, useState } from "react";
 import "../app/globals.css";
-import InaRufinoName from "@/images/InaRufinoName3.png";
+import InaRufinoName from "@/images/InaRufinoName.png";
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,12 +22,12 @@ export default function Nav() {
       <div className="nav-content">
         <ul className="nav-links-left type-body-bold">
           <li className="nav-link">
-            <Link href="/" className="serif-S">
+            <Link href="/" className="type-details-regular">
               HOME
             </Link>
           </li>
           <li className="nav-link">
-            <Link href="/work" className="serif-S">
+            <Link href="/work" className="type-details-regular">
               WORK
             </Link>
           </li>
@@ -46,19 +46,19 @@ export default function Nav() {
 
         <ul className="nav-links-right type-body-bold">
           <li className="nav-link">
-            <Link href="/enquire" className="serif-S">
+            <Link href="/enquire" className="type-details-regular">
               ENQUIRE
             </Link>
           </li>
           <li className="nav-link">
-            <Link href="/about" className="serif-S">
+            <Link href="/about" className="type-details-regular">
               ABOUT
             </Link>
           </li>
         </ul>
 
         <button
-          className="menu-button serif-L"
+          className="menu-button type-body-bold"
           onClick={() => setMenuOpen(!menuOpen)}
         >
           {menuOpen ? "Close" : "Menu"}

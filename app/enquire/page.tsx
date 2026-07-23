@@ -2,6 +2,7 @@ import { getEnquire } from "@/sanity/sanity.utils";
 import { EnquireForm } from "@/components/EnquireForm";
 import "@/components/Grid.css";
 import "./Enquire.css";
+import { PortableText } from "next-sanity";
 
 export const revalidate = 5;
 
@@ -15,16 +16,18 @@ export default async function Enquire() {
       <div className="enquire-layout">
         {faqs.length > 0 && (
           <div className="enquire-faq-section">
-            <h2 className="enquire-faq-heading serif-S spacing-24">FAQ</h2>
+            <h2 className="enquire-faq-heading type-details-regular spacing-24">
+              FAQ
+            </h2>
             <div className="enquire-faq-list">
               {faqs.map((faq, index) => (
                 <details key={index} className="enquire-faq-item">
                   <summary className="enquire-faq-question type-body-bold">
                     {faq.faqTitle}
                   </summary>
-                  <p className="enquire-faq-answer type-body">
-                    {faq.faqDescription}
-                  </p>
+                  <div className="enquire-faq-answer serif-L">
+                    <PortableText value={faq.faqDescription ?? []} />
+                  </div>
                 </details>
               ))}
             </div>

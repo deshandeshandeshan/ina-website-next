@@ -44,7 +44,7 @@ export function FullBleedImage({ title, image, text }: fullBleedImageProps) {
       {text && (
         <div className="full-bleed-image-text mobile-padding grid">
           {text && (
-            <p className="full-bleed-image-body type-sub caption">{text}</p>
+            <p className="full-bleed-image-body serif-header caption">{text}</p>
           )}
         </div>
       )}

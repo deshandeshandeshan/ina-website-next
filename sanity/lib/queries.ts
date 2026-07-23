@@ -285,7 +285,7 @@ export const ENQUIRE_QUERY = defineQuery(`
     title,
     faqs[] {
       faqTitle,
-      faqDescription
+      faqDescription[]
     }
   }
 `);
