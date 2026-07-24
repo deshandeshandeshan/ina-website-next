@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useLayoutEffect, useRef } from "react";
 import "./HeroLogo.css";
 import "@/components/Grid.css";
-import InaRufinoName from "@/images/InaRufinoName.png";
+import InaRufinoName from "@/images/InaRufinoName2.png";
 import { urlFor } from "@/sanity/lib/image";
 import { HOME_QUERY_RESULT } from "@/sanity/types";
 
@@ -68,7 +68,7 @@ export default function HeroLogo({ heroImage }: HeroLogoProps) {
       // stylesheet may not have applied yet.
       img.style.transform = "translate(-50%, -50%)";
       img.style.left = "50%";
-      img.style.top = "50vh";
+      img.style.top = "32vh";
       img.style.width = `${Math.min(window.innerWidth - 16, 1200)}px`;
       img.style.height = "auto";
       startRect = img.getBoundingClientRect();

@@ -6,11 +6,10 @@
 
 .hero-grid {
   height: 100%;
-  /* .hero-section sits below the fixed nav's spacer, but .hero-logo is
-     fixed to the viewport's true 50vh. Shift up by the nav height so this
-     grid's own vertical center lines up with the logo instead of the
-     section's in-flow center. */
-  margin-top: calc(-1 * var(--nav-height));
+  /* .hero-section sits below the fixed nav's spacer. Shift up by the nav
+     height so this grid's own vertical center lines up with the viewport's
+     true 50vh (the section's in-flow center would otherwise sit lower). */
+  margin-top: calc(-1 * var(--nav-height) + 4vh);
 }
 
 .hero-image-wrapper {
@@ -30,7 +29,7 @@
 
 .hero-logo {
   position: fixed;
-  top: 50vh;
+  top: 32vh;
   left: 50%;
   transform: translate(-50%, -50%);
   width: min(calc(100vw - 16px), 1200px);
@@ -40,6 +39,14 @@
 }
 
 @media screen and (min-width: 480px) {
+  .hero-grid {
+    height: 100%;
+    /* .hero-section sits below the fixed nav's spacer. Shift up by the nav
+     height so this grid's own vertical center lines up with the viewport's
+     true 50vh (the section's in-flow center would otherwise sit lower). */
+    margin-top: calc(-1 * var(--nav-height) + 14vh);
+  }
+
   .hero-image-wrapper {
     grid-column: 9 / 17;
   }
