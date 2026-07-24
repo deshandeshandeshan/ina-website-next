@@ -6,6 +6,7 @@ export const HOME_QUERY = defineQuery(`
     _createdAt,
     title,
     heroImage { alt, asset->{ _id, url, metadata { dimensions { width, height } } } },
+    seo { title, description },
     content[] {
       _key,
       _type,
@@ -99,6 +100,7 @@ export const ABOUT_QUERY = defineQuery(`
       name,
       url
     },
+    seo { title, description },
     content[] {
       _key,
       _type,
@@ -178,19 +180,17 @@ export const FOOTER_SETTINGS = defineQuery(`
     _createdAt,
     description,
     email,
-    socialLinks[] {
-      platform,
+    siteDesignAndDevelopment {
+      name,
       url
-    },
-    siteDesignAndDevelopment
+    }
   }
 `);
 
 export const SITE_SETTINGS = defineQuery(`
   *[_type == "siteSettings"][0]{
     siteTitle,
-    defaultDescription,
-    navSubheading
+    defaultDescription
   }
 `);
 
@@ -275,7 +275,8 @@ export const WORK_QUERY = defineQuery(`
     title,
     tattoo { ${CATEGORY_CONTENT_PROJECTION} },
     illustration { ${CATEGORY_CONTENT_PROJECTION} },
-    painting { ${CATEGORY_CONTENT_PROJECTION} }
+    painting { ${CATEGORY_CONTENT_PROJECTION} },
+    seo { title, description }
   }
 `);
 
@@ -286,6 +287,7 @@ export const ENQUIRE_QUERY = defineQuery(`
     faqs[] {
       faqTitle,
       faqDescription[]
-    }
+    },
+    seo { title, description }
   }
 `);

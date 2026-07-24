@@ -7,6 +7,7 @@ import { Lightbox } from "../Lightbox";
 import "./SingleLandscape.css";
 import "@/components/Grid.css";
 import { useState } from "react";
+import { IMAGE_SIZES } from "@/sanity/lib/imageSizes";
 
 type singleLandscapeProps = Extract<
   NonNullable<NonNullable<HOME_QUERY_RESULT>["content"]>[number],
@@ -22,9 +23,19 @@ export function SingleLandscape({
     alt?: string;
   } | null>(null);
 
-  const imageUrl = image ? urlFor(image).auto("format").quality(90).url() : "";
+  const imageUrl = image
+    ? urlFor(image)
+        .auto("format")
+        .quality(90)
+        .width(IMAGE_SIZES.lightbox.width)
+        .url()
+    : "";
   const overlayImageUrl = overlayImage
-    ? urlFor(overlayImage).auto("format").quality(90).url()
+    ? urlFor(overlayImage)
+        .auto("format")
+        .quality(90)
+        .width(IMAGE_SIZES.small.width)
+        .url()
     : "";
 
   return (
@@ -36,6 +47,7 @@ export function SingleLandscape({
               setActiveImage({ src: imageUrl, alt: image.alt || "" })
             }
             src={imageUrl}
+            sizes={IMAGE_SIZES.wide.sizes}
             width={1920}
             height={1080}
             alt={image.alt || ""}
@@ -53,6 +65,7 @@ export function SingleLandscape({
         <div className="single-landscape-overlay-image">
           <Image
             src={overlayImageUrl}
+            sizes={IMAGE_SIZES.small.sizes}
             width={1920}
             height={1080}
             alt={overlayImage.alt || ""}

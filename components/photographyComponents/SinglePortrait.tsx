@@ -7,6 +7,7 @@ import "./SinglePortrait.css";
 import "@/components/Grid.css";
 import { useState } from "react";
 import { Lightbox } from "../Lightbox";
+import { IMAGE_SIZES } from "@/sanity/lib/imageSizes";
 
 type singlePortraitProps = Extract<
   NonNullable<NonNullable<HOME_QUERY_RESULT>["content"]>[number],
@@ -19,9 +20,19 @@ export function SinglePortrait({ image, overlayImage }: singlePortraitProps) {
     alt?: string;
   } | null>(null);
 
-  const imageUrl = image ? urlFor(image).auto("format").quality(90).url() : "";
+  const imageUrl = image
+    ? urlFor(image)
+        .auto("format")
+        .quality(90)
+        .width(IMAGE_SIZES.lightbox.width)
+        .url()
+    : "";
   const overlayImageUrl = overlayImage
-    ? urlFor(overlayImage).auto("format").quality(90).url()
+    ? urlFor(overlayImage)
+        .auto("format")
+        .quality(90)
+        .width(IMAGE_SIZES.small.width)
+        .url()
     : "";
 
   return (
@@ -33,6 +44,7 @@ export function SinglePortrait({ image, overlayImage }: singlePortraitProps) {
               setActiveImage({ src: imageUrl, alt: image.alt || "" })
             }
             src={imageUrl}
+            sizes={IMAGE_SIZES.large.sizes}
             width={1080}
             height={1920}
             alt={image.alt || ""}
@@ -50,6 +62,7 @@ export function SinglePortrait({ image, overlayImage }: singlePortraitProps) {
         <div className="single-potrait-overlay-container">
           <Image
             src={overlayImageUrl}
+            sizes={IMAGE_SIZES.small.sizes}
             width={1080}
             height={1920}
             alt={overlayImage.alt || ""}

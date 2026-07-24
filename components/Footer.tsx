@@ -47,10 +47,22 @@ export default async function Footer() {
             {footerContent.email}
           </a>
         )}
-        {footerContent?.siteDesignAndDevelopment && (
+        {footerContent?.siteDesignAndDevelopment?.name && (
           <div className="footer-development">
             <p className=" uppercase-text type-details-regular">
-              Dev by {footerContent.siteDesignAndDevelopment}
+              Dev by{" "}
+              {footerContent.siteDesignAndDevelopment.url ? (
+                <a
+                  href={footerContent.siteDesignAndDevelopment.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-development-link"
+                >
+                  {footerContent.siteDesignAndDevelopment.name}
+                </a>
+              ) : (
+                footerContent.siteDesignAndDevelopment.name
+              )}
             </p>
           </div>
         )}

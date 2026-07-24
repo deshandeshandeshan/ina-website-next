@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Lightbox } from "../Lightbox";
 import "./ImageCarousel.css";
+import { IMAGE_SIZES } from "@/sanity/lib/imageSizes";
 
 type imageCarouselProps = Extract<
   NonNullable<NonNullable<HOME_QUERY_RESULT>["content"]>[number],
@@ -21,8 +22,21 @@ export function ImageCarousel({ title, carouselImages }: imageCarouselProps) {
   if (images.length === 0) return null;
 
   const activeSlide = images[imageIndex];
+  // Kept small since this is fetched on every prev/next click; the lightbox
+  // requests its own higher-resolution version only when actually opened.
   const activeImageUrl = activeSlide?.image
-    ? urlFor(activeSlide.image).auto("format").quality(90).url()
+    ? urlFor(activeSlide.image)
+        .auto("format")
+        .quality(90)
+        .width(IMAGE_SIZES.carousel.width)
+        .url()
+    : "";
+  const activeLightboxUrl = activeSlide?.image
+    ? urlFor(activeSlide.image)
+        .auto("format")
+        .quality(85)
+        .width(IMAGE_SIZES.lightbox.width)
+        .url()
     : "";
 
   const showPrevImage = () => {
@@ -46,6 +60,7 @@ export function ImageCarousel({ title, carouselImages }: imageCarouselProps) {
             <Image
               onClick={() => setLightBoxOpen(true)}
               src={activeImageUrl}
+              sizes={IMAGE_SIZES.carousel.sizes}
               width={1920}
               height={1920}
               alt={activeSlide.image.alt || ""}
@@ -82,7 +97,7 @@ export function ImageCarousel({ title, carouselImages }: imageCarouselProps) {
 
       {lightBoxOpen && (
         <Lightbox
-          src={activeImageUrl}
+          src={activeLightboxUrl}
           alt={activeSlide?.image?.alt || ""}
           onClose={() => setLightBoxOpen(false)}
         />

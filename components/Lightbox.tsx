@@ -23,8 +23,9 @@ export function Lightbox({ src, alt, onClose }: LightboxProps) {
       <div className="lightbox-image">
         <Image
           src={src}
-          width={1600}
-          height={800}
+          width={2000}
+          height={1000}
+          sizes="100vw"
           alt={alt || ""}
           className="lightbox-img"
         />

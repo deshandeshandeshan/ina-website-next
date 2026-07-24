@@ -8,6 +8,7 @@ import "./DoubleLandscape.css";
 import "@/components/Grid.css";
 import { useState } from "react";
 import { Lightbox } from "../Lightbox";
+import { IMAGE_SIZES } from "@/sanity/lib/imageSizes";
 
 type doubleLandscapeProps = Extract<
   NonNullable<NonNullable<HOME_QUERY_RESULT>["content"]>[number],
@@ -32,11 +33,20 @@ export function DoubleLandscape({
             <Image
               onClick={() =>
                 setActiveImage({
-                  src: urlFor(leftImage).url(),
+                  src: urlFor(leftImage)
+                    .auto("format")
+                    .quality(85)
+                    .width(IMAGE_SIZES.lightbox.width)
+                    .url(),
                   alt: leftImage?.alt || "",
                 })
               }
-              src={urlFor(leftImage).auto("format").quality(90).url()}
+              src={urlFor(leftImage)
+                .auto("format")
+                .quality(90)
+                .width(IMAGE_SIZES.large.width)
+                .url()}
+              sizes={IMAGE_SIZES.large.sizes}
               alt={leftImage?.alt || ""}
               width={2160}
               height={3840}
@@ -54,11 +64,20 @@ export function DoubleLandscape({
             <Image
               onClick={() =>
                 setActiveImage({
-                  src: urlFor(rightImage).url(),
+                  src: urlFor(rightImage)
+                    .auto("format")
+                    .quality(85)
+                    .width(IMAGE_SIZES.lightbox.width)
+                    .url(),
                   alt: rightImage?.alt || "",
                 })
               }
-              src={urlFor(rightImage).auto("format").quality(90).url()}
+              src={urlFor(rightImage)
+                .auto("format")
+                .quality(90)
+                .width(IMAGE_SIZES.large.width)
+                .url()}
+              sizes={IMAGE_SIZES.large.sizes}
               alt={rightImage?.alt || ""}
               width={2160}
               height={3840}
@@ -74,7 +93,12 @@ export function DoubleLandscape({
         {overlayImage ? (
           <div className="double-landscape-overlay-image">
             <Image
-              src={urlFor(overlayImage).auto("format").quality(90).url()}
+              src={urlFor(overlayImage)
+                .auto("format")
+                .quality(90)
+                .width(IMAGE_SIZES.small.width)
+                .url()}
+              sizes={IMAGE_SIZES.small.sizes}
               alt={overlayImage?.alt || ""}
               width={2160}
               height={3840}

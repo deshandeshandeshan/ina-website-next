@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { urlFor } from "@/sanity/lib/image";
 import { getAbout } from "@/sanity/sanity.utils";
 import Image from "next/image";
@@ -5,8 +6,15 @@ import "./About.css";
 import "@/components/Grid.css";
 import { PageBuilder } from "@/components/PageBuilder";
 import { PortableText } from "next-sanity";
+import { buildPageMetadata } from "@/sanity/lib/metadata";
+import { IMAGE_SIZES } from "@/sanity/lib/imageSizes";
 
 export const revalidate = 5;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const aboutInformation = await getAbout();
+  return buildPageMetadata(aboutInformation?.seo);
+}
 
 export default async function About() {
   const aboutInformation = await getAbout();
@@ -22,7 +30,9 @@ export default async function About() {
               src={urlFor(aboutInformation?.aboutImage)
                 .auto("format")
                 .quality(85)
+                .width(IMAGE_SIZES.medium.width)
                 .url()}
+              sizes={IMAGE_SIZES.medium.sizes}
               width={800}
               height={800}
               alt={aboutInformation?.aboutImage.alt || ""}

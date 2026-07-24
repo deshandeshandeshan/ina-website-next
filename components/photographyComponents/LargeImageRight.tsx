@@ -6,6 +6,7 @@ import Image from "next/image";
 import "./LargeImageRight.css";
 import "@/components/Grid.css";
 import { useState } from "react";
+import { IMAGE_SIZES } from "@/sanity/lib/imageSizes";
 import { Lightbox } from "../Lightbox";
 
 type largeImageRightProps = Extract<
@@ -30,11 +31,20 @@ export function LargeImageRight({
           <Image
             onClick={() =>
               setActiveImage({
-                src: urlFor(leftImage).url(),
+                src: urlFor(leftImage)
+                  .auto("format")
+                  .quality(85)
+                  .width(IMAGE_SIZES.lightbox.width)
+                  .url(),
                 alt: leftImage.alt || "",
               })
             }
-            src={urlFor(leftImage).auto("format").quality(90).url()}
+            src={urlFor(leftImage)
+              .auto("format")
+              .quality(90)
+              .width(IMAGE_SIZES.large.width)
+              .url()}
+            sizes={IMAGE_SIZES.large.sizes}
             width={1080}
             height={1920}
             alt={leftImage.alt || ""}
@@ -52,11 +62,20 @@ export function LargeImageRight({
           <Image
             onClick={() =>
               setActiveImage({
-                src: urlFor(rightImage).url(),
+                src: urlFor(rightImage)
+                  .auto("format")
+                  .quality(85)
+                  .width(IMAGE_SIZES.lightbox.width)
+                  .url(),
                 alt: rightImage.alt || "",
               })
             }
-            src={urlFor(rightImage).auto("format").quality(90).url()}
+            src={urlFor(rightImage)
+              .auto("format")
+              .quality(90)
+              .width(IMAGE_SIZES.large.width)
+              .url()}
+            sizes={IMAGE_SIZES.large.sizes}
             width={1080}
             height={1920}
             alt={rightImage.alt || ""}
@@ -73,7 +92,12 @@ export function LargeImageRight({
       {overlayImage ? (
         <div className="lir-overlay-image">
           <Image
-            src={urlFor(overlayImage).auto("format").quality(90).url()}
+            src={urlFor(overlayImage)
+              .auto("format")
+              .quality(90)
+              .width(IMAGE_SIZES.small.width)
+              .url()}
+            sizes={IMAGE_SIZES.small.sizes}
             width={1080}
             height={1920}
             alt={overlayImage.alt || ""}

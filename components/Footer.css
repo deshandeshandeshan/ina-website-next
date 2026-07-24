@@ -43,6 +43,11 @@
   letter-spacing: -0.1rem;
 }
 
+.footer-development-link {
+  color: #37ff00;
+  font-weight: 800;
+}
+
 .book-link:hover {
   color: #4b4b4b;
 }
