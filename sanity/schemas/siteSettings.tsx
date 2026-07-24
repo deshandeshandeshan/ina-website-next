@@ -27,10 +27,5 @@ export const siteSettings = defineType({
       validation: (Rule) =>
         Rule.max(160).warning("Should be under 160 characters."),
     }),
-    defineField({
-      name: "navSubheading",
-      title: "Nav subheading",
-      type: "string",
-    }),
   ],
 });

@@ -10,6 +10,8 @@ export default function AdminPage() {
     headerElement[0].style.display = "none";
     const footerElement = document.getElementsByTagName("footer");
     footerElement[0].style.display = "none";
+    const spacerElement = document.querySelector<HTMLElement>(".nav-spacer");
+    if (spacerElement) spacerElement.style.display = "none";
   }, []);
   return <NextStudio config={config} />;
 }

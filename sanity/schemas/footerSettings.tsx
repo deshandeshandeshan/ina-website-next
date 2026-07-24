@@ -13,39 +13,23 @@ export const footerSettingsType = defineType({
       title: "Email",
     }),
     defineField({
-      name: "socialLinks",
-      type: "array",
-      title: "Social Links",
-      validation: (rule) =>
-        rule
-          .min(1)
-          .max(3)
-          .error("You must add at least 1 social link and no more than 3."),
-      of: [
-        {
-          type: "object",
-          name: "socialLink",
-          title: "Social Link",
-          fields: [
-            {
-              name: "platform",
-              type: "string",
-              title: "Platform",
-            },
-            {
-              name: "url",
-              type: "url",
-              title: "URL",
-            },
-          ],
-        },
-      ],
-    }),
-    defineField({
       name: "siteDesignAndDevelopment",
-      type: "string",
+      type: "object",
       title: "Site Design and Development",
-      description: "Text to display for site design and development credit",
+      description:
+        "Credit displayed in the footer, linking to the published URL.",
+      fields: [
+        defineField({
+          name: "name",
+          type: "string",
+          title: "Name",
+        }),
+        defineField({
+          name: "url",
+          type: "url",
+          title: "URL",
+        }),
+      ],
     }),
   ],
   preview: {

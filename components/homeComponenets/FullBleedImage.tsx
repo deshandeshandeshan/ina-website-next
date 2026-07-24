@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Lightbox } from "../Lightbox";
 import "./FullBleedImage.css";
 import "@/components/Grid.css";
+import { IMAGE_SIZES } from "@/sanity/lib/imageSizes";
 
 type fullBleedImageProps = Extract<
   NonNullable<NonNullable<HOME_QUERY_RESULT>["content"]>[number],
@@ -16,7 +17,13 @@ type fullBleedImageProps = Extract<
 export function FullBleedImage({ title, image, text }: fullBleedImageProps) {
   const [lightBoxOpen, setLightBoxOpen] = useState(false);
 
-  const imageUrl = image ? urlFor(image).auto("format").quality(90).url() : "";
+  const imageUrl = image
+    ? urlFor(image)
+        .auto("format")
+        .quality(85)
+        .width(IMAGE_SIZES.fullBleed.width)
+        .url()
+    : "";
 
   return (
     <section className="full-bleed-image">
@@ -34,6 +41,7 @@ export function FullBleedImage({ title, image, text }: fullBleedImageProps) {
           <Image
             onClick={() => setLightBoxOpen(!lightBoxOpen)}
             src={imageUrl}
+            sizes={IMAGE_SIZES.fullBleed.sizes}
             width={2560}
             height={1440}
             alt={image.alt || ""}

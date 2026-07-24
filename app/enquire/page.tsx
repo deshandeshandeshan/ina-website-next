@@ -1,10 +1,17 @@
+import type { Metadata } from "next";
 import { getEnquire } from "@/sanity/sanity.utils";
 import { EnquireForm } from "@/components/EnquireForm";
 import "@/components/Grid.css";
 import "./Enquire.css";
 import { PortableText } from "next-sanity";
+import { buildPageMetadata } from "@/sanity/lib/metadata";
 
 export const revalidate = 5;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const enquireContent = await getEnquire();
+  return buildPageMetadata(enquireContent?.seo);
+}
 
 export default async function Enquire() {
   const enquireContent = await getEnquire();

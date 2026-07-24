@@ -7,6 +7,7 @@ import "./HeroLogo.css";
 import "@/components/Grid.css";
 import InaRufinoName from "@/images/InaRufinoName2.png";
 import { urlFor } from "@/sanity/lib/image";
+import { IMAGE_SIZES } from "@/sanity/lib/imageSizes";
 import { HOME_QUERY_RESULT } from "@/sanity/types";
 
 // Fraction of viewport height the shrink animation plays out over.
@@ -109,7 +110,12 @@ export default function HeroLogo({ heroImage }: HeroLogoProps) {
           {heroImage?.asset?.url && (
             <div className="hero-image-wrapper">
               <Image
-                src={urlFor(heroImage).auto("format").quality(90).url()}
+                src={urlFor(heroImage)
+                  .auto("format")
+                  .quality(90)
+                  .width(IMAGE_SIZES.hero.width)
+                  .url()}
+                sizes={IMAGE_SIZES.hero.sizes}
                 alt={heroImage.alt || ""}
                 width={heroImage.asset.metadata?.dimensions?.width ?? 1200}
                 height={heroImage.asset.metadata?.dimensions?.height ?? 800}
@@ -121,13 +127,13 @@ export default function HeroLogo({ heroImage }: HeroLogoProps) {
         </div>
       </section>
       <Link href="/" aria-hidden="true" tabIndex={-1}>
-        <img
+        <Image
           ref={imgRef}
-          src={InaRufinoName.src}
+          src={InaRufinoName}
           alt=""
-          width={InaRufinoName.width}
-          height={InaRufinoName.height}
           className="hero-logo"
+          sizes="(min-width: 1216px) 1200px, calc(100vw - 16px)"
+          priority
         />
       </Link>
     </>

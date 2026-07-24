@@ -8,6 +8,7 @@ import { Lightbox } from "../Lightbox";
 import "@/components/Grid.css";
 import "./FullBleedRightImage.css";
 import Link from "next/link";
+import { IMAGE_SIZES } from "@/sanity/lib/imageSizes";
 
 type fullBleedImageRightProps = Extract<
   NonNullable<NonNullable<HOME_QUERY_RESULT>["content"]>[number],
@@ -37,11 +38,20 @@ export function FullBleedImageRight({
             <Image
               onClick={() =>
                 setActiveImage({
-                  src: urlFor(imageLeft).url(),
+                  src: urlFor(imageLeft)
+                    .auto("format")
+                    .quality(85)
+                    .width(IMAGE_SIZES.lightbox.width)
+                    .url(),
                   alt: imageLeft.alt || "",
                 })
               }
-              src={urlFor(imageLeft).auto("format").quality(90).url()}
+              src={urlFor(imageLeft)
+                .auto("format")
+                .quality(90)
+                .width(IMAGE_SIZES.compact.width)
+                .url()}
+              sizes={IMAGE_SIZES.compact.sizes}
               alt={imageLeft.alt || ""}
               width={1920}
               height={1920}
@@ -59,11 +69,20 @@ export function FullBleedImageRight({
             <Image
               onClick={() =>
                 setActiveImage({
-                  src: urlFor(imageRight).url(),
+                  src: urlFor(imageRight)
+                    .auto("format")
+                    .quality(85)
+                    .width(IMAGE_SIZES.lightbox.width)
+                    .url(),
                   alt: imageRight.alt || "",
                 })
               }
-              src={urlFor(imageRight).auto("format").quality(90).url()}
+              src={urlFor(imageRight)
+                .auto("format")
+                .quality(90)
+                .width(IMAGE_SIZES.large.width)
+                .url()}
+              sizes={IMAGE_SIZES.large.sizes}
               alt={imageRight.alt || ""}
               width={1920}
               height={1920}

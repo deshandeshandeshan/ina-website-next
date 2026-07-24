@@ -27,7 +27,7 @@ export async function getAbout() {
 }
 
 export async function getFooterSettings() {
-  return client.fetch(FOOTER_SETTINGS);
+  return client.fetch(FOOTER_SETTINGS, {}, { next: { revalidate: 5 } });
 }
 
 export async function getSiteSettings() {
