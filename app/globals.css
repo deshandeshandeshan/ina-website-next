@@ -54,7 +54,7 @@
 body {
   font-family: var(--font-inter);
   color: #4b4b4b;
-  background-color: #ecebeb;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -151,9 +151,9 @@ button {
 
 /* Background Colour*/
 
-.bg-off-white {
+/* .bg-off-white {
   background-color: #ecebeb;
-}
+} */
 
 /* Spacing scale */
 
