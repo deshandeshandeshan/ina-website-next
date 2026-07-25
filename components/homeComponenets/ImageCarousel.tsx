@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Lightbox } from "../Lightbox";
 import "./ImageCarousel.css";
 import { IMAGE_SIZES } from "@/sanity/lib/imageSizes";
+import { CgArrowLongLeft, CgArrowLongRight } from "react-icons/cg";
 
 type imageCarouselProps = Extract<
   NonNullable<NonNullable<HOME_QUERY_RESULT>["content"]>[number],
@@ -79,16 +80,22 @@ export function ImageCarousel({ title, carouselImages }: imageCarouselProps) {
           <div className="image-carousel-slide-title type-body-bold text-grey">
             {activeSlide?.title}
           </div>
-          <div className="image-carousel-controls-container type-sub-bold">
+          <div className="image-carousel-controls-container type-body-bold">
             <div className="image-carousel-counter ">
               &#91;{imageIndex + 1}/{images.length}&#93;
             </div>
-            <div className="image-carousel-buttons type-sub-bold">
-              <button onClick={showPrevImage} className="image-carousel-prev">
-                &lt;
+            <div className="image-carousel-buttons type-regular">
+              <button
+                onClick={showPrevImage}
+                className="image-carousel-prev type-regular"
+              >
+                <CgArrowLongLeft />
               </button>
-              <button onClick={showNextImage} className="image-carousel-next">
-                &gt;
+              <button
+                onClick={showNextImage}
+                className="image-carousel-next type-regular"
+              >
+                <CgArrowLongRight />
               </button>
             </div>
           </div>

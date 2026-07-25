@@ -18,11 +18,7 @@ export default async function Work() {
 
   return (
     <div className="work">
-      <WorkTabs
-        tattoo={workContent.tattoo}
-        illustration={workContent.illustration}
-        painting={workContent.painting}
-      />
+      <WorkTabs categories={workContent.categories} />
     </div>
   );
 }

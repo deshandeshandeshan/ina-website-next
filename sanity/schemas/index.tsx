@@ -13,7 +13,7 @@ import { siteSettings } from "./siteSettings";
 import { largeTextType } from "./blocks/homeBlocks/largeText";
 import { enquireType } from "./enquire";
 import { enquireFaq } from "./enquireFaq";
-import { workType } from "./work";
+import { workType, workCategoryType } from "./work";
 import { fullBleedImageType } from "./blocks/homeBlocks/fullBleedImage";
 import { fullBleedImageRightType } from "./blocks/homeBlocks/fullBleedImageRight";
 import { imageCarouselType } from "./blocks/homeBlocks/imageCarousel";
@@ -22,6 +22,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     homeType,
     workType,
+    workCategoryType,
     pageBuilderType,
     footerSettingsType,
     aboutType,

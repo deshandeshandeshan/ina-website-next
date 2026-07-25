@@ -5,26 +5,15 @@ import { PageBuilder } from "@/components/PageBuilder";
 import { WORK_QUERY_RESULT } from "@/sanity/types";
 import "./Work.css";
 
-type Tab = "tattoo" | "illustration" | "painting";
-
 type WorkTabsProps = {
-  tattoo: NonNullable<WORK_QUERY_RESULT>["tattoo"];
-  illustration: NonNullable<WORK_QUERY_RESULT>["illustration"];
-  painting: NonNullable<WORK_QUERY_RESULT>["painting"];
+  categories: NonNullable<WORK_QUERY_RESULT>["categories"];
 };
 
-const TABS: { key: Tab; label: string }[] = [
-  { key: "tattoo", label: "TATTOO" },
-  { key: "illustration", label: "ILLUSTRATION" },
-  { key: "painting", label: "PAINTING" },
-];
+export function WorkTabs({ categories }: WorkTabsProps) {
+  const availableTabs = (categories ?? []).filter((c) => c.content?.length);
 
-export function WorkTabs({ tattoo, illustration, painting }: WorkTabsProps) {
-  const categories = { tattoo, illustration, painting };
-  const availableTabs = TABS.filter((t) => categories[t.key]?.content?.length);
-
-  const [activeTab, setActiveTab] = useState<Tab>(
-    availableTabs[0]?.key ?? "tattoo"
+  const [activeTab, setActiveTab] = useState<string | undefined>(
+    availableTabs[0]?._key
   );
   const [bottomOffset, setBottomOffset] = useState(0);
 
@@ -43,18 +32,19 @@ export function WorkTabs({ tattoo, illustration, painting }: WorkTabsProps) {
     return () => window.removeEventListener("scroll", update);
   }, []);
 
-  const activeContent = categories[activeTab]?.content;
+  const activeContent = availableTabs.find((c) => c._key === activeTab)
+    ?.content;
 
   return (
     <>
       <div className="work-tabs" style={{ bottom: bottomOffset }}>
-        {availableTabs.map(({ key, label }) => (
+        {availableTabs.map(({ _key, categoryName }) => (
           <button
-            key={key}
-            className={`work-tab-button${activeTab === key ? " work-tab-button--active" : ""}`}
-            onClick={() => setActiveTab(key)}
+            key={_key}
+            className={`work-tab-button${activeTab === _key ? " work-tab-button--active" : ""}`}
+            onClick={() => setActiveTab(_key)}
           >
-            {label}
+            {categoryName?.toUpperCase()}
           </button>
         ))}
       </div>

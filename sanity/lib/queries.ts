@@ -195,6 +195,7 @@ export const SITE_SETTINGS = defineQuery(`
 `);
 
 const CATEGORY_CONTENT_PROJECTION = `
+  _key,
   categoryName,
   content[] {
     _key,
@@ -273,9 +274,7 @@ export const WORK_QUERY = defineQuery(`
     _id,
     _createdAt,
     title,
-    tattoo { ${CATEGORY_CONTENT_PROJECTION} },
-    illustration { ${CATEGORY_CONTENT_PROJECTION} },
-    painting { ${CATEGORY_CONTENT_PROJECTION} },
+    categories[] { ${CATEGORY_CONTENT_PROJECTION} },
     seo { title, description }
   }
 `);
