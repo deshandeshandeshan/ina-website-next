@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useLayoutEffect, useRef } from "react";
 import "./HeroLogo.css";
 import "@/components/Grid.css";
-import InaRufinoName from "@/images/InaRufinoName2.png";
+import InaRufinoName from "@/images/InaRufinoName4.png";
 import { urlFor } from "@/sanity/lib/image";
 import { IMAGE_SIZES } from "@/sanity/lib/imageSizes";
 import { HOME_QUERY_RESULT } from "@/sanity/types";
