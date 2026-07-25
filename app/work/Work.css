@@ -21,16 +21,24 @@
   cursor: pointer;
   font-size: inherit;
   font-family: inherit;
+  transition: all 0.2s ease-in-out;
 }
 
 .work-tab-button:hover,
 .work-tab-button--active {
   background-color: #b3b3b3;
   color: #4b4b4b;
-  transition: all 0.2s ease-in-out;
+}
+
+.work {
+  padding: 0 20vw;
 }
 
 @media screen and (max-width: 479px) {
+  .work {
+    padding: 0;
+  }
+
   .work-tabs {
     display: flex;
     flex-direction: column;
@@ -53,12 +61,12 @@
     cursor: pointer;
     font-size: 12px;
     font-family: inherit;
+    transition: all 0.2s ease-in-out;
   }
 
   .work-tab-button:hover,
   .work-tab-button--active {
     background-color: #b3b3b3;
     color: #4b4b4b;
-    transition: all 0.2s ease-in-out;
   }
 }

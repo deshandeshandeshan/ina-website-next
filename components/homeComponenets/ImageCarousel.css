@@ -1,6 +1,15 @@
 .image-carousel-container {
   grid-column: 1 / 7;
   grid-row: 1 / 2;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.image-carousel-prev:hover,
+.image-carousel-next:hover {
+  color: #37ff00;
 }
 
 .image-carousel {
@@ -39,6 +48,7 @@
   display: flex;
   align-items: center;
   font-size: 22px;
+  transition: all 0.1s ease-in-out;
 }
 
 @media screen and (min-width: 480px) {
