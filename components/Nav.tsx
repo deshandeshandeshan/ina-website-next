@@ -5,7 +5,7 @@ import Image from "next/image";
 import "./Nav.css";
 import { useEffect, useState } from "react";
 import "../app/globals.css";
-import InaRufinoName from "@/images/InaRufinoName.png";
+import InaRufinoName from "@/images/InaRufinoName4.png";
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
