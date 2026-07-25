@@ -42,7 +42,10 @@ export function WorkTabs({ categories }: WorkTabsProps) {
           <button
             key={_key}
             className={`work-tab-button${activeTab === _key ? " work-tab-button--active" : ""}`}
-            onClick={() => setActiveTab(_key)}
+            onClick={() => {
+              setActiveTab(_key);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
           >
             {categoryName?.toUpperCase()}
           </button>

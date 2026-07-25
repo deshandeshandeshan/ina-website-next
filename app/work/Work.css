@@ -1,3 +1,7 @@
+.work {
+  padding: 0 20vw;
+}
+
 .work-tabs {
   display: flex;
   flex-direction: row;
