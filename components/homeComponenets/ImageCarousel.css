@@ -10,7 +10,6 @@
 .image-carousel-prev:hover,
 .image-carousel-next:hover {
   color: #37ff00;
-  transition: all 0.1s ease-in-out;
 }
 
 .image-carousel {
@@ -49,6 +48,7 @@
   display: flex;
   align-items: center;
   font-size: 22px;
+  transition: all 0.1s ease-in-out;
 }
 
 @media screen and (min-width: 480px) {

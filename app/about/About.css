@@ -14,13 +14,13 @@
   border-radius: 8px;
   padding: 8px 18px;
   font-weight: 500;
+  transition: all 0.2s ease-in-out;
 }
 
 .about-page-social-link:hover,
 .about-credit-body-text:hover {
   background-color: #b3b3b3;
   color: #4b4b4b;
-  transition: all 0.2s ease-in-out;
 }
 
 .about-page {
