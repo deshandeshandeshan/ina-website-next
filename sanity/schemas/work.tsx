@@ -20,27 +20,28 @@ const photographyInsertMenu = {
   },
 };
 
-const categoryField = (name: string, defaultName: string) =>
-  defineField({
-    name,
-    title: defaultName,
-    type: "object",
-    fields: [
-      defineField({
-        name: "categoryName",
-        title: "Category Name",
-        type: "string",
-        initialValue: defaultName,
-        validation: (rule) => rule.required(),
-      }),
-      defineField({
-        name: "content",
-        title: "Content",
-        type: "pageBuilder",
-        options: photographyInsertMenu,
-      }),
-    ],
-  });
+export const workCategoryType = defineType({
+  name: "workCategory",
+  title: "Category",
+  type: "object",
+  fields: [
+    defineField({
+      name: "categoryName",
+      title: "Category Name",
+      type: "string",
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "content",
+      title: "Content",
+      type: "pageBuilder",
+      options: photographyInsertMenu,
+    }),
+  ],
+  preview: {
+    select: { title: "categoryName" },
+  },
+});
 
 export const workType = defineType({
   name: "work",
@@ -53,9 +54,14 @@ export const workType = defineType({
       type: "string",
       validation: (rule) => rule.required(),
     }),
-    categoryField("tattoo", "Tattoo"),
-    categoryField("illustration", "Illustration"),
-    categoryField("painting", "Painting"),
+    defineField({
+      name: "categories",
+      title: "Categories",
+      description: "The tabs shown on the Work page, in order.",
+      type: "array",
+      of: [{ type: "workCategory" }],
+      validation: (rule) => rule.min(1).required(),
+    }),
     defineField({
       name: "seo",
       title: "SEO & Social",

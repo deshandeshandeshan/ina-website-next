@@ -2588,6 +2588,37 @@
     }
   },
   {
+    "name": "workCategory",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "workCategory"
+          }
+        },
+        "categoryName": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "content": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "pageBuilder"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
     "name": "work",
     "type": "document",
     "attributes": {
@@ -2629,73 +2660,23 @@
         },
         "optional": true
       },
-      "tattoo": {
+      "categories": {
         "type": "objectAttribute",
         "value": {
-          "type": "object",
-          "attributes": {
-            "categoryName": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
-              },
-              "optional": true
+          "type": "array",
+          "of": {
+            "type": "object",
+            "attributes": {
+              "_key": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                }
+              }
             },
-            "content": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "inline",
-                "name": "pageBuilder"
-              },
-              "optional": true
-            }
-          }
-        },
-        "optional": true
-      },
-      "illustration": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "object",
-          "attributes": {
-            "categoryName": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
-              },
-              "optional": true
-            },
-            "content": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "inline",
-                "name": "pageBuilder"
-              },
-              "optional": true
-            }
-          }
-        },
-        "optional": true
-      },
-      "painting": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "object",
-          "attributes": {
-            "categoryName": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string"
-              },
-              "optional": true
-            },
-            "content": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "inline",
-                "name": "pageBuilder"
-              },
-              "optional": true
+            "rest": {
+              "type": "inline",
+              "name": "workCategory"
             }
           }
         },

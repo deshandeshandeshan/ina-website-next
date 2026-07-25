@@ -427,6 +427,12 @@ export type PageBuilder = Array<
     } & ImageCarousel)
 >;
 
+export type WorkCategory = {
+  _type: "workCategory";
+  categoryName?: string;
+  content?: PageBuilder;
+};
+
 export type Work = {
   _id: string;
   _type: "work";
@@ -434,18 +440,11 @@ export type Work = {
   _updatedAt: string;
   _rev: string;
   title?: string;
-  tattoo?: {
-    categoryName?: string;
-    content?: PageBuilder;
-  };
-  illustration?: {
-    categoryName?: string;
-    content?: PageBuilder;
-  };
-  painting?: {
-    categoryName?: string;
-    content?: PageBuilder;
-  };
+  categories?: Array<
+    {
+      _key: string;
+    } & WorkCategory
+  >;
   seo?: {
     title?: string;
     description?: string;
@@ -701,6 +700,7 @@ export type AllSanitySchemaTypes =
   | SanityImageHotspot
   | FooterSettings
   | PageBuilder
+  | WorkCategory
   | Work
   | Home
   | MuxVideoAssetReference
@@ -1068,12 +1068,13 @@ export type SITE_SETTINGS_RESULT = {
 
 // Source: sanity/lib/queries.ts
 // Variable: WORK_QUERY
-// Query: *[_type == "work"][0] {    _id,    _createdAt,    title,    tattoo {   categoryName,  content[] {    _key,    _type,    ...,    _type == "doubleLandscape" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "doublePortrait" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "largeImageLeft" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "largeImageRight" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "singleLandscape" => {      title,      image { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "singlePortrait" => {      title,      image { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "largeText" => {      title,      text    },    _type == "fullBleedImage" => {      title,      image { alt, caption, asset->{ _id, url } },      text    },    _type == "fullBleedImageRight" => {      title,      imageLeft { alt, caption, asset->{ _id, url } },      imageRight { alt, caption, asset->{ _id, url } }    },    _type == "imageCarousel" => {      title,      carouselImages[] {        title,        image { alt, caption, asset->{ _id, url } }      }    }  } },    illustration {   categoryName,  content[] {    _key,    _type,    ...,    _type == "doubleLandscape" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "doublePortrait" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "largeImageLeft" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "largeImageRight" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "singleLandscape" => {      title,      image { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "singlePortrait" => {      title,      image { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "largeText" => {      title,      text    },    _type == "fullBleedImage" => {      title,      image { alt, caption, asset->{ _id, url } },      text    },    _type == "fullBleedImageRight" => {      title,      imageLeft { alt, caption, asset->{ _id, url } },      imageRight { alt, caption, asset->{ _id, url } }    },    _type == "imageCarousel" => {      title,      carouselImages[] {        title,        image { alt, caption, asset->{ _id, url } }      }    }  } },    painting {   categoryName,  content[] {    _key,    _type,    ...,    _type == "doubleLandscape" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "doublePortrait" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "largeImageLeft" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "largeImageRight" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "singleLandscape" => {      title,      image { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "singlePortrait" => {      title,      image { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "largeText" => {      title,      text    },    _type == "fullBleedImage" => {      title,      image { alt, caption, asset->{ _id, url } },      text    },    _type == "fullBleedImageRight" => {      title,      imageLeft { alt, caption, asset->{ _id, url } },      imageRight { alt, caption, asset->{ _id, url } }    },    _type == "imageCarousel" => {      title,      carouselImages[] {        title,        image { alt, caption, asset->{ _id, url } }      }    }  } },    seo { title, description }  }
+// Query: *[_type == "work"][0] {    _id,    _createdAt,    title,    categories[] {   _key,  categoryName,  content[] {    _key,    _type,    ...,    _type == "doubleLandscape" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "doublePortrait" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "largeImageLeft" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "largeImageRight" => {      title,      leftImage { alt, caption, asset->{ _id, url } },      rightImage { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "singleLandscape" => {      title,      image { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "singlePortrait" => {      title,      image { alt, caption, asset->{ _id, url } },      overlayImage { alt, caption, asset->{ _id, url } }    },    _type == "largeText" => {      title,      text    },    _type == "fullBleedImage" => {      title,      image { alt, caption, asset->{ _id, url } },      text    },    _type == "fullBleedImageRight" => {      title,      imageLeft { alt, caption, asset->{ _id, url } },      imageRight { alt, caption, asset->{ _id, url } }    },    _type == "imageCarousel" => {      title,      carouselImages[] {        title,        image { alt, caption, asset->{ _id, url } }      }    }  } },    seo { title, description }  }
 export type WORK_QUERY_RESULT = {
   _id: string;
   _createdAt: string;
   title: string | null;
-  tattoo: {
+  categories: Array<{
+    _key: string;
     categoryName: string | null;
     content: Array<
       | {
@@ -1323,509 +1324,7 @@ export type WORK_QUERY_RESULT = {
           } | null;
         }
     > | null;
-  } | null;
-  illustration: {
-    categoryName: string | null;
-    content: Array<
-      | {
-          _key: string;
-          _type: "doubleLandscape";
-          title: string | null;
-          leftImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          rightImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          overlayImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-        }
-      | {
-          _key: string;
-          _type: "doublePortrait";
-          title: string | null;
-          leftImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          rightImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          overlayImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-        }
-      | {
-          _key: string;
-          _type: "enquireFaq";
-          faqTitle?: string;
-          faqDescription?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?:
-              | "blockquote"
-              | "h1"
-              | "h2"
-              | "h3"
-              | "h4"
-              | "h5"
-              | "h6"
-              | "normal";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
-        }
-      | {
-          _key: string;
-          _type: "fullBleedImage";
-          title: string | null;
-          image: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          text: string | null;
-        }
-      | {
-          _key: string;
-          _type: "fullBleedImageRight";
-          title: string | null;
-          imageLeft: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          imageRight: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-        }
-      | {
-          _key: string;
-          _type: "imageCarousel";
-          title: string | null;
-          carouselImages: Array<{
-            title: string | null;
-            image: {
-              alt: string | null;
-              caption: string | null;
-              asset: {
-                _id: string;
-                url: string | null;
-              } | null;
-            } | null;
-          }> | null;
-        }
-      | {
-          _key: string;
-          _type: "largeImageLeft";
-          title: string | null;
-          leftImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          rightImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          overlayImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-        }
-      | {
-          _key: string;
-          _type: "largeImageRight";
-          title: string | null;
-          leftImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          rightImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          overlayImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-        }
-      | {
-          _key: string;
-          _type: "largeText";
-          title: string | null;
-          text: string | null;
-        }
-      | {
-          _key: string;
-          _type: "singleLandscape";
-          title: string | null;
-          image: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          overlayImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-        }
-      | {
-          _key: string;
-          _type: "singlePortrait";
-          title: string | null;
-          image: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          overlayImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-        }
-    > | null;
-  } | null;
-  painting: {
-    categoryName: string | null;
-    content: Array<
-      | {
-          _key: string;
-          _type: "doubleLandscape";
-          title: string | null;
-          leftImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          rightImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          overlayImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-        }
-      | {
-          _key: string;
-          _type: "doublePortrait";
-          title: string | null;
-          leftImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          rightImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          overlayImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-        }
-      | {
-          _key: string;
-          _type: "enquireFaq";
-          faqTitle?: string;
-          faqDescription?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?:
-              | "blockquote"
-              | "h1"
-              | "h2"
-              | "h3"
-              | "h4"
-              | "h5"
-              | "h6"
-              | "normal";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
-        }
-      | {
-          _key: string;
-          _type: "fullBleedImage";
-          title: string | null;
-          image: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          text: string | null;
-        }
-      | {
-          _key: string;
-          _type: "fullBleedImageRight";
-          title: string | null;
-          imageLeft: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          imageRight: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-        }
-      | {
-          _key: string;
-          _type: "imageCarousel";
-          title: string | null;
-          carouselImages: Array<{
-            title: string | null;
-            image: {
-              alt: string | null;
-              caption: string | null;
-              asset: {
-                _id: string;
-                url: string | null;
-              } | null;
-            } | null;
-          }> | null;
-        }
-      | {
-          _key: string;
-          _type: "largeImageLeft";
-          title: string | null;
-          leftImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          rightImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          overlayImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-        }
-      | {
-          _key: string;
-          _type: "largeImageRight";
-          title: string | null;
-          leftImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          rightImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          overlayImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-        }
-      | {
-          _key: string;
-          _type: "largeText";
-          title: string | null;
-          text: string | null;
-        }
-      | {
-          _key: string;
-          _type: "singleLandscape";
-          title: string | null;
-          image: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          overlayImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-        }
-      | {
-          _key: string;
-          _type: "singlePortrait";
-          title: string | null;
-          image: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-          overlayImage: {
-            alt: string | null;
-            caption: string | null;
-            asset: {
-              _id: string;
-              url: string | null;
-            } | null;
-          } | null;
-        }
-    > | null;
-  } | null;
+  }> | null;
   seo: {
     title: string | null;
     description: string | null;
@@ -1873,7 +1372,7 @@ declare module "@sanity/client" {
     '\n  *[_type == "about"][0] {\n    _id,\n    _createdAt,\n    title,\n    description[],\n    aboutImage {\n      alt,\n      caption,\n      asset->{ _id, url }\n    },\n    email,\n    aboutSocialLinks[] {\n      platform,\n      url\n    },\n    designAndDevelopment {\n      name,\n      url\n    },\n    seo { title, description },\n    content[] {\n      _key,\n      _type,\n      ...,\n\n      _type == "doubleLandscape" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } },\n        overlayImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == "doublePortrait" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } },\n        overlayImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == "largeImageLeft" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } },\n        overlayImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == "largeImageRight" => {\n        title,\n        leftImage { alt, caption, asset->{ _id, url } },\n        rightImage { alt, caption, asset->{ _id, url } },\n        overlayImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == "singleLandscape" => {\n        title,\n        image { alt, caption, asset->{ _id, url } },\n        overlayImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == "singlePortrait" => {\n        title,\n        image { alt, caption, asset->{ _id, url } },\n        overlayImage { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == "largeText" => {\n        title,\n        text\n      },\n\n      _type == "fullBleedImage" => {\n        title,\n        image { alt, caption, asset->{ _id, url } },\n        text\n      },\n\n      _type == "fullBleedImageRight" => {\n        title,\n        imageLeft { alt, caption, asset->{ _id, url } },\n        imageRight { alt, caption, asset->{ _id, url } }\n      },\n\n      _type == "imageCarousel" => {\n        title,\n        carouselImages[] {\n          title,\n          image { alt, caption, asset->{ _id, url } }\n        }\n      }\n    }\n  }\n': ABOUT_QUERY_RESULT;
     '\n  *[_type == "footerSettings"][0] {\n    _id,\n    _createdAt,\n    description,\n    email,\n    siteDesignAndDevelopment {\n      name,\n      url\n    }\n  }\n': FOOTER_SETTINGS_RESULT;
     '\n  *[_type == "siteSettings"][0]{\n    siteTitle,\n    defaultDescription\n  }\n': SITE_SETTINGS_RESULT;
-    '\n  *[_type == "work"][0] {\n    _id,\n    _createdAt,\n    title,\n    tattoo { \n  categoryName,\n  content[] {\n    _key,\n    _type,\n    ...,\n\n    _type == "doubleLandscape" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "doublePortrait" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageLeft" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageRight" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singleLandscape" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singlePortrait" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeText" => {\n      title,\n      text\n    },\n\n    _type == "fullBleedImage" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      text\n    },\n\n    _type == "fullBleedImageRight" => {\n      title,\n      imageLeft { alt, caption, asset->{ _id, url } },\n      imageRight { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "imageCarousel" => {\n      title,\n      carouselImages[] {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      }\n    }\n  }\n },\n    illustration { \n  categoryName,\n  content[] {\n    _key,\n    _type,\n    ...,\n\n    _type == "doubleLandscape" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "doublePortrait" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageLeft" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageRight" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singleLandscape" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singlePortrait" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeText" => {\n      title,\n      text\n    },\n\n    _type == "fullBleedImage" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      text\n    },\n\n    _type == "fullBleedImageRight" => {\n      title,\n      imageLeft { alt, caption, asset->{ _id, url } },\n      imageRight { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "imageCarousel" => {\n      title,\n      carouselImages[] {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      }\n    }\n  }\n },\n    painting { \n  categoryName,\n  content[] {\n    _key,\n    _type,\n    ...,\n\n    _type == "doubleLandscape" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "doublePortrait" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageLeft" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageRight" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singleLandscape" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singlePortrait" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeText" => {\n      title,\n      text\n    },\n\n    _type == "fullBleedImage" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      text\n    },\n\n    _type == "fullBleedImageRight" => {\n      title,\n      imageLeft { alt, caption, asset->{ _id, url } },\n      imageRight { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "imageCarousel" => {\n      title,\n      carouselImages[] {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      }\n    }\n  }\n },\n    seo { title, description }\n  }\n': WORK_QUERY_RESULT;
+    '\n  *[_type == "work"][0] {\n    _id,\n    _createdAt,\n    title,\n    categories[] { \n  _key,\n  categoryName,\n  content[] {\n    _key,\n    _type,\n    ...,\n\n    _type == "doubleLandscape" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "doublePortrait" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageLeft" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageRight" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singleLandscape" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singlePortrait" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeText" => {\n      title,\n      text\n    },\n\n    _type == "fullBleedImage" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      text\n    },\n\n    _type == "fullBleedImageRight" => {\n      title,\n      imageLeft { alt, caption, asset->{ _id, url } },\n      imageRight { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "imageCarousel" => {\n      title,\n      carouselImages[] {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      }\n    }\n  }\n },\n    seo { title, description }\n  }\n': WORK_QUERY_RESULT;
     '\n  *[_type == "enquire"][0] {\n    _id,\n    title,\n    faqs[] {\n      faqTitle,\n      faqDescription[]\n    },\n    seo { title, description }\n  }\n': ENQUIRE_QUERY_RESULT;
   }
 }

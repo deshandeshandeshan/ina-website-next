@@ -36,7 +36,14 @@
 .image-carousel-prev,
 .image-carousel-next {
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 22px;
 }
 
 @media screen and (min-width: 480px) {
+  .image-carousel-prev,
+  .image-carousel-next {
+    font-size: 30px;
+  }
 }

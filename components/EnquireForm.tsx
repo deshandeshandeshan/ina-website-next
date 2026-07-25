@@ -4,6 +4,7 @@ import { useState, FormEvent } from "react";
 
 type FormState = {
   name: string;
+  email: string;
   pronouns: string;
   budget: string;
   date: string;
@@ -12,6 +13,7 @@ type FormState = {
 
 const initialState: FormState = {
   name: "",
+  email: "",
   pronouns: "",
   budget: "",
   date: "",
@@ -21,6 +23,8 @@ const initialState: FormState = {
 export function EnquireForm() {
   const [form, setForm] = useState<FormState>(initialState);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState(false);
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -28,9 +32,26 @@ export function EnquireForm() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError(false);
+
+    try {
+      const res = await fetch("/api/enquire", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) throw new Error("Failed to send enquiry");
+
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -60,6 +81,25 @@ export function EnquireForm() {
             placeholder="[NAME]"
             className="enquire-form-input type-body"
             value={form.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="enquire-form-field">
+          <label
+            htmlFor="email"
+            className="enquire-form-label type-body-bold"
+          >
+            What is your email?
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="[EMAIL]"
+            className="enquire-form-input type-body"
+            value={form.email}
             onChange={handleChange}
             required
           />
@@ -134,8 +174,18 @@ export function EnquireForm() {
           />
         </div>
 
-        <button type="submit" className="enquire-form-submit type-body-bold">
-          SEND ENQUIRY
+        {error && (
+          <p className="enquire-form-error type-body">
+            Something went wrong sending your enquiry. Please try again.
+          </p>
+        )}
+
+        <button
+          type="submit"
+          className="enquire-form-submit type-body-bold"
+          disabled={submitting}
+        >
+          {submitting ? "SENDING..." : "SEND ENQUIRY"}
         </button>
       </form>
     </div>
