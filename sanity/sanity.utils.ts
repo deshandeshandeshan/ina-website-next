@@ -16,7 +16,7 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: true,
+  useCdn: false,
 });
 
 // Fetches are tagged with the document's Sanity `_type` so the Sanity
