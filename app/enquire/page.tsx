@@ -6,8 +6,6 @@ import "./Enquire.css";
 import { PortableText } from "next-sanity";
 import { buildPageMetadata } from "@/sanity/lib/metadata";
 
-export const revalidate = 5;
-
 export async function generateMetadata(): Promise<Metadata> {
   const enquireContent = await getEnquire();
   return buildPageMetadata(enquireContent?.seo);

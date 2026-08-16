@@ -9,8 +9,6 @@ import { PortableText } from "next-sanity";
 import { buildPageMetadata } from "@/sanity/lib/metadata";
 import { IMAGE_SIZES } from "@/sanity/lib/imageSizes";
 
-export const revalidate = 5;
-
 export async function generateMetadata(): Promise<Metadata> {
   const aboutInformation = await getAbout();
   return buildPageMetadata(aboutInformation?.seo);
