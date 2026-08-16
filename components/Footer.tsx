@@ -32,7 +32,7 @@ export default async function Footer() {
         <div className="book-li">
           <h1 className="book-link-container">
             <Link href="/enquire" className="book-link ">
-              ENQUIRE NOW
+              BOOK NOW
             </Link>
           </h1>
         </div>

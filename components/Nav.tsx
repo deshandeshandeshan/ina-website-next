@@ -47,7 +47,7 @@ export default function Nav() {
         <ul className="nav-links-right type-body-bold">
           <li className="nav-link">
             <Link href="/enquire" className="type-details-regular">
-              ENQUIRE
+              BOOK
             </Link>
           </li>
           <li className="nav-link">
