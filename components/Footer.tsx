@@ -22,7 +22,7 @@ export default async function Footer() {
               <Link href="/work">WORK</Link>
             </li>
             <li className="spacing-4 type-details-regular">
-              <Link href="/enquire">ENQUIRE</Link>
+              <Link href="/book">BOOK</Link>
             </li>
             <li className="spacing-4 type-details-regular">
               <Link href="/about">ABOUT</Link>
@@ -31,7 +31,7 @@ export default async function Footer() {
         </div>
         <div className="book-li">
           <h1 className="book-link-container">
-            <Link href="/enquire" className="book-link ">
+            <Link href="/book" className="book-link ">
               BOOK NOW
             </Link>
           </h1>

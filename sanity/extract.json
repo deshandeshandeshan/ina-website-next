@@ -1540,7 +1540,7 @@
     }
   },
   {
-    "name": "enquireFaq",
+    "name": "bookFaq",
     "type": "type",
     "value": {
       "type": "object",
@@ -1549,7 +1549,7 @@
           "type": "objectAttribute",
           "value": {
             "type": "string",
-            "value": "enquireFaq"
+            "value": "bookFaq"
           }
         },
         "faqTitle": {
@@ -1742,7 +1742,7 @@
     }
   },
   {
-    "name": "enquire",
+    "name": "book",
     "type": "document",
     "attributes": {
       "_id": {
@@ -1755,7 +1755,7 @@
         "type": "objectAttribute",
         "value": {
           "type": "string",
-          "value": "enquire"
+          "value": "book"
         }
       },
       "_createdAt": {
@@ -1799,7 +1799,7 @@
             },
             "rest": {
               "type": "inline",
-              "name": "enquireFaq"
+              "name": "bookFaq"
             }
           }
         },
@@ -2520,7 +2520,7 @@
             },
             "rest": {
               "type": "inline",
-              "name": "enquireFaq"
+              "name": "bookFaq"
             }
           },
           {

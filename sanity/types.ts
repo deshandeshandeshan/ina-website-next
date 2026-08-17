@@ -261,8 +261,8 @@ export type DoubleLandscape = {
   };
 };
 
-export type EnquireFaq = {
-  _type: "enquireFaq";
+export type BookFaq = {
+  _type: "bookFaq";
   faqTitle?: string;
   faqDescription?: Array<{
     children?: Array<{
@@ -284,9 +284,9 @@ export type EnquireFaq = {
   }>;
 };
 
-export type Enquire = {
+export type Book = {
   _id: string;
-  _type: "enquire";
+  _type: "book";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -294,7 +294,7 @@ export type Enquire = {
   faqs?: Array<
     {
       _key: string;
-    } & EnquireFaq
+    } & BookFaq
   >;
   seo?: {
     title?: string;
@@ -412,7 +412,7 @@ export type PageBuilder = Array<
     } & SinglePortrait)
   | ({
       _key: string;
-    } & EnquireFaq)
+    } & BookFaq)
   | ({
       _key: string;
     } & LargeText)
@@ -692,8 +692,8 @@ export type AllSanitySchemaTypes =
   | LargeImageLeft
   | DoublePortrait
   | DoubleLandscape
-  | EnquireFaq
-  | Enquire
+  | BookFaq
+  | Book
   | SiteSettings
   | About
   | SanityImageCrop
@@ -746,6 +746,37 @@ export type HOME_QUERY_RESULT = {
     description: string | null;
   } | null;
   content: Array<
+    | {
+        _key: string;
+        _type: "bookFaq";
+        faqTitle?: string;
+        faqDescription?: Array<{
+          children?: Array<{
+            marks?: Array<string>;
+            text?: string;
+            _type: "span";
+            _key: string;
+          }>;
+          style?:
+            | "blockquote"
+            | "h1"
+            | "h2"
+            | "h3"
+            | "h4"
+            | "h5"
+            | "h6"
+            | "normal";
+          listItem?: "bullet" | "number";
+          markDefs?: Array<{
+            href?: string;
+            _type: "link";
+            _key: string;
+          }>;
+          level?: number;
+          _type: "block";
+          _key: string;
+        }>;
+      }
     | {
         _key: string;
         _type: "doubleLandscape";
@@ -803,37 +834,6 @@ export type HOME_QUERY_RESULT = {
             url: string | null;
           } | null;
         } | null;
-      }
-    | {
-        _key: string;
-        _type: "enquireFaq";
-        faqTitle?: string;
-        faqDescription?: Array<{
-          children?: Array<{
-            marks?: Array<string>;
-            text?: string;
-            _type: "span";
-            _key: string;
-          }>;
-          style?:
-            | "blockquote"
-            | "h1"
-            | "h2"
-            | "h3"
-            | "h4"
-            | "h5"
-            | "h6"
-            | "normal";
-          listItem?: "bullet" | "number";
-          markDefs?: Array<{
-            href?: string;
-            _type: "link";
-            _key: string;
-          }>;
-          level?: number;
-          _type: "block";
-          _key: string;
-        }>;
       }
     | {
         _key: string;
@@ -1079,6 +1079,37 @@ export type WORK_QUERY_RESULT = {
     content: Array<
       | {
           _key: string;
+          _type: "bookFaq";
+          faqTitle?: string;
+          faqDescription?: Array<{
+            children?: Array<{
+              marks?: Array<string>;
+              text?: string;
+              _type: "span";
+              _key: string;
+            }>;
+            style?:
+              | "blockquote"
+              | "h1"
+              | "h2"
+              | "h3"
+              | "h4"
+              | "h5"
+              | "h6"
+              | "normal";
+            listItem?: "bullet" | "number";
+            markDefs?: Array<{
+              href?: string;
+              _type: "link";
+              _key: string;
+            }>;
+            level?: number;
+            _type: "block";
+            _key: string;
+          }>;
+        }
+      | {
+          _key: string;
           _type: "doubleLandscape";
           title: string | null;
           leftImage: {
@@ -1134,37 +1165,6 @@ export type WORK_QUERY_RESULT = {
               url: string | null;
             } | null;
           } | null;
-        }
-      | {
-          _key: string;
-          _type: "enquireFaq";
-          faqTitle?: string;
-          faqDescription?: Array<{
-            children?: Array<{
-              marks?: Array<string>;
-              text?: string;
-              _type: "span";
-              _key: string;
-            }>;
-            style?:
-              | "blockquote"
-              | "h1"
-              | "h2"
-              | "h3"
-              | "h4"
-              | "h5"
-              | "h6"
-              | "normal";
-            listItem?: "bullet" | "number";
-            markDefs?: Array<{
-              href?: string;
-              _type: "link";
-              _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-          }>;
         }
       | {
           _key: string;
@@ -1332,9 +1332,9 @@ export type WORK_QUERY_RESULT = {
 } | null;
 
 // Source: sanity/lib/queries.ts
-// Variable: ENQUIRE_QUERY
-// Query: *[_type == "enquire"][0] {    _id,    title,    faqs[] {      faqTitle,      faqDescription[]    },    seo { title, description }  }
-export type ENQUIRE_QUERY_RESULT = {
+// Variable: BOOK_QUERY
+// Query: *[_type == "book"][0] {    _id,    title,    faqs[] {      faqTitle,      faqDescription[]    },    seo { title, description }  }
+export type BOOK_QUERY_RESULT = {
   _id: string;
   title: string | null;
   faqs: Array<{
@@ -1373,6 +1373,6 @@ declare module "@sanity/client" {
     '\n  *[_type == "footerSettings"][0] {\n    _id,\n    _createdAt,\n    description,\n    email,\n    siteDesignAndDevelopment {\n      name,\n      url\n    }\n  }\n': FOOTER_SETTINGS_RESULT;
     '\n  *[_type == "siteSettings"][0]{\n    siteTitle,\n    defaultDescription\n  }\n': SITE_SETTINGS_RESULT;
     '\n  *[_type == "work"][0] {\n    _id,\n    _createdAt,\n    title,\n    categories[] { \n  _key,\n  categoryName,\n  content[] {\n    _key,\n    _type,\n    ...,\n\n    _type == "doubleLandscape" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "doublePortrait" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageLeft" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeImageRight" => {\n      title,\n      leftImage { alt, caption, asset->{ _id, url } },\n      rightImage { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singleLandscape" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "singlePortrait" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      overlayImage { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "largeText" => {\n      title,\n      text\n    },\n\n    _type == "fullBleedImage" => {\n      title,\n      image { alt, caption, asset->{ _id, url } },\n      text\n    },\n\n    _type == "fullBleedImageRight" => {\n      title,\n      imageLeft { alt, caption, asset->{ _id, url } },\n      imageRight { alt, caption, asset->{ _id, url } }\n    },\n\n    _type == "imageCarousel" => {\n      title,\n      carouselImages[] {\n        title,\n        image { alt, caption, asset->{ _id, url } }\n      }\n    }\n  }\n },\n    seo { title, description }\n  }\n': WORK_QUERY_RESULT;
-    '\n  *[_type == "enquire"][0] {\n    _id,\n    title,\n    faqs[] {\n      faqTitle,\n      faqDescription[]\n    },\n    seo { title, description }\n  }\n': ENQUIRE_QUERY_RESULT;
+    '\n  *[_type == "book"][0] {\n    _id,\n    title,\n    faqs[] {\n      faqTitle,\n      faqDescription[]\n    },\n    seo { title, description }\n  }\n': BOOK_QUERY_RESULT;
   }
 }

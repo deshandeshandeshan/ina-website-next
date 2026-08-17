@@ -11,8 +11,8 @@ import { aboutType } from "./about";
 import { homeType } from "./home";
 import { siteSettings } from "./siteSettings";
 import { largeTextType } from "./blocks/homeBlocks/largeText";
-import { enquireType } from "./enquire";
-import { enquireFaq } from "./enquireFaq";
+import { bookType } from "./book";
+import { bookFaq } from "./bookFaq";
 import { workType, workCategoryType } from "./work";
 import { fullBleedImageType } from "./blocks/homeBlocks/fullBleedImage";
 import { fullBleedImageRightType } from "./blocks/homeBlocks/fullBleedImageRight";
@@ -27,8 +27,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     footerSettingsType,
     aboutType,
     siteSettings,
-    enquireType,
-    enquireFaq,
+    bookType,
+    bookFaq,
 
     doubleLandscapeType,
     doublePortraitType,

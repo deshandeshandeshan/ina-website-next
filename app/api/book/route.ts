@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-type EnquiryPayload = {
+type BookingPayload = {
   name: string;
   email: string;
   pronouns: string;
@@ -12,7 +12,7 @@ type EnquiryPayload = {
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-function isValidPayload(body: unknown): body is EnquiryPayload {
+function isValidPayload(body: unknown): body is BookingPayload {
   if (!body || typeof body !== "object") return false;
   const { name, email, pronouns, budget, date, details } = body as Record<
     string,
@@ -51,7 +51,7 @@ export async function POST(request: Request) {
     from: process.env.RESEND_FROM_EMAIL!,
     to: process.env.RESEND_TO_EMAIL!,
     replyTo: email,
-    subject: `New tattoo enquiry from ${name}`,
+    subject: `New tattoo booking request from ${name}`,
     text: [
       `Name: ${name}`,
       `Email: ${email}`,
@@ -69,7 +69,7 @@ export async function POST(request: Request) {
   if (error) {
     console.error("Resend error:", error);
     return NextResponse.json(
-      { error: "Failed to send enquiry." },
+      { error: "Failed to send booking request." },
       { status: 502 }
     );
   }

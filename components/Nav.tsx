@@ -46,7 +46,7 @@ export default function Nav() {
 
         <ul className="nav-links-right type-body-bold">
           <li className="nav-link">
-            <Link href="/enquire" className="type-details-regular">
+            <Link href="/book" className="type-details-regular">
               BOOK
             </Link>
           </li>
@@ -79,8 +79,8 @@ export default function Nav() {
               </Link>
             </li>
             <li>
-              <Link href="/enquire" onClick={() => setMenuOpen(false)}>
-                ENQUIRE
+              <Link href="/book" onClick={() => setMenuOpen(false)}>
+                BOOK
               </Link>
             </li>
             <li>

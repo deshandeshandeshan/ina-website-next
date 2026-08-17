@@ -279,8 +279,8 @@ export const WORK_QUERY = defineQuery(`
   }
 `);
 
-export const ENQUIRE_QUERY = defineQuery(`
-  *[_type == "enquire"][0] {
+export const BOOK_QUERY = defineQuery(`
+  *[_type == "book"][0] {
     _id,
     title,
     faqs[] {

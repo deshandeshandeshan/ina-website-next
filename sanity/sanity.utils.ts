@@ -4,7 +4,7 @@ import {
   ABOUT_QUERY,
   FOOTER_SETTINGS,
   SITE_SETTINGS,
-  ENQUIRE_QUERY,
+  BOOK_QUERY,
   WORK_QUERY,
 } from "./lib/queries";
 
@@ -52,6 +52,6 @@ export async function getSiteSettings() {
   return client.fetch(SITE_SETTINGS, {}, cacheOptions("siteSettings"));
 }
 
-export async function getEnquire() {
-  return client.fetch(ENQUIRE_QUERY, {}, cacheOptions("enquire"));
+export async function getBook() {
+  return client.fetch(BOOK_QUERY, {}, cacheOptions("book"));
 }
