@@ -23,34 +23,35 @@ export const client = createClient({
 // webhook (see app/api/revalidate/route.ts) can call revalidateTag(_type)
 // and get near-instant updates on publish. The `revalidate` window is just
 // a fallback in case a webhook delivery is ever missed.
+//
+// That webhook targets the deployed URL, not localhost, so in dev we skip
+// the cache entirely and always hit Sanity directly.
+function cacheOptions(tag: string) {
+  return process.env.NODE_ENV === "development"
+    ? ({ cache: "no-store" } as const)
+    : { next: { revalidate: 3600, tags: [tag] } };
+}
+
 export async function getHome() {
-  return client.fetch(HOME_QUERY, {}, { next: { revalidate: 3600, tags: ["home"] } });
+  return client.fetch(HOME_QUERY, {}, cacheOptions("home"));
 }
 
 export async function getAbout() {
-  return client.fetch(ABOUT_QUERY, {}, { next: { revalidate: 3600, tags: ["about"] } });
+  return client.fetch(ABOUT_QUERY, {}, cacheOptions("about"));
 }
 
 export async function getWork() {
-  return client.fetch(WORK_QUERY, {}, { next: { revalidate: 3600, tags: ["work"] } });
+  return client.fetch(WORK_QUERY, {}, cacheOptions("work"));
 }
 
 export async function getFooterSettings() {
-  return client.fetch(
-    FOOTER_SETTINGS,
-    {},
-    { next: { revalidate: 3600, tags: ["footerSettings"] } },
-  );
+  return client.fetch(FOOTER_SETTINGS, {}, cacheOptions("footerSettings"));
 }
 
 export async function getSiteSettings() {
-  return client.fetch(
-    SITE_SETTINGS,
-    {},
-    { next: { revalidate: 3600, tags: ["siteSettings"] } },
-  );
+  return client.fetch(SITE_SETTINGS, {}, cacheOptions("siteSettings"));
 }
 
 export async function getEnquire() {
-  return client.fetch(ENQUIRE_QUERY, {}, { next: { revalidate: 3600, tags: ["enquire"] } });
+  return client.fetch(ENQUIRE_QUERY, {}, cacheOptions("enquire"));
 }
