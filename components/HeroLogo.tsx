@@ -106,7 +106,7 @@ export default function HeroLogo({ heroImage }: HeroLogoProps) {
   return (
     <>
       <section className="hero-section">
-        <div className="hero-grid grid">
+        <div className="hero-grid">
           {heroImage?.asset?.url && (
             <div className="hero-image-wrapper">
               <Image
