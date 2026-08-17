@@ -47,15 +47,15 @@ export const structure: StructureResolver = (S) =>
             .documentId("footerSettings")
         ),
       S.listItem()
-        .title("Enquire Page")
-        .id("enquire")
-        .schemaType("enquire")
+        .title("Book Page")
+        .id("book")
+        .schemaType("book")
         .child(
           S.editor()
-            .title("Enquire Page")
-            .id("enquire")
-            .schemaType("enquire")
-            .documentId("enquire")
+            .title("Book Page")
+            .id("book")
+            .schemaType("book")
+            .documentId("book")
         ),
       S.listItem()
         .title("Website Settings")

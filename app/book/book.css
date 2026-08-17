@@ -1,55 +1,55 @@
-.enquire-page {
+.book-page {
   padding: 40px 16px 0;
 }
 
 /* --- Layout --- */
 
-.enquire-layout {
+.book-layout {
   display: flex;
   flex-direction: column;
   gap: 48px;
   padding-bottom: 120px;
 }
 
-.enquire-form-heading {
+.book-form-heading {
   border-bottom: 1px solid #4b4b4b;
 }
 
-.enquire-heading {
+.book-heading {
   padding-bottom: 24px;
 }
 
-.enquire-faq-section {
+.book-faq-section {
   flex: 1;
   order: 2;
 }
 
-.enquire-right {
+.book-right {
   flex: 1;
   order: 1;
 }
 
 /* --- Form --- */
 
-.enquire-form {
+.book-form {
   display: flex;
   flex-direction: column;
   gap: 40px;
   padding-top: 14px;
 }
 
-.enquire-form-field {
+.book-form-field {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.enquire-form-label {
+.book-form-label {
   text-transform: uppercase;
 }
 
-.enquire-form-input,
-.enquire-form-textarea {
+.book-form-input,
+.book-form-textarea {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #4b4b4b;
@@ -62,23 +62,23 @@
   resize: none;
 }
 
-.enquire-form-input:focus,
-.enquire-form-textarea:focus {
+.book-form-input:focus,
+.book-form-textarea:focus {
   border-bottom-color: #9d9d9d;
 }
 
-.enquire-form-textarea {
+.book-form-textarea {
   border: 1px solid #4b4b4b;
   border-radius: 0.5rem;
   padding: 8px;
   resize: vertical;
 }
 
-.enquire-form-textarea:focus {
+.book-form-textarea:focus {
   border-color: #9d9d9d;
 }
 
-.enquire-form-submit {
+.book-form-submit {
   align-self: flex-start;
   margin-top: 8px;
   border-radius: 0.5rem;
@@ -91,43 +91,43 @@
   transition: background-color 0.2s ease-in-out;
 }
 
-.enquire-form-submit:hover {
+.book-form-submit:hover {
   background-color: #9d9d9d;
 }
 
-.enquire-form-submit:disabled {
+.book-form-submit:disabled {
   cursor: not-allowed;
   opacity: 0.6;
 }
 
-.enquire-form-error {
+.book-form-error {
   color: #d64545;
 }
 
-.enquire-form-success {
+.book-form-success {
   padding: 24px 0;
 }
 
 /* --- FAQ --- */
 
-.enquire-faq-heading {
+.book-faq-heading {
   text-transform: uppercase;
 }
 
-.enquire-faq-list {
+.book-faq-list {
   display: flex;
   flex-direction: column;
 }
 
-.enquire-faq-item {
+.book-faq-item {
   border-bottom: 1px solid #4b4b4b;
 }
 
-.enquire-faq-item:first-child {
+.book-faq-item:first-child {
   border-top: 1px solid #4b4b4b;
 }
 
-.enquire-faq-question {
+.book-faq-question {
   list-style: none;
   padding: 14px 0;
   cursor: pointer;
@@ -137,22 +137,22 @@
   text-transform: uppercase;
 }
 
-.enquire-faq-question::-webkit-details-marker {
+.book-faq-question::-webkit-details-marker {
   display: none;
 }
 
-.enquire-faq-question::after {
+.book-faq-question::after {
   content: "+";
   font-size: 16px;
   font-weight: 400;
   transition: transform 0.2s ease-in-out;
 }
 
-.enquire-faq-item[open] .enquire-faq-question::after {
+.book-faq-item[open] .book-faq-question::after {
   content: "−";
 }
 
-.enquire-faq-answer {
+.book-faq-answer {
   padding: 0 0 14px 0;
   color: #4b4b4b;
   padding-bottom: 32px;
@@ -168,18 +168,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /* --- Desktop --- */
 
 @media screen and (min-width: 480px) {
-  .enquire-layout {
+  .book-layout {
     flex-direction: row;
     align-items: flex-start;
     gap: 16px;
     padding-bottom: 120px;
   }
 
-  .enquire-faq-section {
+  .book-faq-section {
     order: initial;
   }
 
-  .enquire-right {
+  .book-right {
     order: initial;
   }
 }

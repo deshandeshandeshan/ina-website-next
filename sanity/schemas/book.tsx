@@ -1,8 +1,8 @@
 import { defineField, defineType } from "sanity";
 
-export const enquireType = defineType({
-  name: "enquire",
-  title: "Enquire",
+export const bookType = defineType({
+  name: "book",
+  title: "Book",
   type: "document",
   fields: [
     defineField({
@@ -14,7 +14,7 @@ export const enquireType = defineType({
       name: "faqs",
       title: "FAQs",
       type: "array",
-      of: [{ type: "enquireFaq" }],
+      of: [{ type: "bookFaq" }],
     }),
     defineField({
       name: "seo",
